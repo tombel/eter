@@ -1,0 +1,40 @@
+
+variables:
+  # Common variables to be able to build and push docker images
+  # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-disabled
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ''
+
+cache:
+  paths:
+    - ./node_modules
+
+stages:
+  - stylechecks
+  - deploy
+
+lint:
+  image: docker.atixlabs.com/node:16.17.0-alpine
+  stage: stylechecks
+  script:
+    - npm install
+    - npm run lint
+
+deploy-staging:
+  image: docker.atixlabs.com/node:16.17.0-alpine
+  stage: deploy
+  script:
+    - npm i -g vercel
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_U5kx9zjqtojbPh8McpNyaRTH9AWU" vercel --token $VERCEL_TOKEN deploy --prod
+  when: manual
+
+deploy-uat:
+  image: docker.atixlabs.com/node:16.17.0-alpine
+  stage: deploy
+  script:
+    - npm i -g vercel
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_AfWQw4TTWZsATbffJAENGWi66PKJ" vercel --token $VERCEL_TOKEN deploy --prod
+  only:
+    refs:
+      - master
+  when: manual
