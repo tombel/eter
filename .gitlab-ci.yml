@@ -25,10 +25,7 @@ deploy-staging:
   stage: deploy
   script:
     - npm i -g vercel
-    - VERCEL_ORG_ID="" VERCEL_PROJECT_ID="" vercel --token $VERCEL_TOKEN deploy --prod
-  only:
-    refs:
-      - master 
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_U5kx9zjqtojbPh8McpNyaRTH9AWU" vercel --token $VERCEL_TOKEN deploy --prod
   when: manual
 
 deploy-uat:
@@ -36,7 +33,7 @@ deploy-uat:
   stage: deploy
   script:
     - npm i -g vercel
-    - VERCEL_ORG_ID="" VERCEL_PROJECT_ID="" vercel --token $VERCEL_TOKEN deploy --prod
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_AfWQw4TTWZsATbffJAENGWi66PKJ" vercel --token $VERCEL_TOKEN deploy --prod
   only:
     refs:
       - master
