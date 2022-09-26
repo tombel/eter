@@ -15,8 +15,8 @@ export default async function getApprovalSignature(req: NextApiRequest, res: Nex
     if (!config.wave1.includes(address))
       return res.status(200).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
 
-    const signature = getSignature()
-    return res.status(200).json({ code: RESPONSE_CODES.ADDRESS_QUALIFY, signature })
+    const { signature, signatureId } = await getSignature(address)
+    return res.status(200).json({ code: RESPONSE_CODES.ADDRESS_QUALIFY, signature, signatureId })
   } catch (error) {
     return res.status(500).json({ code: RESPONSE_CODES.INTERNAL_ERROR })
   }
