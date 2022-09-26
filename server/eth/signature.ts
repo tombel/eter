@@ -9,23 +9,18 @@ const getSignatureId = (): ethers.BigNumber => {
   return ethers.BigNumber.from(randomUint256)
 }
 
-const getEthSignedMessageHash = (
+const getMessageHash = (
   wallet: string,
   signatureId: ethers.BigNumber,
   contractAddress: string,
   chainId: string,
 ): string => {
-  const messageHash = ethers.utils.keccak256(
+  return ethers.utils.keccak256(
     ethers.utils.defaultAbiCoder.encode(
       ['address', 'uint256', 'address', 'uint256'],
       [wallet, signatureId, contractAddress, chainId],
     ),
   )
-  const ethSignedMessageHash = ethers.utils.solidityKeccak256(
-    ['string', 'bytes32'],
-    ['\x19Ethereum Signed Message:\n32', messageHash],
-  )
-  return ethSignedMessageHash
 }
 
 export const getSignature = async (): Promise<string> => {
@@ -34,7 +29,7 @@ export const getSignature = async (): Promise<string> => {
   const signatureId = getSignatureId()
   const contractAddress = ethers.utils.getAddress(process.env.CONTRACT_ADDRESS)
   const chainId = process.env.RPC_NETWORK
-  const hash = getEthSignedMessageHash(wallet, signatureId, contractAddress, chainId)
-  const signature = await signer.signMessage(hash)
+  const hash = getMessageHash(wallet, signatureId, contractAddress, chainId)
+  const signature = await signer.signMessage(ethers.utils.arrayify(hash))
   return signature
 }
