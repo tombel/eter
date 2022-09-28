@@ -1,0 +1,29 @@
+/* Video Section Module */
+
+.videoContainer {
+  @apply font-base relative;
+}
+
+.titleVideo {
+  @apply font-base absolute inset-0 flex flex-col items-center mt-40;
+}
+
+.titleVideo h1 {
+  @apply font-base font-bold text-4xl	uppercase text-primary-color;
+}
+
+.titleVideo h2 {
+  @apply font-base font-bold text-4xl	uppercase text-primary-color-100 mb-24;
+}
+
+.titleVideo p {
+  @apply text-base font-base text-black;
+}
+
+.videoContent {
+  @apply bg-black p-10 mt-24;
+}
+
+.videoContent h3 {
+  @apply text-white font-semibold font-base uppercase text-center mb-10;
+}

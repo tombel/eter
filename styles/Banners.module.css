@@ -1,0 +1,39 @@
+.bannerContainer {
+  @apply container flex items-center;
+}
+
+.descriptionContainer {
+  @apply w-1/2 pr-30 -mt-96;
+}
+
+.playLikeKunSection {
+  @apply bg-primary-color w-full h-[414px] pt-20;
+}
+
+.playLikeKunTitle {
+  @apply font-base font-bold text-5xl uppercase text-white mb-24;
+}
+
+.playLikeKunText {
+  @apply font-base text-base text-white;
+}
+
+.imageContainer {
+  @apply w-1/2 flex justify-between;
+}
+
+.EnterKuniverseSection {
+  @apply bg-white w-full h-[414px] pt-60;
+}
+
+.EnterKuniverseSection .description {
+  @apply w-1/2 pl-40;
+}
+
+.EnterKuniverseTitle {
+  @apply font-base font-bold text-5xl uppercase text-primary-color-100;
+}
+
+.EnterKuniverseText {
+  @apply font-base text-base text-black mt-24;
+}

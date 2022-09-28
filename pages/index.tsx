@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import EnterKuniverse from '../components/EnterKuniverse'
+import Header from '../components/Header'
+import PlayLikeKun from '../components/PlayLikeKun'
+import VideoSection from '../components/VideoSection'
 import styles from '../styles/Home.module.css'
 
 export default function Home(): JSX.Element {
@@ -11,39 +15,42 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
+
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+        <div className={styles.bgWrap}>
+          <Image
+            alt="Kuniverse Background"
+            src="/images/bg-landing.png"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
         </div>
+        <div className={styles.heroSection}>
+          <div className={styles.logo}>
+            <Image
+              alt="Kuniverse Logo"
+              src="/images/kuniverse-logo.png"
+              layout="fixed"
+              quality={100}
+              width={439}
+              height={223}
+            />
+            <Image
+              alt="Sandbox Logo"
+              src="/images/sandbox-logo.svg"
+              className={styles.sandboxLogo}
+              layout="fixed"
+              quality={100}
+              width={147}
+              height={44}
+            />
+          </div>
+        </div>
+        <VideoSection />
+        <PlayLikeKun />
+        <EnterKuniverse />
       </main>
 
       <footer className={styles.footer}>
