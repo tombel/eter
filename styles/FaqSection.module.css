@@ -1,0 +1,12 @@
+.FaqSection {
+  @apply w-full h-[414px] pt-20;
+  background: radial-gradient(
+    74.52% 132.36% at 50% 50.14%,
+    #666666 22%,
+    #606060 34%,
+    #4f4f4f 50%,
+    #333333 68%,
+    #0d0d0d 88%,
+    #000000 95%
+  );
+}

@@ -37,3 +37,11 @@
 .EnterKuniverseText {
   @apply font-base text-base text-black mt-24;
 }
+
+.LetsPlayBanner {
+  @apply container flex items-center -mt-80;
+}
+
+.textContainer {
+  @apply pr-40 mt-60;
+}
