@@ -7,7 +7,7 @@ function Header(): JSX.Element {
 
   React.useEffect(() => setMounted(true), [])
 
-  if (mounted) {
+  if (!mounted) {
     return null
   }
 
