@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useAccount, useConnect } from 'wagmi'
 import type { Connector } from 'wagmi'
@@ -10,7 +11,7 @@ function LoadingIcon(): JSX.Element {
   return (
     <svg
       aria-hidden="true"
-      className="mr-2 w-8 h-8 text-black animate-spin dark:text-gray-600 fill-white"
+      className="mb-12 w-24 h-24 text-primary-color animate-spin dark:text-gray-600 fill-white"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,14 +35,21 @@ function Button(
 ): JSX.Element {
   return (
     <button
-      className="bg-white hover:bg-gray-100 text-black font-semibold py-6 px-6 border border-gray-400 rounded shadow w-full"
+      className="bg-grey-100 text-base text-black font-semibold py-6 px-6 rounded shadow w-full"
       {...props}
     />
   )
 }
 
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
-  return <div className="w-[500px] rounded overflow-hidden shadow-lg bg-white p-4">{children}</div>
+  return (
+    <div className="w-[500px] rounded-xl overflow-hidden shadow-lg bg-white p-12">
+      <p className="font-base text-lg	text-grey-200 font-medium text-center mb-32 mt-20">
+        CONNECT YOUR WALLET
+      </p>
+      {children}
+    </div>
+  )
 }
 // ------------------------------
 export function ConnectWallet(): JSX.Element {
@@ -67,9 +75,9 @@ export function ConnectWallet(): JSX.Element {
   if (isLoading)
     return (
       <Card>
-        <div className="flex items-center">
+        <div className="flex flex-col items-center">
           <LoadingIcon />
-          <p className="text-black">Sign in...</p>
+          <p className="text-black font-base mb-20">Sign in...</p>
         </div>
       </Card>
     )
@@ -77,8 +85,18 @@ export function ConnectWallet(): JSX.Element {
   if (isConnected)
     return (
       <Card>
-        <div className="flex flex-col items-center space-y-4">
-          <h1 className="text-black text-3xl">WALLET IS BEEING VERIFY</h1>
+        <div className="flex flex-col items-center font-base mb-20">
+          <Image
+            alt="Wallet fails"
+            src="/images/wallet-check.svg"
+            layout="fixed"
+            quality={100}
+            width={40}
+            height={40}
+          />
+          <h1 className="text-primary-color font-semibold text-xl mt-12">
+            WALLET IS BEEING VERIFY
+          </h1>
           <p className="text-black">Please, wait while redirect</p>
         </div>
       </Card>
@@ -87,17 +105,30 @@ export function ConnectWallet(): JSX.Element {
   if (error)
     return (
       <Card>
-        <div className="flex flex-col items-center space-y-4">
-          <h1 className="text-black text-3xl">SOMETHIG WENT WONG</h1>
-          <p className="text-black">The Application has encountered an unknown error</p>
-          <Button onClick={() => reset()}>Try Again</Button>
+        <div className="flex flex-col items-center font-base mb-20">
+          <Image
+            alt="Wallet fails"
+            src="/images/wallet-failed.svg"
+            layout="fixed"
+            quality={100}
+            width={40}
+            height={40}
+          />
+          <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WONG</h1>
+          <p className="text-warning mb-20">The Application has encountered an unknown error</p>
+          <Button
+            className="bg-black text-base text-white font-semibold py-6 px-12 rounded shadow"
+            onClick={() => reset()}
+          >
+            Try Again
+          </Button>
         </div>
       </Card>
     )
 
   return (
     <Card>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-8">
         {!isConnected
           ? connectors
               .filter((x: Connector) => x.ready && x.id !== connector?.id)
