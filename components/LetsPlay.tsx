@@ -1,7 +1,16 @@
 import Image from 'next/image'
+import React from 'react'
 import styles from '../styles/Banners.module.css'
 
 export default function LetsPlay(): JSX.Element {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
+
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div className={styles.playLikeKunSection}>
       <div className={styles.LetsPlayBanner}>

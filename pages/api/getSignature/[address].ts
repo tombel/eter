@@ -4,7 +4,16 @@ import config from '../../../server/config/waves'
 import { RESPONSE_CODES } from '../../../utils/constants'
 import { getSignature, isValidAddress } from '../../../server/eth/signature'
 
-export default async function getApprovalSignature(req: NextApiRequest, res: NextApiResponse) {
+interface ApprovalSignatureResponse {
+  code: string
+  signature?: string
+  signatureId?: string
+}
+
+export default async function getApprovalSignature(
+  req: NextApiRequest,
+  res: NextApiResponse<ApprovalSignatureResponse>,
+): Promise<void> {
   try {
     if (req.method !== 'GET') return res.status(400).json({ code: RESPONSE_CODES.INVALID_REQUEST })
 
