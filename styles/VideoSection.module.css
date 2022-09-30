@@ -1,11 +1,11 @@
 /* Video Section Module */
 
 .videoContainer {
-  @apply font-base relative;
+  @apply font-base relative min-h-[800px];
 }
 
 .titleVideo {
-  @apply font-base absolute inset-0 flex flex-col items-center mt-40;
+  @apply font-base absolute inset-0 flex flex-col items-center mt-160;
 }
 
 .titleVideo h1 {
@@ -13,7 +13,7 @@
 }
 
 .titleVideo h2 {
-  @apply font-base font-bold text-4xl	uppercase text-primary-color-100 mb-24;
+  @apply font-base font-bold text-4xl	uppercase text-primary-color-100 mb-20;
 }
 
 .titleVideo p {

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import AvatarsSection from '../components/AvatarsSection'
 import Brands from '../components/Brands'
 import BrandsFooter from '../components/BrandsFooter'
 import EnterKuniverse from '../components/EnterKuniverse'
@@ -51,6 +52,7 @@ export default function Home(): JSX.Element {
               height={44}
             />
           </div>
+          <AvatarsSection />
         </div>
         <VideoSection />
         <PlayLikeKun />

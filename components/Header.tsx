@@ -17,25 +17,40 @@ const Header = () => {
             <div className="w-full">
               <ul className="flex flex-col items-center lg:flex-row">
                 <li className="block w-full">
-                  <Link href="/#home" onClick={() => setMobileMenu(false)}>
+                  <Link
+                    href="/#home"
+                    //</li>onClick={() => setMobileMenu(false)}
+                  >
                     <a className="main-nav-link">Home</a>
                   </Link>
                 </li>
                 <li className="block w-full">
-                  <Link href="/#kuniverse" onClick={() => setMobileMenu(false)}>
+                  <Link
+                    href="/#kuniverse"
+                    //</li>onClick={() => setMobileMenu(false)}
+                  >
                     <a className="main-nav-link">Kuniverse</a>
                   </Link>
                 </li>
                 <li className="block w-full">
-                  <Link href="/#avatars" onClick={() => setMobileMenu(false)}>
+                  <Link
+                    href="/#avatars"
+                    //</li>onClick={() => setMobileMenu(false)}
+                  >
                     <a className="main-nav-link">Avatars</a>
                   </Link>
+                </li>
+                <li className="block w-full my-10">
+                  <button className="btn-primary">Mint Now</button>
+                </li>
+                <li className="block w-full my-10">
+                  <button className="btn-primary w-[100px]">EN</button>
                 </li>
               </ul>
             </div>
           </nav>
 
-          <div className="flex items-center relative justify-end lg:justify-center md z-10">
+          <div className="flex items-center relative justify-end lg:justify-between md z-10">
             <nav className="main-nav hidden lg:block -mx-20">
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
                 <li className="block w-full px-64">
@@ -55,6 +70,10 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
+            <div className="hidden lg:flex gap-12">
+              <button className="btn-primary">Mint Now</button>
+              <button className="btn-primary w-[100px]">EN</button>
+            </div>
             <div
               className={`burger-icon lg:hidden ${mobileMenu ? 'active' : ''}`}
               onClick={() => {

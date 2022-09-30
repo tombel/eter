@@ -25,11 +25,11 @@ export default function LetsPlay(): JSX.Element {
         <div className={styles.imageContainer}>
           <Image
             alt="Kun Entity 2"
-            src="/images/entity-02.png"
+            src="/images/champion-monument.png"
             layout="fixed"
             quality={100}
-            width={256}
-            height={495}
+            width={500}
+            height={500}
           />
         </div>
       </div>

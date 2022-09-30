@@ -19,6 +19,7 @@ export default function VideoSection(): JSX.Element {
         <h2>9320 AVATARS</h2>
         <p>Kün Aguero enters The Sandbox to find the best players in the Metaverse.</p>
         <p>Mint your own avatar and become part of this team!</p>
+        <button className="btn-primary mt-20">MINT NOW</button>
         <div className={styles.videoContent}>
           <h3>KÜN AGUERO ENTERS THE METAVERSE</h3>
           <iframe

@@ -1,5 +1,5 @@
 .FaqSection {
-  @apply w-full h-[414px] pt-20;
+  @apply w-full;
   background: radial-gradient(
     74.52% 132.36% at 50% 50.14%,
     #666666 22%,
@@ -9,4 +9,12 @@
     #0d0d0d 88%,
     #000000 95%
   );
+}
+
+.FaqTitle{
+  @apply bg-grey-600 px-20 py-10 rounded-t-3xl mt-40 text-white uppercase font-semibold text-2xl;
+}
+
+.FaqContainer {
+  @apply bg-grey-400 p-20 rounded-b-3xl mb-40;
 }
