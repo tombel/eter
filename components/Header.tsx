@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 
 function Header(): JSX.Element {
+<<<<<<< HEAD
   const [mounted, setMounted] = React.useState(false)
+=======
+>>>>>>> 43135e0 (fix: linter errors)
   const [mobileMenu, setMobileMenu] = useState(false)
 
   React.useEffect(() => setMounted(true), [])
