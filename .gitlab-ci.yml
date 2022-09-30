@@ -14,14 +14,14 @@ stages:
   - deploy
 
 lint:
-  image: docker.atixlabs.com/node:16.17.0-alpine
+  image: node:16.17.0-alpine
   stage: stylechecks
   script:
     - npm install
     - npm run lint
 
 deploy-staging:
-  image: docker.atixlabs.com/node:16.17.0-alpine
+  image: node:16.17.0-alpine
   stage: deploy
   script:
     - npm i -g vercel
@@ -29,7 +29,7 @@ deploy-staging:
   when: manual
 
 deploy-uat:
-  image: docker.atixlabs.com/node:16.17.0-alpine
+  image: node:16.17.0-alpine
   stage: deploy
   script:
     - npm i -g vercel
