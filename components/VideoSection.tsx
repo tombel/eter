@@ -7,7 +7,7 @@ export default function VideoSection(): JSX.Element {
 
   React.useEffect(() => setMounted(true), [])
 
-  if (mounted) {
+  if (!mounted) {
     return null
   }
 
