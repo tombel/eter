@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210.29 87.41">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #ff0;
+      }
+
+      .cls-5 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-4 {
+        font-family: MontserratRoman-Bold, Montserrat;
+        font-size: 24px;
+        font-variation-settings: 'wght' 700;
+      }
+    </style>
+  </defs>
+  <g id="menu">
+    <g>
+      <text class="cls-4" transform="translate(0 20.4)"><tspan x="0" y="0">MIINDED</tspan><tspan class="cls-1" x="113.81" y="0">S</tspan><tspan class="cls-5" x="128.88" y="0">T</tspan><tspan x="143.42" y="0">UDIO</tspan></text>
+      <g>
+        <rect class="cls-2" x="84.17" y="45.41" width="9" height="33"/>
+        <rect class="cls-2" x="101.17" y="45.41" width="9" height="33"/>
+        <rect class="cls-2" x="118.17" y="45.41" width="9" height="33"/>
+        <circle class="cls-3" cx="97.17" cy="37.41" r="3"/>
+        <circle class="cls-3" cx="113.17" cy="84.41" r="3"/>
+      </g>
+    </g>
+  </g>
+</svg>
