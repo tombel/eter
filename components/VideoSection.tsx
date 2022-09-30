@@ -1,7 +1,16 @@
 import Image from 'next/image'
+import React from 'react'
 import styles from '../styles/VideoSection.module.css'
 
 export default function VideoSection(): JSX.Element {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
+
+  if (mounted) {
+    return null
+  }
+
   return (
     <div className={styles.videoContainer}>
       <div style={{ position: 'relative' }}>
@@ -27,9 +36,9 @@ export default function VideoSection(): JSX.Element {
             height="315"
             src="https://www.youtube.com/embed/Uvufun6xer8"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>

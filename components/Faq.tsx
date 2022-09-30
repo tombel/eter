@@ -11,6 +11,10 @@ import {
 import styles from '../styles/FaqSection.module.css'
 
 export default function Faq(): JSX.Element {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
+
   const data = [
     {
       question: 'HOW MANY KUNIVERSE AVATARS ARE THERE?',
@@ -78,6 +82,10 @@ export default function Faq(): JSX.Element {
     },
   ]
 
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div className={styles.FaqSection}>
       <div className="container">
@@ -85,7 +93,7 @@ export default function Faq(): JSX.Element {
         <div className={styles.FaqContainer}>
           {data.map((item) => {
             return (
-              <Accordion allowZeroExpanded key={item}>
+              <Accordion allowZeroExpanded key={item.question}>
                 <AccordionItem>
                   <AccordionItemHeading>
                     <AccordionItemButton>{item.question}</AccordionItemButton>
