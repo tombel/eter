@@ -1,12 +1,19 @@
 import Image from 'next/image'
 import styles from '../styles/AvatarsSection.module.css'
 
+export interface AvatarItemProps {
+  staticImage: string
+  animatedImage: string
+  avatarName: string
+  avatarRarity: string
+}
+
 export default function AvatarItem({
   staticImage,
   animatedImage,
   avatarName,
   avatarRarity,
-}): JSX.Element {
+}: AvatarItemProps): JSX.Element {
   return (
     <div className={styles.AvatarItem}>
       <div

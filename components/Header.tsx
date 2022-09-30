@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 
-const Header = () => {
+function Header(): JSX.Element {
   const [mobileMenu, setMobileMenu] = useState(false)
 
   return (
