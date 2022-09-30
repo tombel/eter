@@ -4,6 +4,8 @@ import { useAccount, useConnect } from 'wagmi'
 import type { Connector } from 'wagmi'
 import { useIsMounted } from '../../hooks/useIsMounted'
 
+// please delete those components 👇🏻
+// ------------------------------
 function LoadingIcon(): JSX.Element {
   return (
     <svg
@@ -41,7 +43,7 @@ function Button(
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return <div className="w-[500px] rounded overflow-hidden shadow-lg bg-white p-4">{children}</div>
 }
-
+// ------------------------------
 export function ConnectWallet(): JSX.Element {
   const isMounted = useIsMounted()
   const router = useRouter()
