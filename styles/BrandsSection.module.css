@@ -1,0 +1,23 @@
+.BrandsSection {
+  @apply bg-black w-full py-40;
+}
+
+.BrandsSection h1 {
+  @apply font-base font-bold text-2xl text-white mb-48;
+}
+
+.BrandsLogos {
+  @apply flex flex-wrap items-center;
+}
+
+.BrandsLogos .Logo {
+  @apply w-1/6 mb-32 flex justify-center;
+}
+
+.BrandsFooter {
+  @apply bg-black w-full border-grey-400 border-t py-32;
+}
+
+.BrandsFooterContent p {
+  @apply font-base font-semibold text-base text-white mb-12;
+}
