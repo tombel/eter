@@ -51,7 +51,7 @@ function Header(): JSX.Element {
                 </li>
                 <li className="block w-full my-10">
                   <CustomButton className="theme-primary" style={{ width: '100%' }}>
-                    Mint Now
+                    <Link href="/mint-nft">Mint Now</Link>
                   </CustomButton>
                 </li>
                 <li className="block w-full my-10">
@@ -82,7 +82,9 @@ function Header(): JSX.Element {
               </ul>
             </nav>
             <div className="hidden lg:flex gap-12">
-              <CustomButton className="theme-primary">Mint Now</CustomButton>
+              <CustomButton className="theme-primary">
+                <Link href="/mint-nft">Mint Now</Link>
+              </CustomButton>
               <LanguajeSelector />
             </div>
             <div
