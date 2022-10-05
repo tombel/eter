@@ -83,9 +83,9 @@ export function ConnectWallet(): JSX.Element {
             height={40}
           />
           <h1 className="text-primary-color font-semibold text-xl mt-12">
-            WALLET IS BEEING VERIFY
+            WALLET IS BEING VERIFIED
           </h1>
-          <p className="text-black">Please, wait while redirect</p>
+          <p className="text-black">Please wait while you are redirected</p>
         </div>
       </Card>
     )
@@ -102,7 +102,7 @@ export function ConnectWallet(): JSX.Element {
             width={40}
             height={40}
           />
-          <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WONG</h1>
+          <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WRONG</h1>
           <p className="text-warning mb-20">The Application has encountered an unknown error</p>
           <CustomButton className="theme-primary" onClick={() => reset()}>
             Try Again
