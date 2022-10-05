@@ -31,7 +31,23 @@ a {
   }
 }
 
-/* HEADER */
+.bg-radial {
+  background: radial-gradient(
+    74.52% 132.36% at 50% 50.14%,
+    #666666 22%,
+    #606060 34%,
+    #4f4f4f 50%,
+    #333333 68%,
+    #0d0d0d 88%,
+    #000000 95%
+  );
+}
+
+.bg-radial-purple {
+  background: radial-gradient(74.52% 132.36% at 50% 50.14%, #bf76fc 0%, #000000 95%);
+}
+
+/* ---------------- Header ------------------ */
 
 .header-container {
   @apply font-base overflow-x-hidden;
@@ -104,13 +120,8 @@ a {
   @apply mb-5;
 }
 
-/* ACCORDION */
+/* ---------------- Accordion ------------------ */
 
-/**
-* ----------------------------------------------
-* Demo styles
-* ----------------------------------------------
-**/
 .accordion {
   @apply font-base border border-white mb-10;
 }
@@ -157,9 +168,7 @@ a {
   animation: fadein 0.35s ease-in;
 }
 
-/* -------------------------------------------------- */
 /* ---------------- Animation part ------------------ */
-/* -------------------------------------------------- */
 
 @keyframes fadein {
   0% {
@@ -174,5 +183,80 @@ a {
 @layer components {
   .btn-primary {
     @apply py-6 px-12 bg-black text-white font-semibold rounded-lg shadow-md;
+  }
+}
+
+/* ---------------- Languaje Selector ------------------ */
+
+.LanguajeSelector__control {
+  width: 100px;
+  border-radius: 0.5rem !important;
+  background: #000000 !important;
+  border-color: #000000 !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.LanguajeSelector__single-value {
+  color: #ffffff !important;
+}
+
+.LanguajeSelector__menu {
+  background-color: #000000 !important;
+  width: 100px !important;
+}
+
+.LanguajeSelector__indicators {
+  display: none !important;
+}
+
+.LanguajeSelector__control--is-focused {
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 1px #000000 !important;
+}
+
+.LanguajeSelector__option {
+  color: #4d4d4d !important;
+  background-color: #000000 !important;
+}
+
+.LanguajeSelector__option--is-focused,
+.LanguajeSelector__option--is-selected {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+}
+
+/* ---------------- Avatar Selector ------------------ */
+
+.AvatarSelector__control {
+  border-radius: 0.5rem !important;
+  width: 200px;
+}
+
+.AvatarSelector__control--is-focused {
+  border-color: #bf76fc !important;
+  box-shadow: 0 0 0 1px #bf76fc !important;
+}
+
+.AvatarSelector__option--is-focused {
+  background-color: #ecd6fe !important;
+}
+
+.AvatarSelector__option--is-selected {
+  background-color: #bf76fc !important;
+}
+
+/* ---------------- Theme Buttons ------------------ */
+
+.theme-primary {
+  @apply bg-black text-base text-white font-semibold py-6 px-12 rounded-lg shadow uppercase;
+}
+
+/* ---------------- Responsive ------------------ */
+
+@media screen and (max-width: 1023px) {
+  .LanguajeSelector__control {
+    width: 100% !important;
   }
 }

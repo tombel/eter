@@ -18,14 +18,17 @@ module.exports = {
       current: 'currentColor',
       white: '#ffffff',
       black: '#000000',
+      warning: '#FC4F4F',
       'primary-color': {
         DEFAULT: '#BF76FC',
         100: '#C0BFFB',
       },
       grey: {
+        100: '#c1d0e0',
         200: '#797979',
         400: '#4D4D4D',
         600: '#333333',
+        700: '#252c34',
       },
     },
     spacing: {
