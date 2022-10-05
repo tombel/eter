@@ -9,7 +9,6 @@ const getContract = (): ethers.Contract => {
       'function waveSingleTokenPrice() public view returns (uint256)',
       'function waveOwnerToClaimedCounts(address wallet, uint256 wave) public view returns (uint256)',
       'function checkMintAllowed(address _wallet, uint256 _amount) public view returns (bool)',
-      'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature) external',
     ],
     provider,
   )
