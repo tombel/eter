@@ -11,7 +11,7 @@ import {
   isValidAddress,
 } from '../../../../server/eth/signature'
 
-interface ApprovalSignatureResponse {
+interface MintDataResponse {
   code: string
   signature?: string
   signatureId?: string
@@ -21,18 +21,18 @@ interface ApprovalSignatureResponse {
   isMintAllowed?: boolean
 }
 
-export default async function getApprovalSignature(
+export default async function getMintData(
   req: NextApiRequest,
-  res: NextApiResponse<ApprovalSignatureResponse>,
+  res: NextApiResponse<MintDataResponse>,
 ): Promise<void> {
   try {
     if (req.method !== 'GET') return res.status(400).json({ code: RESPONSE_CODES.INVALID_REQUEST })
 
-    const address = req.query.address.toString()
-    const amountParam = req.query.amount.toString()
+    const address = req.query.address ? req.query.address.toString() : ''
     if (!isValidAddress(address))
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_ADDRESS })
 
+    const amountParam = req.query.amount ? req.query.amount.toString() : ''
     const amount = parseInt(amountParam)
     if (amount < 1 || amount > 5 || isNaN(amount)) {
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_AMOUNT })
