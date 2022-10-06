@@ -40,7 +40,7 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-1 flex-col items-center h-full">
             <LoadingIcon />
-            <p className="text-black font-base mb-20">Your transctions is being processed.</p>
+            <p className="text-black font-base mb-20">Your transaction is being processed.</p>
           </div>
         </div>
       </Card>
