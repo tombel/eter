@@ -9,6 +9,7 @@ const getContract = (): ethers.Contract => {
       'function waveSingleTokenPrice() public view returns (uint256)',
       'function waveOwnerToClaimedCounts(address wallet, uint256 wave) public view returns (uint256)',
       'function checkMintAllowed(address _wallet, uint256 _amount) public view returns (bool)',
+      'function waveMaxTokensToBuy() public view returns (uint256)',
     ],
     provider,
   )
@@ -28,7 +29,12 @@ export const getClaimedCount = async (address: string, waveIndex: number): Promi
 
 export const checkMintAllowed = async (address: string, amount: number): Promise<boolean> => {
   const contract: ethers.Contract = getContract()
-  return await contract.checkMintAllowed(address, amount)
+  return contract.checkMintAllowed(address, amount)
+}
+
+export const getWaveMaxTokensToBuy = async (): Promise<number> => {
+  const contract: ethers.Contract = getContract()
+  return (await contract.waveMaxTokensToBuy()).toNumber()
 }
 
 export const isValidAddress = (address: string): boolean => {
