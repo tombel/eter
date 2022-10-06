@@ -3,7 +3,7 @@ import Moralis from 'moralis'
 import { EvmChain } from '@moralisweb3/evm-utils'
 
 import { RESPONSE_CODES } from '../../../utils/constants'
-import { isValidAddress } from '../../../server/eth/signature'
+import { isValidAddress } from '../../../server/eth/utils'
 
 export default async function getWalletNFTs(
   req: NextApiRequest,
@@ -27,6 +27,7 @@ export default async function getWalletNFTs(
     })
     return res.status(200).json(response)
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ code: RESPONSE_CODES.INTERNAL_ERROR })
   }
 }

@@ -9,7 +9,8 @@ import {
   getClaimedCount,
   checkMintAllowed,
   isValidAddress,
-} from '../../../../server/eth/signature'
+  getWaveMaxTokensToBuy,
+} from '../../../../server/eth/utils'
 
 interface MintDataResponse {
   code: string
@@ -19,6 +20,7 @@ interface MintDataResponse {
   tokenPrice?: string
   claimedCount?: number
   isMintAllowed?: boolean
+  waveMaxTokensToBuy?: number
 }
 
 export default async function getMintData(
@@ -61,11 +63,16 @@ export default async function getMintData(
       getTokenPrice(),
       getClaimedCount(address, waveIndex),
       checkMintAllowed(address, amount),
+      getWaveMaxTokensToBuy(),
     ])
-    const { signature, signatureId } = result[0]
-    const tokenPrice = result[1]
-    const claimedCount = result[2]
-    const isMintAllowed = result[3]
+
+    const [
+      { signature, signatureId },
+      tokenPrice,
+      claimedCount,
+      isMintAllowed,
+      waveMaxTokensToBuy,
+    ] = result
     return res.status(200).json({
       code: RESPONSE_CODES.ADDRESS_QUALIFY,
       signature,
@@ -74,8 +81,10 @@ export default async function getMintData(
       tokenPrice,
       claimedCount,
       isMintAllowed,
+      waveMaxTokensToBuy,
     })
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ code: RESPONSE_CODES.INTERNAL_ERROR })
   }
 }

@@ -2,7 +2,7 @@ const config = {
   wave1: {
     interval: {
       start: Date.UTC(2022, 9, 4, 13), // Tue, 04 Oct 2022 13:00:00 UTC
-      end: Date.UTC(2022, 9, 14, 13), // Fri, 14 Oct 2022 13:00:00 UTC
+      end: Date.UTC(2022, 12, 14, 13), // Fri, 14 Oct 2022 13:00:00 UTC
     },
     whitelistedAddresses: [
       '0x016C8780e5ccB32E5CAA342a926794cE64d9C364',
