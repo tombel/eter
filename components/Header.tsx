@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import LanguajeSelector from './LanguajeSelector'
-import CustomButton from './CustomButton'
+import CustomButton from './Button'
 
 function Header(): JSX.Element {
   const [mounted, setMounted] = React.useState(false)

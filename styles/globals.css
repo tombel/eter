@@ -264,6 +264,10 @@ a {
   @apply bg-white rounded-3xl border-solid border border-grey-100 p-12;
 }
 
+.theme-primary:disabled {
+  @apply opacity-30;
+}
+
 /* ---------------- Responsive ------------------ */
 
 @media screen and (max-width: 1023px) {

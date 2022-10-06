@@ -45,6 +45,7 @@ export default async function getMintData(
     const currentTime = process.env.CUSTOM_DATE
       ? new Date(process.env.CUSTOM_DATE).getTime()
       : new Date().getTime()
+
     if (isWithinInterval(currentTime, config.wave1.interval)) {
       waveIndex = 1
       whitelistedAddresses = config.wave1.whitelistedAddresses
@@ -54,7 +55,6 @@ export default async function getMintData(
     } else if (isWithinInterval(currentTime, config.wave3.interval)) {
       waveIndex = 3
     } else return res.status(400).json({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
-
     if ((waveIndex === 1 || waveIndex === 2) && !whitelistedAddresses.includes(address))
       return res.status(200).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
 

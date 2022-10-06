@@ -15,7 +15,9 @@ export interface IuseMinterValues {
   isError: boolean
   isPrepareError: boolean
   prepareError: Error
+  isReady: boolean
   mint: () => void
+  reset: () => void
 }
 
 export function useMinter({ quantity }: { quantity: number }): IuseMinterValues {
@@ -27,11 +29,13 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     generate,
   } = useSignerGenerator({
     address,
+    amount: quantity,
   })
 
   React.useEffect(() => {
     generate()
-  }, [generate])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address, quantity])
 
   const iface = new utils.Interface([
     'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
@@ -91,14 +95,14 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     enabled: isReady,
   })
 
-  const { data, error, isError, write } = useContractWrite(config)
+  const { data, error, isError, write, isLoading, reset } = useContractWrite(config)
 
-  const { isLoading, isSuccess } = useWaitForTransaction({
+  const { isLoading: isLoadingTransation, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   })
 
   return {
-    isLoading,
+    isLoading: isLoadingTransation || isLoading,
     error,
     isSuccess,
     data,
@@ -106,5 +110,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     mint: write,
     isPrepareError,
     prepareError,
+    isReady,
+    reset,
   }
 }

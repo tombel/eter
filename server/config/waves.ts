@@ -8,6 +8,7 @@ const config = {
       '0x016C8780e5ccB32E5CAA342a926794cE64d9C364',
       '0x185a4dc360ce69bdccee33b3784b0282f7961aea',
       '0x5686d92ce354ea768a69c77f5929c35cf42fed34',
+      '0x5686D92Ce354Ea768A69c77f5929c35Cf42FeD34',
     ],
   },
   wave2: {

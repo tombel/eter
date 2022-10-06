@@ -3,6 +3,9 @@ import React from 'react'
 export interface ISignature {
   signature: string
   signatureId: string
+  tokenPrice: string
+  isMintAllowed: boolean
+  waveIndex: number
 }
 
 export interface ISignatureGeneratorState {
@@ -36,6 +39,7 @@ function reducer(
         isLoading: true,
         status: 'fetching',
         error: null,
+        data: null,
       }
     }
 
@@ -53,6 +57,7 @@ function reducer(
       return {
         ...state,
         isLoading: false,
+        data: null,
         error: action.payload['code'],
       }
     }
@@ -62,20 +67,34 @@ function reducer(
   }
 }
 
-async function getSignature(address: string): Promise<ISignature> {
-  const response = await fetch(`/api/getSignature/${address}`)
+async function getMintData(
+  address: string,
+  amount: number,
+  signal: AbortSignal,
+): Promise<ISignature> {
+  const response = await fetch(`/api/mintdata/${address}/${amount}`, {
+    signal,
+  })
+  if (response.status !== 200) {
+    throw new Error((await response.json())?.code)
+  }
   return await response.json()
 }
 
-export function useSignerGenerator({ address }: { address: string }): ISignatureUseGenerator {
+export function useSignerGenerator({
+  address,
+  amount,
+}: {
+  address: string
+  amount: number
+}): ISignatureUseGenerator {
   const [state, dispatch] = React.useReducer(reducer, initialState)
 
-  const generate = React.useCallback(
-    function (): void {
-      dispatch({
-        type: 'GENERATE_SINGNATURE',
-      })
-      getSignature(address)
+  React.useEffect(() => {
+    const controller = new AbortController()
+    const signal = controller.signal
+    if (state.isLoading) {
+      getMintData(address, amount, signal)
         .then((signature) => {
           dispatch({
             type: 'SIGNATURE_GENEREATED',
@@ -88,9 +107,15 @@ export function useSignerGenerator({ address }: { address: string }): ISignature
             payload: error,
           })
         })
-    },
-    [address],
-  )
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.isLoading])
+
+  const generate = function (): void {
+    dispatch({
+      type: 'GENERATE_SINGNATURE',
+    })
+  }
 
   return { isLoading: state.isLoading, status: state.status, data: state.data, generate }
 }
