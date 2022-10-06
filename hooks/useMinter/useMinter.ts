@@ -108,9 +108,13 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     enabled: isReady,
   })
 
-  const { data, error, isError, write, isLoading, reset } = useContractWrite(config)
+  const { data, error, isError: isErrorWhite, write, isLoading, reset } = useContractWrite(config)
 
-  const { isLoading: isLoadingTransation, isSuccess } = useWaitForTransaction({
+  const {
+    isLoading: isLoadingTransation,
+    isSuccess,
+    isError,
+  } = useWaitForTransaction({
     hash: data?.hash,
   })
 
@@ -119,7 +123,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     error,
     isSuccess,
     data,
-    isError,
+    isError: isErrorWhite || isError,
     mint: write,
     isPrepareError,
     prepareError,
