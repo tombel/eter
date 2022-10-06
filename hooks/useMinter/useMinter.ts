@@ -3,7 +3,7 @@ import { utils } from 'ethers'
 
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 
-import { useSignerGenerator } from '../../hooks/useSignerGenerator'
+import { useMintData } from '../../hooks/useMintData'
 
 export interface IuseMinterValues {
   isLoading: boolean
@@ -16,6 +16,7 @@ export interface IuseMinterValues {
   isPrepareError: boolean
   prepareError: Error
   isReady: boolean
+  allowedToMint: number
   mint: () => void
   reset: () => void
 }
@@ -24,10 +25,10 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
   const { isConnected, address } = useAccount()
   const {
     status,
-    data: signatureData,
+    data: initialMintData,
     error: signatureError,
     generate,
-  } = useSignerGenerator({
+  } = useMintData({
     address,
     amount: quantity,
   })
@@ -41,14 +42,22 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
   ])
 
-  const isReady = isConnected && !signatureError && Boolean(address) && status == 'success'
+  const allowedToMint =
+    Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount)
+
+  const isReady =
+    isConnected &&
+    !signatureError &&
+    Boolean(address) &&
+    status == 'success' &&
+    quantity <= allowedToMint
 
   const dataContract = isReady
     ? iface.encodeFunctionData('mint', [
         address,
         quantity, // amount less or equal to max amount <= Max_Per_user - User_Tokens
-        signatureData?.signatureId,
-        signatureData?.signature,
+        initialMintData?.signatureId,
+        initialMintData?.signature,
       ])
     : null
 
@@ -91,7 +100,11 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     overrides: {
       gasLimit: 1_000_000,
     },
-    args: [process.env.NEXT_PUBLIC_CONTRACT_ADDRESS, 0, dataContract], // sandAmount = nftsToMint * nftSandPrice
+    args: [
+      process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+      utils.parseUnits(initialMintData?.tokenPrice || '0', 18).mul(quantity),
+      dataContract,
+    ], // sandAmount = nftsToMint * nftSandPrice
     enabled: isReady,
   })
 
@@ -112,5 +125,6 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     prepareError,
     isReady,
     reset,
+    allowedToMint,
   }
 }

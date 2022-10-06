@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { useMinter } from '../hooks/useMinter'
 import AvatarSelector from './AvatarSelector'
 import LoadingIcon from './LoadingIcon'
@@ -13,10 +14,25 @@ function Card({ children }: { children: React.ReactNode }): JSX.Element {
 }
 
 export function MintAvatar(): JSX.Element {
+  const router = useRouter()
   const [quantity, setQuantity] = React.useState<number>(1)
-  const { mint, isLoading, isSuccess, isError, data, isPrepareError, isReady, reset } = useMinter({
-    quantity,
-  })
+  const { mint, allowedToMint, isLoading, isSuccess, isError, isPrepareError, isReady, reset } =
+    useMinter({
+      quantity,
+    })
+
+  React.useEffect(() => {
+    let timeout
+
+    if (isSuccess) {
+      timeout = setTimeout(() => {
+        router.push('/my-avatars')
+      }, 3e3)
+    }
+
+    return () => clearTimeout(timeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess])
 
   if (isLoading)
     return (
@@ -33,12 +49,12 @@ export function MintAvatar(): JSX.Element {
   if (isSuccess)
     return (
       <Card>
-        <div className="flex flex-1 flex-col items-center">
-          <h1 className="text-primary-color font-semibold text-xl text-center">
-            Successfully minted your NFT!
-          </h1>
-          <div>
-            <a href={`https://goerli.etherscan.io/tx/${data?.hash}`}>Etherscan</a>
+        <div className="flex flex-1 items-center h-full">
+          <div className="flex flex-1 flex-col items-center">
+            <h1 className="text-primary-color font-semibold text-xl text-center">
+              Successfully minted your NFT!
+            </h1>
+            <p className="text-black font-base mb-20">Please wait while you are redirected</p>
           </div>
         </div>
       </Card>
@@ -50,7 +66,7 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-col items-center font-base mb-20">
             <Image
-              alt="Wallet fails"
+              alt="Mint fails"
               src="/images/wallet-failed.svg"
               layout="fixed"
               quality={100}
@@ -89,7 +105,7 @@ export function MintAvatar(): JSX.Element {
           />
           <p className="text-black text-center my-12">How many avatars do you want?</p>
           <AvatarSelector
-            max={1}
+            max={allowedToMint}
             onChange={(value) => {
               setQuantity(Number(value.value))
             }}

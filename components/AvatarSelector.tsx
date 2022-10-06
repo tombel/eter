@@ -12,7 +12,7 @@ export default function AvatarSelector({
   onChange,
   disabled,
 }: AvatarSelectorProps): JSX.Element {
-  const options = Array(max)
+  const options = Array(max || 1)
     .fill(null)
     .map((_x, index) => {
       const value = `${index + 1}`
