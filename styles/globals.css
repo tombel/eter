@@ -45,6 +45,11 @@ a {
 
 .bg-radial-purple {
   background: radial-gradient(74.52% 132.36% at 50% 50.14%, #bf76fc 0%, #000000 95%);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
 }
 
 /* ---------------- Header ------------------ */
@@ -251,6 +256,12 @@ a {
 
 .theme-primary {
   @apply bg-black text-base text-white font-semibold py-6 px-12 rounded-lg shadow uppercase;
+}
+
+/* ---------------- NFT Card ------------------ */
+
+.nft-current {
+  @apply bg-white rounded-3xl border-solid border border-grey-100 p-12;
 }
 
 /* ---------------- Responsive ------------------ */

@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.11",
     "date-fns": "2.29.3",
     "ethers": "5.7.1",
     "moralis": "2.6.0",
