@@ -19,6 +19,7 @@ export default function MyAvatarCard({ name, url }: MyAvatarCardProps): JSX.Elem
           width={212}
           height={212}
           placeholder="empty"
+          unoptimized
         />
       </div>
       <div className="flex justify-between mt-16">
