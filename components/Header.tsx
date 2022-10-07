@@ -43,7 +43,7 @@ function Header(): JSX.Element {
                 </li>
                 <li className="block w-full">
                   <Link
-                    href="/#avatars"
+                    href="/my-avatars"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
                     <a className="main-nav-link">Avatars</a>
@@ -75,7 +75,7 @@ function Header(): JSX.Element {
                   </Link>
                 </li>
                 <li className="block w-full px-64">
-                  <Link href="/#avatars" className="main-nav-link">
+                  <Link href="/my-avatars" className="main-nav-link">
                     <a className="main-nav-link">Avatars</a>
                   </Link>
                 </li>

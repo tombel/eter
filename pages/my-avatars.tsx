@@ -1,9 +1,27 @@
+import React from 'react'
 import Image from 'next/image'
+import { useAccount } from 'wagmi'
+import { useRouter } from 'next/router'
 import EmptyAvatar from '../components/EmptyAvatar'
 import MyAvatarCard from '../components/MyAvatarCard'
 import SimpleHeader from '../components/SimpleHeader'
+import { useNFTList } from '../hooks/useNFTList'
 
 export default function MyAvatars(): JSX.Element {
+  const router = useRouter()
+  const { isConnected, address } = useAccount()
+  React.useEffect(() => {
+    if (!isConnected) {
+      router.push('/connect')
+    }
+  }, [isConnected, router])
+
+  const { isLoading, data, run } = useNFTList(address)
+
+  React.useEffect(() => {
+    run()
+  }, [])
+
   return (
     <div>
       <SimpleHeader />
@@ -31,8 +49,21 @@ export default function MyAvatars(): JSX.Element {
 
             <p className="font-base text-3xl font-bold text-white mb-24 text-center">MY AVATARS</p>
             <div className="bg-white rounded-3xl shadow-lg w-full font-base p-20 flex flex-wrap gap-12 items-center">
-              <MyAvatarCard />
-              <EmptyAvatar />
+              {isLoading ? (
+                <MyAvatarCard name="Loading..." url={'/images/unrevealed.jpeg'} />
+              ) : (
+                data
+                  ?.map((x) => {
+                    return (
+                      <MyAvatarCard
+                        key={x.tokenHash}
+                        name={x.name}
+                        url={`https://gateway.pinata.cloud/ipfs/QmcY7Nu41GZQ3noZSFMW7zHDg75swP5Vf4F3u3f7PeWmj7/${x.tokenId}.jpg`}
+                      />
+                    )
+                  })
+                  .concat(<EmptyAvatar />)
+              )}
             </div>
           </div>
         </div>
