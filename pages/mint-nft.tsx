@@ -1,11 +1,21 @@
+import React, { useEffect } from 'react'
+import { useAccount } from 'wagmi'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
-import AvatarSelector from '../components/AvatarSelector'
-import CustomButton from '../components/CustomButton'
+import { MintAvatar } from '../components/MintAvatar'
 import SimpleHeader from '../components/SimpleHeader'
 
 export default function MintNft(): JSX.Element {
+  const router = useRouter()
+  const { isConnected } = useAccount()
+  useEffect(() => {
+    if (!isConnected) {
+      router.push('/connect')
+    }
+  }, [isConnected, router])
+
   return (
-    <div className="flex w-full justify-center items-center bg-black relative py-40 bg-grey-700 h-screen">
+    <div className="flex w-full justify-center items-center relative py-40 bg-grey-700 h-screen">
       <SimpleHeader />
       <div className="w-full h-full absolute top-0 left-0 pt-144 z-10 bg-radial-purple">
         <Image
@@ -26,25 +36,7 @@ export default function MintNft(): JSX.Element {
           width={439}
           height={223}
         />
-        <div>
-          <p className="font-base text-3xl font-bold text-white mb-24">MINT YOUR OWN AVATAR NOW!</p>
-          <div className="bg-white rounded-3xl shadow-lg w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
-            <h1 className="text-primary-color font-semibold text-xl text-center">
-              YOUR WALLET IS CONNECTED!
-            </h1>
-            <Image
-              alt="Kuniverse Logo"
-              src="/images/Avatars/Ekun_02.png"
-              layout="fixed"
-              quality={100}
-              width={80}
-              height={80}
-            />
-            <p className="text-black text-center my-12">How many avatars do you want?</p>
-            <AvatarSelector />
-            <CustomButton className="theme-primary mt-12 w-[200px]">Mint Now</CustomButton>
-          </div>
-        </div>
+        <MintAvatar />
       </div>
     </div>
   )

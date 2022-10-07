@@ -4,7 +4,7 @@ import SimpleHeader from '../components/SimpleHeader'
 
 export default function Connect(): JSX.Element {
   return (
-    <div className="flex w-full justify-center items-center bg-black relative py-40 bg-grey-700 h-screen">
+    <div className="flex w-full justify-center items-center relative py-40 bg-grey-700 h-screen">
       <SimpleHeader />
       <div className="w-full h-full absolute top-0 left-0 pt-144 z-10 bg-radial-purple">
         <Image

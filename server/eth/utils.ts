@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 
-const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL)
+const provider = ethers.providers.getDefaultProvider(process.env.CHAIN_ID == '5' ? 'goerli' : null)
 
 const getContract = (): ethers.Contract => {
   return new ethers.Contract(

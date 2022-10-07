@@ -3,22 +3,12 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useAccount, useConnect } from 'wagmi'
 import type { Connector } from 'wagmi'
-import { useIsMounted } from '../../hooks/useIsMounted'
-import LoadingIcon from '../LoadingIcon'
-import CustomButton from '../CustomButton'
+import { useIsMounted } from '../hooks/useIsMounted'
+import LoadingIcon from './LoadingIcon'
+import Button from './Button'
 
-import styles from '../../styles/ConnectWallet.module.css'
-
-function Card({ children }: { children: React.ReactNode }): JSX.Element {
-  return (
-    <div className="bg-white rounded-3xl shadow-lg w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
-      <p className="font-base text-lg	text-grey-200 font-medium text-center mb-32 mt-20">
-        CONNECT YOUR WALLET
-      </p>
-      {children}
-    </div>
-  )
-}
+import styles from '../styles/ConnectWallet.module.css'
+import { Card } from './Card'
 
 function getIcon(id: string): string {
   const iconsMap = [
@@ -43,7 +33,7 @@ function getIcon(id: string): string {
 export function ConnectWallet(): JSX.Element {
   const isMounted = useIsMounted()
   const router = useRouter()
-  const { connector, isConnected } = useAccount()
+  const { isConnected } = useAccount()
   const { connect, connectors, error, isLoading, reset } = useConnect()
 
   useEffect(() => {
@@ -51,8 +41,8 @@ export function ConnectWallet(): JSX.Element {
 
     if (isConnected) {
       timeout = setTimeout(() => {
-        router.push('/')
-      }, 5e3)
+        router.push('/mint-nft')
+      }, 1000)
     }
 
     return () => clearTimeout(timeout)
@@ -104,9 +94,9 @@ export function ConnectWallet(): JSX.Element {
           />
           <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WRONG</h1>
           <p className="text-warning mb-20">The Application has encountered an unknown error</p>
-          <CustomButton className="theme-primary" onClick={() => reset()}>
+          <Button className="theme-primary" onClick={() => reset()}>
             Try Again
-          </CustomButton>
+          </Button>
         </div>
       </Card>
     )
@@ -115,18 +105,16 @@ export function ConnectWallet(): JSX.Element {
     <Card>
       <div className="flex flex-col w-full space-y-8">
         {!isConnected
-          ? connectors
-              .filter((x: Connector) => x.ready && x.id !== connector?.id)
-              .map((x: Connector) => (
-                <CustomButton key={x.id} onClick={() => connect({ connector: x })}>
-                  <div className="bg-grey-100 text-base text-black font-semibold rounded shadow w-full flex gap-14 items-center">
-                    <div className={styles.iconContainer}>
-                      <Image alt={x.name} src={getIcon(x.id)} width={30} height={30} />
-                    </div>
-                    <p className="">{x.name}</p>
+          ? connectors.map((x: Connector) => (
+              <Button key={x.id} onClick={() => connect({ connector: x })}>
+                <div className="bg-grey-100 text-base text-black font-semibold rounded shadow w-full flex gap-14 items-center">
+                  <div className={styles.iconContainer}>
+                    <Image alt={x.name} src={getIcon(x.id)} width={30} height={30} />
                   </div>
-                </CustomButton>
-              ))
+                  <p className="">{x.name}</p>
+                </div>
+              </Button>
+            ))
           : null}
       </div>
       {error && <div className="text-black my-3">{error.message}</div>}

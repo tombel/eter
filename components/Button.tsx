@@ -5,5 +5,5 @@ export default function CustomButton(
     React.ClassAttributes<HTMLButtonElement> &
     React.ButtonHTMLAttributes<HTMLButtonElement>,
 ): JSX.Element {
-  return <button className="" {...props} />
+  return <button {...props} />
 }

@@ -1,20 +1,34 @@
 import React from 'react'
 import Select from 'react-select'
 
-const options = [
-  { value: '1', label: '1' },
-  { value: '2', label: '2' },
-  { value: '3', label: '3' },
-  { value: '4', label: '4' },
-  { value: '5', label: '5' },
-]
+export interface AvatarSelectorProps {
+  max?: number
+  onChange?: (value) => void
+  disabled: boolean
+}
 
-export default function AvatarSelector(): JSX.Element {
+export default function AvatarSelector({
+  max = 1,
+  onChange,
+  disabled,
+}: AvatarSelectorProps): JSX.Element {
+  const options = Array(max || 1)
+    .fill(null)
+    .map((_x, index) => {
+      const value = `${index + 1}`
+      return {
+        value: value,
+        label: value,
+      }
+    })
+
   return (
     <Select
       classNamePrefix="AvatarSelector"
       options={options}
-      defaultValue={{ value: '1', label: '1' }}
+      defaultValue={options[0]}
+      onChange={onChange}
+      isDisabled={disabled}
     />
   )
 }

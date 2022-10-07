@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PlusIcon } from '@heroicons/react/24/outline'
-import CustomButton from './CustomButton'
+import CustomButton from './Button'
 
 export default function EmptyAvatar(): JSX.Element {
   return (
