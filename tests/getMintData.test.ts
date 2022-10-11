@@ -67,6 +67,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve signature, wave=1 and isMintAllowed=false when date is within the invarval of wave #1, address is whitelisted but amount is not valid', async () => {
@@ -83,6 +84,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(false)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve signature and wave=1 when date is within the invarval of wave #1 and address is whitelisted', async () => {
@@ -99,6 +101,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #1', async () => {
@@ -144,6 +147,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve signature and wave=2 when date is within the invarval of wave #2 and address is whitelisted', async () => {
@@ -160,6 +164,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #2', async () => {
@@ -187,6 +192,7 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.tokenPrice === '0.0').toBe(true)
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
+    expect(response.waveMaxTokensToBuy === 4).toBe(true)
   })
 
   test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #3', async () => {
