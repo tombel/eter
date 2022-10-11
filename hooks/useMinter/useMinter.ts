@@ -16,6 +16,7 @@ export interface IuseMinterValues {
   prepareError: Error
   isReady: boolean
   allowedToMint: number
+  isAddressNotQualify: boolean
   mint: () => void
   reset: () => void
 }
@@ -38,7 +39,11 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
   const allowedToMint =
     Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount)
 
-  console.log(mintDataError)
+  console.log(mintDataError?.message)
+
+  const isAddressNotQualify = mintDataError?.message == 'ADDR_NOT_QUALIFY'
+
+  console.log(isAddressNotQualify)
 
   const isReady =
     isConnected &&
@@ -126,5 +131,6 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     isReady,
     reset,
     allowedToMint,
+    isAddressNotQualify,
   }
 }

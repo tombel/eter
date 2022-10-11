@@ -30,7 +30,7 @@ export function useMintData({
 }: {
   address: string
   amount: number
-}): UseQueryResult<IMintData> {
+}): UseQueryResult<IMintData, Error> {
   const query = useQuery<IMintData, Error>('mintDATA', async ({ signal }) =>
     getMintData(address, amount, signal),
   )
