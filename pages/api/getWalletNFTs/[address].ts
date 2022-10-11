@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import Moralis from 'moralis'
-import { EvmChain } from '@moralisweb3/evm-utils'
+import { Network, Alchemy } from 'alchemy-sdk'
 
 import { RESPONSE_CODES } from '../../../utils/constants'
 import { isValidAddress } from '../../../server/eth/utils'
@@ -16,16 +15,17 @@ export default async function getWalletNFTs(
     if (!isValidAddress(address))
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_ADDRESS })
 
-    const chain = EvmChain.create(parseInt(process.env.CHAIN_ID))
-    const tokenAddresses = [process.env.NEXT_PUBLIC_CONTRACT_ADDRESS]
-    await Moralis.start({ apiKey: process.env.MORALIS_API_KEY })
-
-    const response = await Moralis.EvmApi.nft.getWalletNFTs({
-      address,
-      chain,
-      tokenAddresses,
-    })
-    return res.status(200).json(response)
+    const settings = {
+      apiKey: process.env.ALCHEMY_API_KEY,
+      network: process.env.CHAIN_ID === '5' ? Network.ETH_GOERLI : Network.ETH_MAINNET,
+    }
+    const alchemy = new Alchemy(settings)
+    const options = {
+      contractAddresses: [process.env.NEXT_PUBLIC_CONTRACT_ADDRESS],
+      tokenUriTimeoutInMs: parseInt(process.env.TOKEN_URI_TIMEOUT),
+    }
+    const nfts = await alchemy.nft.getNftsForOwner(address, options)
+    return res.status(200).json(nfts)
   } catch (error) {
     console.error(error)
     return res.status(500).json({ code: RESPONSE_CODES.INTERNAL_ERROR })

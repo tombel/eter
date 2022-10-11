@@ -56,7 +56,7 @@ export default async function getMintData(
       waveIndex = 3
     } else return res.status(400).json({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
     if ((waveIndex === 1 || waveIndex === 2) && !whitelistedAddresses.includes(address))
-      return res.status(200).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
+      return res.status(400).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
 
     const result = await Promise.all([
       getSignature(address),
