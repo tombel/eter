@@ -3,7 +3,7 @@ import styles from '../styles/Banners.module.css'
 
 export default function EnterKuniverse(): JSX.Element {
   return (
-    <div className={styles.EnterKuniverseSection}>
+    <div className={styles.EnterKuniverseSection} id="kuniverse">
       <div className={styles.bannerContainer}>
         <div className={styles.imageContainer}>
           <Image

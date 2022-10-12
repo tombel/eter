@@ -17,7 +17,7 @@ export default function LetsPlay(): JSX.Element {
         <div className={styles.textContainer}>
           <h3 className={styles.playLikeKunTitle}>VAMOS A JUGAR!</h3>
           <p className={styles.playLikeKunText}>
-            By minting Kun Agüero´s first NFT Avater Collection you will recieve:
+            By minting Kun Agüero´s first NFT Avatar Collection you will receive:
             <ul className="list-disc ml-20 mt-10">
               <li>A one kind playable avatar to wear in The Sandbox </li>
               <li>
@@ -25,7 +25,7 @@ export default function LetsPlay(): JSX.Element {
               </li>
               <li>
                 A chance to compete in exclusive challenges within the Kuniverse to win special
-                rewards by playing in The Sandbox, iincluding NFT drops, merchandising and more.
+                rewards by playing in The Sandbox, including NFT drops, merchandising and more.
               </li>
               <li>Entry to private events with Kun Agüero and other celebrities.</li>
             </ul>

@@ -9,9 +9,9 @@ export default function PlayLikeKun(): JSX.Element {
           <h3 className={styles.playLikeKunTitle}>PLAY LIKE KUN</h3>
           <p className={styles.playLikeKunText}>
             The Kuniverse Avatars are a collection of 9320 unique and randomly generated metaverse
-            avatars for the Sandbox. Each one will beplayable avatar inside The Sandbox unlocking
+            avatars for the Sandbox. Each one will be playable avatar inside The Sandbox unlocking
             unique functionalities and giving owners the possibility to win special prizes and
-            experiencies alongside Kun Aguero
+            experiencies alongside Kun Agüero
           </p>
         </div>
         <div className={styles.imageContainer}>

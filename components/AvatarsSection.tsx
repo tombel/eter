@@ -1,6 +1,7 @@
 import styles from '../styles/AvatarsSection.module.css'
 import AvatarItem from './AvatarItem'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function AvatarsSection(): JSX.Element {
   return (
@@ -14,14 +15,18 @@ export default function AvatarsSection(): JSX.Element {
           width={300}
           height={166}
         />
-        <Image
-          alt="Sandbox Logo"
-          src="/images/sandbox-logo-white.svg"
-          layout="fixed"
-          quality={100}
-          width={147}
-          height={44}
-        />
+        <Link href="https://www.sandbox.game/en/">
+          <a target="_blank" className="cursor-pointer">
+            <Image
+              alt="Sandbox Logo"
+              src="/images/sandbox-logo-white.svg"
+              layout="fixed"
+              quality={100}
+              width={147}
+              height={44}
+            />
+          </a>
+        </Link>
       </div>
 
       <div className="container text-center">
