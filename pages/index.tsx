@@ -23,37 +23,7 @@ export default function Home(): JSX.Element {
       <Header />
 
       <main className={styles.main}>
-        <div className={styles.bgWrap}>
-          <Image
-            alt="Kuniverse Background"
-            src="/images/bg-landing.png"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
-        </div>
-        <div className={styles.heroSection}>
-          <div className={styles.logo}>
-            <Image
-              alt="Kuniverse Logo"
-              src="/images/kuniverse-logo.png"
-              layout="fixed"
-              quality={100}
-              width={439}
-              height={223}
-            />
-            <Image
-              alt="Sandbox Logo"
-              src="/images/sandbox-logo.svg"
-              className={styles.sandboxLogo}
-              layout="fixed"
-              quality={100}
-              width={147}
-              height={44}
-            />
-          </div>
-          <AvatarsSection />
-        </div>
+        <AvatarsSection />
         <VideoSection />
         <PlayLikeKun />
         <EnterKuniverse />

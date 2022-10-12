@@ -1,9 +1,29 @@
 import styles from '../styles/AvatarsSection.module.css'
 import AvatarItem from './AvatarItem'
+import Image from 'next/image'
 
 export default function AvatarsSection(): JSX.Element {
   return (
     <div className={styles.AvatarsSection}>
+      <div className={styles.logo}>
+        <Image
+          alt="Kuniverse Logo"
+          src="/images/kuniverse-logo-black.png"
+          layout="fixed"
+          quality={100}
+          width={300}
+          height={166}
+        />
+        <Image
+          alt="Sandbox Logo"
+          src="/images/sandbox-logo-white.svg"
+          layout="fixed"
+          quality={100}
+          width={147}
+          height={44}
+        />
+      </div>
+
       <div className="container text-center">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem

@@ -3,11 +3,11 @@
 }
 
 .descriptionContainer {
-  @apply w-1/2 pr-30 -mt-96;
+  @apply w-1/2 pr-30;
 }
 
 .playLikeKunSection {
-  @apply bg-primary-color w-full h-[414px] pt-20;
+  @apply bg-primary-color w-full py-20;
 }
 
 .playLikeKunTitle {
@@ -23,7 +23,7 @@
 }
 
 .EnterKuniverseSection {
-  @apply bg-white w-full h-[414px] pt-60;
+  @apply bg-white w-full py-60;
 }
 
 .EnterKuniverseSection .description {
@@ -39,9 +39,9 @@
 }
 
 .LetsPlayBanner {
-  @apply container flex items-center -mt-80;
+  @apply container flex items-center;
 }
 
 .textContainer {
-  @apply pr-40 mt-60;
+  @apply pr-40;
 }

@@ -88,7 +88,7 @@ export default function Faq(): JSX.Element {
 
   return (
     <div className={styles.FaqSection}>
-      <div className="container">
+      <div className="container py-24">
         <h1 className={styles.FaqTitle}>F.A.Q.</h1>
         <div className={styles.FaqContainer}>
           {data.map((item) => {

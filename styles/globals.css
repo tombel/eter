@@ -59,11 +59,11 @@ a {
 }
 
 .header.active {
-  @apply bg-primary-color-100 shadow-header-shadow;
+  @apply bg-primary-color-500 shadow-header-shadow;
 }
 
 .header.active-white {
-  @apply bg-primary-color-100 shadow-none;
+  @apply bg-primary-color shadow-none;
 }
 
 .main-nav {
@@ -75,7 +75,7 @@ a {
 }
 
 .main-nav-link:not(.btn-small) {
-  @apply lg:hover:text-primary-color;
+  @apply lg:hover:text-white;
 }
 
 .main-nav-link.active {
@@ -88,7 +88,7 @@ a {
 
 .mobile-main-nav {
   @apply h-auto py-8 lg:hidden w-full absolute top-0 left-0;
-  @apply text-center bg-primary-color-100 bg-opacity-80 backdrop-blur -translate-y-[200%];
+  @apply text-center bg-primary-color bg-opacity-80 backdrop-blur -translate-y-[200%];
   @apply border border-white border-opacity-10 shadow-header-shadow;
   @apply transition-all ease-in-out duration-300;
 }

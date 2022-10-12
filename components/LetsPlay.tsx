@@ -37,8 +37,8 @@ export default function LetsPlay(): JSX.Element {
             src="/images/champion-monument.png"
             layout="fixed"
             quality={100}
-            width={500}
-            height={500}
+            width={400}
+            height={400}
           />
         </div>
       </div>
