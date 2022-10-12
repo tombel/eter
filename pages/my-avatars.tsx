@@ -6,8 +6,10 @@ import EmptyAvatar from '../components/EmptyAvatar'
 import MyAvatarCard from '../components/MyAvatarCard'
 import SimpleHeader from '../components/SimpleHeader'
 import { useNFTList } from '../hooks/useNFTList'
+import { useIsMounted } from '../hooks/useIsMounted'
 
 export default function MyAvatars(): JSX.Element {
+  const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected, address } = useAccount()
   React.useEffect(() => {
@@ -21,6 +23,8 @@ export default function MyAvatars(): JSX.Element {
   React.useEffect(() => {
     run()
   }, [])
+
+  if (!isMounted) return null
 
   return (
     <div>

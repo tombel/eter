@@ -100,6 +100,23 @@ export function MintAvatar(): JSX.Element {
       </Card>
     )
 
+  if (allowedToMint == 0)
+    return (
+      <Card>
+        <div className="flex flex-1 items-center h-full">
+          <div className="flex flex-col items-center font-base mb-20">
+            <h1 className="text-black font-semibold text-xl mt-12">NOT AVAILABLE</h1>
+            <p className="text-black mb-20">
+              Your connected wallet is not allowed to mint more avatars.
+            </p>
+            <button className="theme-primary" onClick={() => reset()}>
+              Try again
+            </button>
+          </div>
+        </div>
+      </Card>
+    )
+
   if (isError || isPrepareError)
     return (
       <Card>

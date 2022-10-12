@@ -38,12 +38,15 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
   ])
 
-  const allowedToMint =
-    Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount)
-
   const isAddressNotQualify = mintDataError?.message == 'ADDR_NOT_QUALIFY'
 
-  console.log(isAddressNotQualify)
+  const allowedToMint =
+    initialMintData && initialMintData?.isMintAllowed
+      ? Math.max(
+          0,
+          Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount),
+        )
+      : 0
 
   const isReady =
     isConnected &&
