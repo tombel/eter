@@ -27,7 +27,7 @@ function Header(): JSX.Element {
               <ul className="flex flex-col items-center w-full justify-center lg:flex-row px-32">
                 <li className="block w-full">
                   <Link
-                    href="/#home"
+                    href="/"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
                     <a className="main-nav-link">Home</a>
@@ -65,7 +65,7 @@ function Header(): JSX.Element {
             <nav className="main-nav hidden lg:block -mx-20">
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
                 <li className="block w-full px-64">
-                  <Link href="/#home">
+                  <Link href="/">
                     <a className="main-nav-link">Home</a>
                   </Link>
                 </li>

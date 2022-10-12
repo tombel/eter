@@ -31,20 +31,20 @@ export default function Faq(): JSX.Element {
     },
     {
       question: 'AT WHAT TIME DOES THE SALE START?',
-      answer: 'The sale will start on (Date) Whitelisted users will have access 48hours before.',
+      answer: 'The sale will start on (Date) Whitelisted users will have access 48 hours before.',
     },
     {
-      question: 'HOW MUCH SHOULD I EXPECT TO PAY FOR ONE STEVE AOKI AVATAR NFT?',
+      question: 'HOW MUCH SHOULD I EXPECT TO PAY FOR ONE KUN AGÜERO AVATAR NFT?',
       answer: 'One Avatar NFT will cost 100 SAND.',
     },
     {
       question: 'HOW MANY AVATARS CAN I MINT PER WALLET ADDRESS?',
       answer:
-        'The Kuniverse Avatars will be released in 3 waves: (Date) : People whitelisted by Kun Aguero himself will have a chance to mint up to 2 avatars per wallet, within a 48hours timeframe. (Date) : People of Aguero’s community that are whitelisted will have a chance to mint up to 2 avatars per wallet, within a 24 hours timeframe.(Date) : Public release. Every user will have the chance to mint up to 4 avatars per wallet. *please note that the firts whitelist wave will be limited to a maximum of (6000?) Kuniverse Avatars. This is to ensure a fair distribution for all other users.',
+        'The Kuniverse Avatars will be released in 3 waves: (Date) : People whitelisted by Kun Agüero himself will have a chance to mint up to 2 avatars per wallet, within a 48 hours timeframe. (Date) : People of Agüero’s community that are whitelisted will have a chance to mint up to 2 avatars per wallet, within a 24 hours timeframe.(Date) : Public release. Every user will have the chance to mint up to 4 avatars per wallet. *please note that the first whitelist wave will be limited to a maximum of (6000?) Kuniverse Avatars. This is to ensure a fair distribution for all other users.',
     },
     {
       question: 'HOW CAN I SEE MY AVATAR?',
-      answer: 'The Kun Aguero Avatars will be revealed 48hs after minting on OpenSea.',
+      answer: 'The Kuniverse Avatars will be revealed 48 hours after minting on OpenSea.',
     },
     {
       question: 'CAN I MINT USING ANY WALLET?',
@@ -61,7 +61,7 @@ export default function Faq(): JSX.Element {
         'You will be able to use it as an Avatar by simply selecting it in the Avatar Manager in The Sandbox dashboard once it has been enabled.',
     },
     {
-      question: 'WHERE CAN I BUY A KUN AGUERO AVATAR AFTER THE INITIAL SALE IS OVER?',
+      question: 'WHERE CAN I BUY A KUNIVERSE AVATAR AFTER THE INITIAL SALE IS OVER?',
       answer:
         'After the initial sale is over, you will be able to purchase as many avatars as you like from users that are willing to sell theirs on the secondary marketplace OpenSea.',
     },
@@ -88,7 +88,7 @@ export default function Faq(): JSX.Element {
 
   return (
     <div className={styles.FaqSection}>
-      <div className="container">
+      <div className="container py-24">
         <h1 className={styles.FaqTitle}>F.A.Q.</h1>
         <div className={styles.FaqContainer}>
           {data.map((item) => {

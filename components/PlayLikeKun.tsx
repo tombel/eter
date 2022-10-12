@@ -8,10 +8,10 @@ export default function PlayLikeKun(): JSX.Element {
         <div className={styles.descriptionContainer}>
           <h3 className={styles.playLikeKunTitle}>PLAY LIKE KUN</h3>
           <p className={styles.playLikeKunText}>
-            The Kuniverse Avatars are a collection of 930 unique and randomly generated metaverse
-            avatars for the Sandbox. Each one will beplayable avatar inside The Sandbox unlocking
+            The Kuniverse Avatars are a collection of 9320 unique and randomly generated metaverse
+            avatars for the Sandbox. Each one will be playable avatar inside The Sandbox unlocking
             unique functionalities and giving owners the possibility to win special prizes and
-            experiencies alongside Kun Aguero
+            experiencies alongside Kun Agüero
           </p>
         </div>
         <div className={styles.imageContainer}>
@@ -20,16 +20,16 @@ export default function PlayLikeKun(): JSX.Element {
             src="/images/entity-03.png"
             layout="fixed"
             quality={100}
-            width={256}
-            height={495}
+            width={240}
+            height={400}
           />
           <Image
             alt="Kun Entity 1"
             src="/images/entity-01.png"
             layout="fixed"
             quality={100}
-            width={256}
-            height={495}
+            width={207}
+            height={400}
           />
         </div>
       </div>

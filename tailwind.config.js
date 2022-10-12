@@ -22,6 +22,8 @@ module.exports = {
       'primary-color': {
         DEFAULT: '#BF76FC',
         100: '#C0BFFB',
+        200: '#ff54ff',
+        500: '#890071',
       },
       grey: {
         100: '#c1d0e0',
