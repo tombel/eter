@@ -6,30 +6,27 @@ const initialState: INFTListState = {
 }
 
 export interface INFTInfo {
-  chain: string
-  contractType: string
-  tokenAddress: string
   tokenId: string
-  tokenUri: string
-  name: string
-  symbol: string
-  amount: number
-  blockNumberMinted: string
-  blockNumber: string
-  ownerOf: string
-  tokenHash: string
-  lastMetadataSync: string
-  lastTokenUriSync: string
+  title: string
+  rawMetadata: {
+    image_url: string
+    description: string
+  }
+  token_uri: string
+}
+
+interface GetNFTsPayloadData {
+  ownedNfts: INFTInfo[] | null
 }
 
 export interface INFTListState {
   isLoading: boolean
   status: 'idle' | 'fetching' | 'error' | 'success'
   error?: unknown | null
-  data?: INFTInfo[] | null
+  data?: GetNFTsPayloadData
 }
 
-async function getNFTData(address: string, signal: AbortSignal): Promise<INFTInfo[]> {
+async function getNFTData(address: string, signal: AbortSignal): Promise<GetNFTsPayloadData> {
   const response = await fetch(`/api/getWalletNFTs/${address}/`, {
     signal,
   })
@@ -62,7 +59,7 @@ function reducer(
         ...state,
         isLoading: false,
         status: 'success',
-        data: action.payload as INFTInfo[],
+        data: action.payload as GetNFTsPayloadData,
         error: null,
       }
     }

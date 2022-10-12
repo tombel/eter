@@ -52,14 +52,10 @@ export default function MyAvatars(): JSX.Element {
               {isLoading ? (
                 <MyAvatarCard name="Loading..." url={'/images/unrevealed.jpeg'} />
               ) : (
-                data
-                  ?.map((x) => {
+                data?.ownedNfts
+                  .map((x) => {
                     return (
-                      <MyAvatarCard
-                        key={x.tokenHash}
-                        name={x.name}
-                        url={`https://gateway.pinata.cloud/ipfs/QmcY7Nu41GZQ3noZSFMW7zHDg75swP5Vf4F3u3f7PeWmj7/${x.tokenId}.jpg`}
-                      />
+                      <MyAvatarCard key={x.tokenId} name={x.title} url={x.rawMetadata.image_url} />
                     )
                   })
                   .concat(<EmptyAvatar />)
