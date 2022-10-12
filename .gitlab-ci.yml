@@ -38,3 +38,15 @@ deploy-uat:
     refs:
       - master
   when: manual
+
+deploy-prod:
+  image: node:16.17.0-alpine
+  stage: deploy
+  script:
+    - npm i -g vercel
+    - VERCEL_ORG_ID="team_vt7AlVwuFxaAnHkuAWXVQrIJ" VERCEL_PROJECT_ID="prj_MDyQqokb1RwWhBsYdpWXhTyNlSZr" vercel --token $VERCEL_TOKEN_KUN_PROD deploy --prod
+  only:
+    refs:
+      - master
+      - chore/prod-deployment
+  when: manual
