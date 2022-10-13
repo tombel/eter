@@ -8,6 +8,11 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 //import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+// Create a client
+const queryClient = new QueryClient()
+
 const { chains, provider, webSocketProvider } = configureChains(
   [...(process.env.CHAIN_ID == '1' ? [chain.mainnet] : [chain.goerli])], // testnet fix to be configurable
   [publicProvider()],
@@ -36,9 +41,11 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <WagmiConfig client={client}>
-      <Component {...pageProps} />
-    </WagmiConfig>
+    <QueryClientProvider client={queryClient}>
+      <WagmiConfig client={client}>
+        <Component {...pageProps} />
+      </WagmiConfig>
+    </QueryClientProvider>
   )
 }
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { utils } from 'ethers'
 
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
@@ -26,17 +25,11 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
   const {
     status,
     data: initialMintData,
-    error: signatureError,
-    generate,
+    error: mintDataError,
   } = useMintData({
     address,
     amount: quantity,
   })
-
-  React.useEffect(() => {
-    generate()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, quantity])
 
   const iface = new utils.Interface([
     'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
@@ -45,9 +38,11 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
   const allowedToMint =
     Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount)
 
+  console.log(mintDataError)
+
   const isReady =
     isConnected &&
-    !signatureError &&
+    !mintDataError &&
     Boolean(address) &&
     status == 'success' &&
     quantity <= allowedToMint
@@ -66,7 +61,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    addressOrName: process.env.NEXT_PUBLIC_SAND_CONTRACT_ADDRESS, // should be a env config
+    addressOrName: process.env.NEXT_PUBLIC_SAND_CONTRACT_ADDRESS,
     contractInterface: [
       {
         constant: false,
@@ -114,6 +109,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     isLoading: isLoadingTransation,
     isSuccess,
     isError,
+    data: transactionData,
   } = useWaitForTransaction({
     hash: data?.hash,
   })
@@ -123,7 +119,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     error,
     isSuccess,
     data,
-    isError: isErrorWhite || isError,
+    isError: isErrorWhite || isError || transactionData?.status === 0,
     mint: write,
     isPrepareError,
     prepareError,
