@@ -16,10 +16,20 @@ function Card({ children }: { children: React.ReactNode }): JSX.Element {
 export function MintAvatar(): JSX.Element {
   const router = useRouter()
   const [quantity, setQuantity] = React.useState<number>(1)
-  const { mint, allowedToMint, isLoading, isSuccess, isError, isPrepareError, isReady, reset } =
-    useMinter({
-      quantity,
-    })
+  const {
+    mint,
+    allowedToMint,
+    isLoading,
+    isSuccess,
+    isError,
+    isPrepareError,
+    isReady,
+    isAddressNotQualify,
+    isLoadingPrepare,
+    reset,
+  } = useMinter({
+    quantity,
+  })
 
   React.useEffect(() => {
     let timeout
@@ -33,6 +43,18 @@ export function MintAvatar(): JSX.Element {
     return () => clearTimeout(timeout)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess])
+
+  if (isLoadingPrepare)
+    return (
+      <Card>
+        <div className="flex flex-1 items-center h-full">
+          <div className="flex flex-1 flex-col items-center h-full">
+            <LoadingIcon />
+            <p className="text-black font-base mb-20">Wait until we prepare your wallet</p>
+          </div>
+        </div>
+      </Card>
+    )
 
   if (isLoading)
     return (
@@ -55,6 +77,24 @@ export function MintAvatar(): JSX.Element {
               Successfully minted your NFT!
             </h1>
             <p className="text-black font-base mb-20">Please wait while you are redirected</p>
+          </div>
+        </div>
+      </Card>
+    )
+
+  if (isAddressNotQualify)
+    return (
+      <Card>
+        <div className="flex flex-1 items-center h-full">
+          <div className="flex flex-col items-center font-base mb-20">
+            <h1 className="text-black font-semibold text-xl mt-12">NOT WHITELISTED</h1>
+            <p className="text-black mb-20">
+              Your connected wallet is not in the welcome list. Make sure to be connected with the
+              correct wallet.
+            </p>
+            <button className="theme-primary" onClick={() => reset()}>
+              Reconnect
+            </button>
           </div>
         </div>
       </Card>
