@@ -1,6 +1,5 @@
 import { ethers } from 'ethers'
 
-// const provider = ethers.providers.getDefaultProvider(process.env.CHAIN_ID == '5' ? 'goerli' : null)
 const provider = process.env.RPC_URL
   ? new ethers.providers.JsonRpcProvider(process.env.RPC_URL)
   : ethers.providers.getDefaultProvider(process.env.CHAIN_ID == '5' ? 'goerli' : null)
@@ -9,6 +8,7 @@ const getContract = (): ethers.Contract => {
   return new ethers.Contract(
     process.env.NEXT_PUBLIC_CONTRACT_ADDRESS ?? '',
     [
+      'function indexWave() public view returns (uint256)',
       'function waveSingleTokenPrice() public view returns (uint256)',
       'function waveOwnerToClaimedCounts(address wallet, uint256 wave) public view returns (uint256)',
       'function checkMintAllowed(address _wallet, uint256 _amount) public view returns (bool)',
@@ -16,6 +16,12 @@ const getContract = (): ethers.Contract => {
     ],
     provider,
   )
+}
+
+export const getCurrentWaveIndex = async (): Promise<number> => {
+  const contract: ethers.Contract = getContract()
+  const currentWaveIndex = await contract.indexWave()
+  return currentWaveIndex.toNumber()
 }
 
 export const getTokenPrice = async (): Promise<string> => {
