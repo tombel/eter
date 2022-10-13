@@ -10,6 +10,7 @@ export default function MintNft(): JSX.Element {
   const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected } = useAccount()
+
   useEffect(() => {
     if (!isConnected) {
       router.push('/connect')

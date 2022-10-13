@@ -12,17 +12,14 @@ export default function MyAvatars(): JSX.Element {
   const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected, address } = useAccount()
+
   React.useEffect(() => {
     if (!isConnected) {
       router.push('/connect')
     }
   }, [isConnected, router])
 
-  const { isLoading, data, run } = useNFTList(address)
-
-  React.useEffect(() => {
-    run()
-  }, [])
+  const { isLoading, data } = useNFTList(address)
 
   if (!isMounted) return null
 

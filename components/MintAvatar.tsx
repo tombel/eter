@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useMinter } from '../hooks/useMinter'
 import AvatarSelector from './AvatarSelector'
 import LoadingIcon from './LoadingIcon'
+import { useDisconnect } from 'wagmi'
 
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return (
@@ -15,6 +16,7 @@ function Card({ children }: { children: React.ReactNode }): JSX.Element {
 
 export function MintAvatar(): JSX.Element {
   const router = useRouter()
+  const { disconnect } = useDisconnect()
   const [quantity, setQuantity] = React.useState<number>(1)
   const {
     mint,
@@ -109,7 +111,7 @@ export function MintAvatar(): JSX.Element {
             <p className="text-black mb-20">
               Your connected wallet is not allowed to mint more avatars.
             </p>
-            <button className="theme-primary" onClick={() => reset()}>
+            <button className="theme-primary" onClick={() => disconnect()}>
               Try again
             </button>
           </div>
