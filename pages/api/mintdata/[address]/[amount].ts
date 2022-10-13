@@ -1,4 +1,3 @@
-import { isWithinInterval } from 'date-fns'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import config from '../../../../server/config/waves'
@@ -10,6 +9,7 @@ import {
   checkMintAllowed,
   isValidAddress,
   getWaveMaxTokensToBuy,
+  getCurrentWaveIndex,
 } from '../../../../server/eth/utils'
 
 interface MintDataResponse {
@@ -40,22 +40,14 @@ export default async function getMintData(
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_AMOUNT })
     }
 
-    let waveIndex = 0
-    let whitelistedAddresses = []
-    const currentTime = process.env.CUSTOM_DATE
-      ? new Date(process.env.CUSTOM_DATE).getTime()
-      : new Date().getTime()
+    const waveIndex = await getCurrentWaveIndex()
+    if (waveIndex === 0) {
+      return res.status(400).json({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
+    }
 
-    if (isWithinInterval(currentTime, config.wave1.interval)) {
-      waveIndex = 1
-      whitelistedAddresses = config.wave1.whitelistedAddresses
-    } else if (isWithinInterval(currentTime, config.wave2.interval)) {
-      waveIndex = 2
-      whitelistedAddresses = config.wave2.whitelistedAddresses
-    } else if (isWithinInterval(currentTime, config.wave3.interval)) {
-      waveIndex = 3
-    } else return res.status(400).json({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
-    if ((waveIndex === 1 || waveIndex === 2) && !whitelistedAddresses.includes(address))
+    const whitelistedAddresses =
+      waveIndex <= config.length - 1 ? config[waveIndex].whitelistedAddresses : ['']
+    if (whitelistedAddresses.length > 0 && !whitelistedAddresses.includes(address))
       return res.status(400).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
 
     const result = await Promise.all([
