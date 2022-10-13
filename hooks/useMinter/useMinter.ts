@@ -1,4 +1,3 @@
-import React from 'react'
 import { utils } from 'ethers'
 
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
@@ -17,6 +16,8 @@ export interface IuseMinterValues {
   prepareError: Error
   isReady: boolean
   allowedToMint: number
+  isAddressNotQualify: boolean
+  isLoadingPrepare: boolean
   mint: () => void
   reset: () => void
 }
@@ -24,30 +25,32 @@ export interface IuseMinterValues {
 export function useMinter({ quantity }: { quantity: number }): IuseMinterValues {
   const { isConnected, address } = useAccount()
   const {
+    isLoading: isLoadingPrepare,
     status,
     data: initialMintData,
-    error: signatureError,
-    generate,
+    error: mintDataError,
   } = useMintData({
     address,
     amount: quantity,
   })
 
-  React.useEffect(() => {
-    generate()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, quantity])
-
   const iface = new utils.Interface([
     'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
   ])
 
+  const isAddressNotQualify = mintDataError?.message == 'ADDR_NOT_QUALIFY'
+
   const allowedToMint =
-    Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount)
+    initialMintData && initialMintData?.isMintAllowed
+      ? Math.max(
+          0,
+          Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount),
+        )
+      : 0
 
   const isReady =
     isConnected &&
-    !signatureError &&
+    !mintDataError &&
     Boolean(address) &&
     status == 'success' &&
     quantity <= allowedToMint
@@ -66,7 +69,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    addressOrName: process.env.NEXT_PUBLIC_SAND_CONTRACT_ADDRESS, // should be a env config
+    addressOrName: process.env.NEXT_PUBLIC_SAND_CONTRACT_ADDRESS,
     contractInterface: [
       {
         constant: false,
@@ -114,6 +117,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     isLoading: isLoadingTransation,
     isSuccess,
     isError,
+    data: transactionData,
   } = useWaitForTransaction({
     hash: data?.hash,
   })
@@ -123,12 +127,14 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     error,
     isSuccess,
     data,
-    isError: isErrorWhite || isError,
+    isError: isErrorWhite || isError || transactionData?.status === 0,
     mint: write,
     isPrepareError,
     prepareError,
     isReady,
     reset,
     allowedToMint,
+    isAddressNotQualify,
+    isLoadingPrepare,
   }
 }

@@ -6,21 +6,40 @@ import EmptyAvatar from '../components/EmptyAvatar'
 import MyAvatarCard from '../components/MyAvatarCard'
 import SimpleHeader from '../components/SimpleHeader'
 import { useNFTList } from '../hooks/useNFTList'
+import { useIsMounted } from '../hooks/useIsMounted'
+import { GetServerSideProps } from 'next/types'
 
-export default function MyAvatars(): JSX.Element {
+export const getServerSideProps: GetServerSideProps = async () => {
+  // ...
+  return {
+    props: {
+      network: process.env.CHAIN_ID,
+    },
+  }
+}
+
+function generateOpenSeaLink(address: string, tokenId: string, network): string {
+  if (network === '5') {
+    return `https://testnets.opensea.io/assets/goerli/${address}/${tokenId}`
+  }
+
+  return `https://opensea.io/assets/ethereum/${address}/${tokenId}`
+}
+
+export default function MyAvatars({ network }: { network: string }): JSX.Element {
+  const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected, address } = useAccount()
+
   React.useEffect(() => {
     if (!isConnected) {
       router.push('/connect')
     }
   }, [isConnected, router])
 
-  const { isLoading, data, run } = useNFTList(address)
+  const { isLoading, data } = useNFTList(address)
 
-  React.useEffect(() => {
-    run()
-  }, [])
+  if (!isMounted) return null
 
   return (
     <div>
@@ -55,10 +74,15 @@ export default function MyAvatars(): JSX.Element {
                 data?.ownedNfts
                   .map((x) => {
                     return (
-                      <MyAvatarCard key={x.tokenId} name={x.title} url={x.rawMetadata.image_url} />
+                      <MyAvatarCard
+                        key={x.tokenId}
+                        name={x.title}
+                        url={x.rawMetadata.image_url}
+                        openseaURL={generateOpenSeaLink(x.contract.address, x.tokenId, network)}
+                      />
                     )
                   })
-                  .concat(<EmptyAvatar />)
+                  .concat(<EmptyAvatar key={'empty'} />)
               )}
             </div>
           </div>

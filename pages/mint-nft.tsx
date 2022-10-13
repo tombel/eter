@@ -4,15 +4,20 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { MintAvatar } from '../components/MintAvatar'
 import SimpleHeader from '../components/SimpleHeader'
+import { useIsMounted } from '../hooks/useIsMounted'
 
 export default function MintNft(): JSX.Element {
+  const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected } = useAccount()
+
   useEffect(() => {
     if (!isConnected) {
       router.push('/connect')
     }
   }, [isConnected, router])
+
+  if (!isMounted) return null
 
   return (
     <div className="flex w-full justify-center items-center relative py-40 bg-grey-700 h-screen">

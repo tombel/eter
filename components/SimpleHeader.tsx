@@ -1,9 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useAccount, useDisconnect } from 'wagmi'
 import LanguajeSelector from './LanguajeSelector'
 
 function SimpleHeader(): JSX.Element {
+  const { isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
   return (
     <div className="header-container">
       <header className="header active flex items-center h-70 py-16 fixed top-0 left-0 right-0 text-black transition-all z-50">
@@ -32,6 +35,11 @@ function SimpleHeader(): JSX.Element {
             </div>
             <div className="flex gap-12">
               <LanguajeSelector />
+              {isConnected ? (
+                <button className="theme-primary" onClick={() => disconnect()}>
+                  Logout
+                </button>
+              ) : null}
             </div>
           </div>
         </div>

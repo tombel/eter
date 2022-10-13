@@ -13,7 +13,7 @@ import {
 } from '../../../../server/eth/utils'
 
 interface MintDataResponse {
-  code: string
+  code: RESPONSE_CODES
   signature?: string
   signatureId?: string
   waveIndex?: number
