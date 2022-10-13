@@ -94,6 +94,11 @@ export function ConnectWallet(): JSX.Element {
           />
           <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WRONG</h1>
           <p className="text-warning mb-20">The Application has encountered an unknown error</p>
+          {process.env.NODE_ENV === 'development' ? (
+            <p className="bg-grey-400 w-full h-[60px] overflow-auto p-5 m-5">
+              <pre>{error.message}</pre>
+            </p>
+          ) : null}
           <Button className="theme-primary" onClick={() => reset()}>
             Try Again
           </Button>
