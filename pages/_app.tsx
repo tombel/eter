@@ -14,7 +14,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 const queryClient = new QueryClient()
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [...(process.env.CHAIN_ID == '1' ? [chain.mainnet] : [chain.goerli])], // testnet fix to be configurable
+  [...(process.env.CHAIN_ID == '1' ? [chain.mainnet] : [chain.goerli])], // this works because run the server side, but it should be NEXT_PUBLIC_CHAIN_ID
   [publicProvider()],
 )
 

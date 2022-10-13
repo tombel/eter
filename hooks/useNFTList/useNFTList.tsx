@@ -1,6 +1,9 @@
 import { useQuery, UseQueryResult } from 'react-query'
 
 export interface INFTInfo {
+  contract: {
+    address: string
+  }
   tokenId: string
   title: string
   rawMetadata: {
