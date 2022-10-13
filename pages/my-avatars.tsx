@@ -23,7 +23,7 @@ function generateOpenSeaLink(address: string, tokenId: string, network): string 
     return `https://testnets.opensea.io/assets/goerli/${address}/${tokenId}`
   }
 
-  return `https://opensea.io/assets/ethereum/0x4291fb0228e505d7008c457bdf472a725d3afb0b/3226`
+  return `https://opensea.io/assets/ethereum/${address}/${tokenId}`
 }
 
 export default function MyAvatars({ network }: { network: string }): JSX.Element {
