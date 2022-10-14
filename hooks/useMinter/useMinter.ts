@@ -115,19 +115,22 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
 
   const {
     isLoading: isLoadingTransation,
-    isSuccess,
-    isError,
+    isSuccess: isSuccessRequest,
+    isError: isErrorRequest,
     data: transactionData,
   } = useWaitForTransaction({
     hash: data?.hash,
   })
 
+  const isError = isErrorWhite || isErrorRequest || transactionData?.status == 0
+  const isSuccess = isSuccessRequest && transactionData?.status == 1
+
   return {
     isLoading: isLoadingTransation || isLoading,
     error,
-    isSuccess,
+    isSuccess: isSuccess,
     data,
-    isError: isErrorWhite || isError || transactionData?.status === 0,
+    isError,
     mint: write,
     isPrepareError,
     prepareError,
