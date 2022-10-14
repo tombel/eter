@@ -5,6 +5,7 @@ import { useMinter } from '../hooks/useMinter'
 import AvatarSelector from './AvatarSelector'
 import LoadingIcon from './LoadingIcon'
 import { useDisconnect } from 'wagmi'
+import { useIntl } from 'react-intl'
 
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return (
@@ -15,6 +16,7 @@ function Card({ children }: { children: React.ReactNode }): JSX.Element {
 }
 
 export function MintAvatar(): JSX.Element {
+  const intl = useIntl()
   const router = useRouter()
   const { disconnect } = useDisconnect()
   const [quantity, setQuantity] = React.useState<number>(1)
@@ -52,7 +54,9 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-1 flex-col items-center h-full">
             <LoadingIcon />
-            <p className="text-black font-base mb-20">Wait until we prepare your wallet</p>
+            <p className="text-black font-base mb-20">
+              {intl.formatMessage({ id: 'page.mint.nft.wait.prepare' })}
+            </p>
           </div>
         </div>
       </Card>
@@ -64,7 +68,9 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-1 flex-col items-center h-full">
             <LoadingIcon />
-            <p className="text-black font-base mb-20">Your transaction is being processed.</p>
+            <p className="text-black font-base mb-20">
+              {intl.formatMessage({ id: 'page.mint.nft.transaction' })}
+            </p>
           </div>
         </div>
       </Card>
@@ -76,9 +82,11 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-1 flex-col items-center">
             <h1 className="text-primary-color font-semibold text-xl text-center">
-              Successfully minted your NFT!
+              {intl.formatMessage({ id: 'page.mint.nft.success.title' })}
             </h1>
-            <p className="text-black font-base mb-20">Please wait while you are redirected</p>
+            <p className="text-black font-base mb-20">
+              {intl.formatMessage({ id: 'page.mint.nft.success.text' })}
+            </p>
           </div>
         </div>
       </Card>
@@ -89,13 +97,14 @@ export function MintAvatar(): JSX.Element {
       <Card>
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-col items-center font-base mb-20">
-            <h1 className="text-black font-semibold text-xl mt-12">NOT WHITELISTED</h1>
+            <h1 className="text-black font-semibold text-xl mt-12">
+              {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.title' })}
+            </h1>
             <p className="text-black mb-20">
-              Your connected wallet is not in the welcome list. Make sure to be connected with the
-              correct wallet.
+              {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.text' })}
             </p>
             <button className="theme-primary" onClick={() => reset()}>
-              Reconnect
+              {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.button' })}
             </button>
           </div>
         </div>
@@ -107,12 +116,14 @@ export function MintAvatar(): JSX.Element {
       <Card>
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-col items-center font-base mb-20">
-            <h1 className="text-black font-semibold text-xl mt-12">NOT AVAILABLE</h1>
+            <h1 className="text-black font-semibold text-xl mt-12">
+              {intl.formatMessage({ id: 'page.mint.nft.not.available.title' })}
+            </h1>
             <p className="text-black mb-20">
-              Your connected wallet is not allowed to mint more avatars.
+              {intl.formatMessage({ id: 'page.mint.nft.not.available.text' })}
             </p>
             <button className="theme-primary" onClick={() => disconnect()}>
-              Try again
+              {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.button' })}
             </button>
           </div>
         </div>
@@ -132,10 +143,12 @@ export function MintAvatar(): JSX.Element {
               width={40}
               height={40}
             />
-            <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WRONG</h1>
-            <p className="text-warning mb-20">The Application has encountered an unknown error</p>
+            <h1 className="text-warning font-semibold text-xl mt-12">
+              {intl.formatMessage({ id: 'general.error.title' })}
+            </h1>
+            <p className="text-warning mb-20">{intl.formatMessage({ id: 'general.error.text' })}</p>
             <button className="theme-primary" onClick={() => reset()}>
-              Try Again
+              {intl.formatMessage({ id: 'page.connect.wallet.try.again' })}
             </button>
           </div>
         </div>
@@ -152,7 +165,7 @@ export function MintAvatar(): JSX.Element {
       >
         <div className="flex flex-col items-center">
           <h1 className="text-primary-color font-semibold text-xl text-center">
-            YOUR WALLET IS CONNECTED!
+            {intl.formatMessage({ id: 'page.mint.nft.connected' })}
           </h1>
           <Image
             alt="Kuniverse Logo"
@@ -162,7 +175,9 @@ export function MintAvatar(): JSX.Element {
             width={80}
             height={80}
           />
-          <p className="text-black text-center my-12">How many avatars do you want?</p>
+          <p className="text-black text-center my-12">
+            {intl.formatMessage({ id: 'page.mint.nft.connected.how.many' })}
+          </p>
           <AvatarSelector
             max={allowedToMint}
             onChange={(value) => {
@@ -171,7 +186,7 @@ export function MintAvatar(): JSX.Element {
             disabled={!isReady}
           />
           <button className="theme-primary mt-12 w-[200px]" type="submit" disabled={!isReady}>
-            Mint Now
+            {intl.formatMessage({ id: 'page.mint.nft.mint.now' })}
           </button>
         </div>
       </form>

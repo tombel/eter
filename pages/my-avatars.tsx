@@ -8,6 +8,7 @@ import SimpleHeader from '../components/SimpleHeader'
 import { useNFTList } from '../hooks/useNFTList'
 import { useIsMounted } from '../hooks/useIsMounted'
 import { GetServerSideProps } from 'next/types'
+import { useIntl } from 'react-intl'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   // ...
@@ -27,6 +28,7 @@ function generateOpenSeaLink(address: string, tokenId: string, network): string 
 }
 
 export default function MyAvatars({ network }: { network: string }): JSX.Element {
+  const intl = useIntl()
   const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected, address } = useAccount()
@@ -68,10 +70,15 @@ export default function MyAvatars({ network }: { network: string }): JSX.Element
               height={223}
             />
 
-            <p className="font-base text-3xl font-bold text-white mb-24 text-center">MY AVATARS</p>
+            <h1 className="font-base text-3xl font-bold text-white mb-24 text-center">
+              {intl.formatMessage({ id: 'page.my.avatars.title' })}
+            </h1>
             <div className="bg-white rounded-3xl shadow-lg w-full font-base p-20 flex flex-wrap gap-12 items-center">
               {isLoading ? (
-                <MyAvatarCard name="Loading..." url={'/images/unrevealed.jpeg'} />
+                <MyAvatarCard
+                  name={intl.formatMessage({ id: 'page.my.avatars.loading' })}
+                  url={'/images/unrevealed.jpeg'}
+                />
               ) : (
                 data?.ownedNfts
                   .map((x) => {

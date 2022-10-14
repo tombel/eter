@@ -1,35 +1,28 @@
 import Image from 'next/image'
 import React from 'react'
+import { useIntl } from 'react-intl'
+
 import styles from '../styles/Banners.module.css'
 
 export default function LetsPlay(): JSX.Element {
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => setMounted(true), [])
-
-  if (!mounted) {
-    return null
-  }
+  const intl = useIntl()
 
   return (
     <div className={styles.playLikeKunSection}>
       <div className={styles.LetsPlayBanner}>
         <div className={styles.textContainer}>
-          <h3 className={styles.playLikeKunTitle}>VAMOS A JUGAR!</h3>
+          <h3 className={styles.playLikeKunTitle}>
+            {intl.formatMessage({ id: 'page.home.lets.play.title' })}
+          </h3>
           <p className={styles.playLikeKunText}>
-            By minting Kun Agüero´s first NFT Avatar Collection you will receive:
-            <ul className="list-disc ml-20 mt-10">
-              <li>A one kind playable avatar to wear in The Sandbox </li>
-              <li>
-                VIP access to exclusive social media channels to interact directly with Kun Agüero.
-              </li>
-              <li>
-                A chance to compete in exclusive challenges within the Kuniverse to win special
-                rewards by playing in The Sandbox, including NFT drops, merchandising and more.
-              </li>
-              <li>Entry to private events with Kun Agüero and other celebrities.</li>
-            </ul>
+            {intl.formatMessage({ id: 'page.home.lets.play.description' })}
           </p>
+          <ul className="list-disc ml-20 mt-10">
+            <li>{intl.formatMessage({ id: 'page.home.lets.play.list.one' })}</li>
+            <li>{intl.formatMessage({ id: 'page.home.lets.play.list.two' })}</li>
+            <li>{intl.formatMessage({ id: 'page.home.lets.play.list.three' })}</li>
+            <li>{intl.formatMessage({ id: 'page.home.lets.play.list.four' })}</li>
+          </ul>
         </div>
         <div className={styles.imageContainer}>
           <Image

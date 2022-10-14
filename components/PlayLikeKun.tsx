@@ -1,17 +1,19 @@
 import Image from 'next/image'
+import { useIntl } from 'react-intl'
 import styles from '../styles/Banners.module.css'
 
 export default function PlayLikeKun(): JSX.Element {
+  const intl = useIntl()
+
   return (
     <div className={styles.playLikeKunSection}>
       <div className={styles.bannerContainer}>
         <div className={styles.descriptionContainer}>
-          <h3 className={styles.playLikeKunTitle}>PLAY LIKE KUN</h3>
+          <h3 className={styles.playLikeKunTitle}>
+            {intl.formatMessage({ id: 'page.home.play.like.a.kun.title' })}
+          </h3>
           <p className={styles.playLikeKunText}>
-            The Kuniverse Avatars are a collection of 9320 unique and randomly generated metaverse
-            avatars for the Sandbox. Each one will be playable avatar inside The Sandbox unlocking
-            unique functionalities and giving owners the possibility to win special prizes and
-            experiencies alongside Kun Agüero
+            {intl.formatMessage({ id: 'page.home.play.like.a.kun.text' })}
           </p>
         </div>
         <div className={styles.imageContainer}>

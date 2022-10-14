@@ -1,13 +1,15 @@
 import Image from 'next/image'
+import { useIntl } from 'react-intl'
 import styles from '../styles/BrandsSection.module.css'
 
 export default function Brands(): JSX.Element {
+  const intl = useIntl()
+
   return (
     <div className={styles.BrandsSection}>
-      <div className="container text-center">
-        <h1>
-          Brands & IPs already <br />
-          in The Sandbox Metaverse.
+      <div className="container flex flex-col items-center">
+        <h1 className="w-[400px] text-center">
+          {intl.formatMessage({ id: 'page.home.brands.title' })}
         </h1>
         <div className={styles.BrandsLogos}>
           <a
