@@ -35,7 +35,7 @@ export default function Faq(): JSX.Element {
                     <AccordionItemButton>{item.question}</AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
-                    <p>{item.answer}</p>
+                    <div dangerouslySetInnerHTML={{ __html: item.answer }}></div>
                   </AccordionItemPanel>
                 </AccordionItem>
               </Accordion>
