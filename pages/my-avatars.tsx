@@ -41,6 +41,8 @@ export default function MyAvatars({ network }: { network: string }): JSX.Element
 
   if (!isMounted) return null
 
+  if (!isMounted) return null
+
   return (
     <div>
       <SimpleHeader />
