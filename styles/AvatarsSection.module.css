@@ -46,6 +46,28 @@
 }
 
 .Avatar {
+  position: relative !important;
+  height: 475px !important;
+}
+
+.ekun-01 {
+  width: 360px !important;
+}
+
+.ekun-02 {
+  width: 334px !important;
+}
+
+.ekun-03 {
+  width: 321px !important;
+}
+
+.ekun-04 {
+  width: 244px !important;
+}
+
+.ekun-05 {
+  width: 225px !important;
 }
 
 .Avatar .ImageGif {

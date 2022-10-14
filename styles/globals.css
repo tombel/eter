@@ -56,6 +56,20 @@ a {
   z-index: -1;
 }
 
+.bg-mint-section {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background-image: url(../public/images/bg_landing.png);
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll;
+  background-size: cover !important;
+  position: relative;
+  display: block;
+}
+
 /* ---------------- Header ------------------ */
 
 .header-container {

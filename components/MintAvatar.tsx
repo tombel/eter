@@ -164,15 +164,15 @@ export function MintAvatar(): JSX.Element {
         }}
       >
         <div className="flex flex-col items-center">
-          <h1 className="text-primary-color font-semibold text-xl text-center">
+          <h1 className="text-primary-color-500 font-semibold text-xl text-center">
             {intl.formatMessage({ id: 'page.mint.nft.connected' })}
           </h1>
           <Image
             alt="Kuniverse Logo"
-            src="/images/Avatars/Ekun_02.png"
+            src="/images/Avatars/Ekun_02_static.gif"
             layout="fixed"
             quality={100}
-            width={80}
+            width={60}
             height={80}
           />
           <p className="text-black text-center my-12">

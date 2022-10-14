@@ -19,18 +19,18 @@ export default function PlayLikeKun(): JSX.Element {
         <div className={styles.imageContainer}>
           <Image
             alt="Kun Entity 3"
-            src="/images/entity-03.png"
+            src="/images/Avatars/Ekun_Futbol.gif"
             layout="fixed"
             quality={100}
-            width={240}
+            width={241}
             height={400}
           />
           <Image
             alt="Kun Entity 1"
-            src="/images/entity-01.png"
+            src="/images/Avatars/Ekun_Special.gif"
             layout="fixed"
             quality={100}
-            width={207}
+            width={270}
             height={400}
           />
         </div>

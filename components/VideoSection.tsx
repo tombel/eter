@@ -7,7 +7,7 @@ export default function VideoSection(): JSX.Element {
   const intl = useIntl()
 
   return (
-    <div className={styles.videoContainer}>
+    <div className={styles.videoContainer} id="avatars">
       <div className={styles.titleVideo}>
         <h1>{intl.formatMessage({ id: 'page.home.video.title' })}</h1>
         <h2>{intl.formatMessage({ id: 'page.home.video.avatars' })}</h2>
@@ -19,9 +19,14 @@ export default function VideoSection(): JSX.Element {
         <div className={styles.videoContent}>
           <h3>{intl.formatMessage({ id: 'page.home.video.title' })}</h3>
 
-          <video width="560" height="315" controls>
-            <source src="/video/kuniverse-video-trailer.mp4" type="video/mp4" />
-          </video>
+          <iframe
+            src="https://player.vimeo.com/video/756874804?h=726ab6e73c&autoplay=1&loop=1&title=0&byline=0&portrait=0"
+            width="640"
+            height="360"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>

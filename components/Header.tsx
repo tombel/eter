@@ -42,7 +42,7 @@ function Header(): JSX.Element {
                 </li>
                 <li className="block w-full">
                   <Link
-                    href="/my-avatars"
+                    href="/#avatars"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
                     <a className="main-nav-link">
@@ -103,11 +103,7 @@ function Header(): JSX.Element {
               onClick={() => {
                 setMobileMenu((prev) => !prev)
               }}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            ></div>
           </div>
         </div>
       </header>
