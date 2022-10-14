@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useAccount, useConnect } from 'wagmi'
 import type { Connector } from 'wagmi'
+import { useIntl } from 'react-intl'
 import { useIsMounted } from '../hooks/useIsMounted'
 import LoadingIcon from './LoadingIcon'
 import Button from './Button'
@@ -31,6 +32,7 @@ function getIcon(id: string): string {
 }
 
 export function ConnectWallet(): JSX.Element {
+  const intl = useIntl()
   const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected } = useAccount()
@@ -55,7 +57,9 @@ export function ConnectWallet(): JSX.Element {
       <Card>
         <div className="flex flex-col items-center">
           <LoadingIcon />
-          <p className="text-black font-base mb-20">Sign in...</p>
+          <p className="text-black font-base mb-20">
+            {intl.formatMessage({ id: 'page.connect.wallet.signin' })}
+          </p>
         </div>
       </Card>
     )
@@ -73,9 +77,11 @@ export function ConnectWallet(): JSX.Element {
             height={40}
           />
           <h1 className="text-primary-color font-semibold text-xl mt-12">
-            WALLET IS BEING VERIFIED
+            {intl.formatMessage({ id: 'page.connect.wallet.is.beeing.verify.title' })}
           </h1>
-          <p className="text-black">Please wait while you are redirected</p>
+          <p className="text-black">
+            {intl.formatMessage({ id: 'page.connect.wallet.is.beeing.verify.text' })}
+          </p>
         </div>
       </Card>
     )
@@ -92,15 +98,17 @@ export function ConnectWallet(): JSX.Element {
             width={40}
             height={40}
           />
-          <h1 className="text-warning font-semibold text-xl mt-12">SOMETHING WENT WRONG</h1>
-          <p className="text-warning mb-20">The Application has encountered an unknown error</p>
+          <h1 className="text-warning font-semibold text-xl mt-12">
+            {intl.formatMessage({ id: 'general.error.title' })}
+          </h1>
+          <p className="text-warning mb-20">{intl.formatMessage({ id: 'general.error.text' })}</p>
           {process.env.NODE_ENV === 'development' ? (
             <p className="bg-grey-400 w-full h-[60px] overflow-auto p-5 m-5">
               <pre>{error.message}</pre>
             </p>
           ) : null}
           <Button className="theme-primary" onClick={() => reset()}>
-            Try Again
+            {intl.formatMessage({ id: 'page.connect.wallet.try.again' })}
           </Button>
         </div>
       </Card>
@@ -116,7 +124,7 @@ export function ConnectWallet(): JSX.Element {
                   <div className={styles.iconContainer}>
                     <Image alt={x.name} src={getIcon(x.id)} width={30} height={30} />
                   </div>
-                  <p className="">{x.name}</p>
+                  <p>{x.name}</p>
                 </div>
               </Button>
             ))

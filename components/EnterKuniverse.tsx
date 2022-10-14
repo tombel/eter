@@ -1,7 +1,10 @@
 import Image from 'next/image'
+import { useIntl } from 'react-intl'
 import styles from '../styles/Banners.module.css'
 
 export default function EnterKuniverse(): JSX.Element {
+  const intl = useIntl()
+
   return (
     <div className={styles.EnterKuniverseSection} id="kuniverse">
       <div className={styles.bannerContainer}>
@@ -16,11 +19,11 @@ export default function EnterKuniverse(): JSX.Element {
           />
         </div>
         <div className={styles.description}>
-          <h3 className={styles.EnterKuniverseTitle}>ENTER THE</h3>
-          <h3 className={styles.EnterKuniverseTitle}>KUNIVERSE</h3>
+          <h3 className={styles.EnterKuniverseTitle}>
+            {intl.formatMessage({ id: 'page.home.enter.universe.title' })}
+          </h3>
           <p className={styles.EnterKuniverseText}>
-            Each avatar will be playable inside the Sandbox Metaverse, starting with the upcoming
-            Kuniverse Opening. Jump into the game and score a goal with your avatar..
+            {intl.formatMessage({ id: 'page.home.enter.universe.text' })}
           </p>
         </div>
       </div>

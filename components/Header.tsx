@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useIntl } from 'react-intl'
 import LanguajeSelector from './LanguajeSelector'
 import CustomButton from './Button'
 
 function Header(): JSX.Element {
-  const [mounted, setMounted] = React.useState(false)
+  const intl = useIntl()
   const [mobileMenu, setMobileMenu] = useState(false)
-
-  React.useEffect(() => setMounted(true), [])
-
-  if (!mounted) {
-    return null
-  }
 
   return (
     <div className="header-container">
@@ -30,7 +25,9 @@ function Header(): JSX.Element {
                     href="/"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
-                    <a className="main-nav-link">Home</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.home' })}
+                    </a>
                   </Link>
                 </li>
                 <li className="block w-full">
@@ -38,7 +35,9 @@ function Header(): JSX.Element {
                     href="/#kuniverse"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
-                    <a className="main-nav-link">Kuniverse</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.kuniverse' })}
+                    </a>
                   </Link>
                 </li>
                 <li className="block w-full">
@@ -46,12 +45,16 @@ function Header(): JSX.Element {
                     href="/my-avatars"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
-                    <a className="main-nav-link">Avatars</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.myavatars' })}
+                    </a>
                   </Link>
                 </li>
                 <li className="block w-full my-10">
                   <CustomButton className="theme-primary" style={{ width: '100%' }}>
-                    <Link href="/mint-nft">Mint Now</Link>
+                    <Link href="/mint-nft">
+                      {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
+                    </Link>
                   </CustomButton>
                 </li>
                 <li className="block w-full my-10">
@@ -66,24 +69,32 @@ function Header(): JSX.Element {
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
                 <li className="block w-full px-64">
                   <Link href="/">
-                    <a className="main-nav-link">Home</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.home' })}
+                    </a>
                   </Link>
                 </li>
                 <li className="block w-full px-64">
                   <Link href="/#kuniverse" className="main-nav-link">
-                    <a className="main-nav-link">Kuniverse</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.kuniverse' })}
+                    </a>
                   </Link>
                 </li>
                 <li className="block w-full px-64">
                   <Link href="/my-avatars" className="main-nav-link">
-                    <a className="main-nav-link">Avatars</a>
+                    <a className="main-nav-link">
+                      {intl.formatMessage({ id: 'header.menu.myavatars' })}
+                    </a>
                   </Link>
                 </li>
               </ul>
             </nav>
             <div className="hidden lg:flex gap-12">
               <CustomButton className="theme-primary">
-                <Link href="/mint-nft">Mint Now</Link>
+                <Link href="/mint-nft">
+                  {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
+                </Link>
               </CustomButton>
               <LanguajeSelector />
             </div>
