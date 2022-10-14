@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import AvatarsSection from '../components/AvatarsSection'
 import Brands from '../components/Brands'
-import BrandsFooter from '../components/BrandsFooter'
 import EnterKuniverse from '../components/EnterKuniverse'
 import Faq from '../components/Faq'
 import Header from '../components/Header'
@@ -31,7 +30,6 @@ export default function Home(): JSX.Element {
         <LetsPlay />
         <Faq />
         <Brands />
-        <BrandsFooter />
       </main>
 
       <footer className={styles.footer}>

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import styles from '../styles/Banners.module.css'
 
@@ -9,14 +8,14 @@ export default function EnterKuniverse(): JSX.Element {
     <div className={styles.EnterKuniverseSection} id="kuniverse">
       <div className={styles.bannerContainer}>
         <div className={styles.imageContainer}>
-          <Image
-            alt="Exterior"
-            src="/images/exterior-01.png"
-            layout="fixed"
-            quality={100}
-            width={579}
-            height={326}
-          />
+          <iframe
+            src="https://player.vimeo.com/video/756874501?h=576f8689c2&autoplay=1&loop=1&title=0&byline=0&portrait=0"
+            width="640"
+            height="360"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
         <div className={styles.description}>
           <h3 className={styles.EnterKuniverseTitle}>
