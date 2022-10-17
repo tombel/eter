@@ -14,15 +14,17 @@ function SimpleHeader(): JSX.Element {
           <div className="flex items-center relative justify-between md z-10">
             <div className="flex gap-14 items-center">
               <Link href="/">
-                <Image
-                  alt="Sandbox Logo"
-                  src="/images/arrow-left.svg"
-                  className="cursor-pointer"
-                  layout="fixed"
-                  quality={100}
-                  width={32}
-                  height={32}
-                />
+                <a>
+                  <Image
+                    alt="Sandbox Logo"
+                    src="/images/arrow-left.svg"
+                    className="cursor-pointer"
+                    layout="fixed"
+                    quality={100}
+                    width={32}
+                    height={32}
+                  />
+                </a>
               </Link>
               <Image
                 alt="Sandbox Logo"
