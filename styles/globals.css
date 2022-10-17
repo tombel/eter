@@ -81,7 +81,7 @@ a {
 }
 
 .header.active-white {
-  @apply bg-primary-color shadow-none;
+  @apply bg-primary-color-500 shadow-none;
 }
 
 .main-nav {
@@ -97,7 +97,7 @@ a {
 }
 
 .main-nav-link.active {
-  @apply text-white bg-primary-color lg:text-black lg:bg-transparent;
+  @apply text-white bg-primary-color-500 lg:text-black;
 }
 
 .contact {
@@ -106,13 +106,13 @@ a {
 
 .mobile-main-nav {
   @apply h-auto py-8 lg:hidden w-full absolute top-0 left-0;
-  @apply text-center bg-primary-color bg-opacity-80 backdrop-blur -translate-y-[200%];
+  @apply text-center bg-primary-color-500 bg-opacity-80 backdrop-blur -translate-y-[200%];
   @apply border border-white border-opacity-10 shadow-header-shadow;
   @apply transition-all ease-in-out duration-300;
 }
 
 .mobile-main-nav.active {
-  @apply bg-opacity-100 translate-y-[70px];
+  @apply bg-primary-color-500 bg-opacity-100 translate-y-[70px];
 }
 
 .mobile-main-nav .main-nav-link {
@@ -150,7 +150,7 @@ a {
 }
 
 .accordion__button {
-  @apply text-white uppercase font-semibold w-full cursor-pointer px-18 py-10 text-base text-left relative;
+  @apply text-white uppercase font-semibold w-full cursor-pointer pl-10 pr-32 md:px-18 py-10 text-sm md:text-base text-left relative;
   border: none;
 }
 
@@ -163,6 +163,7 @@ a {
 }
 
 .accordion__button:after {
+  @apply right-[5px] md:right-[10px];
   display: inline-block;
   content: '';
   height: 10px;
@@ -172,7 +173,6 @@ a {
   border-right: 2px solid currentColor;
   transform: rotate(45deg);
   position: absolute;
-  right: 10px;
   top: 15px;
 }
 

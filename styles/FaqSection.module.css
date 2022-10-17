@@ -12,7 +12,7 @@
 }
 
 .FaqTitle {
-  @apply bg-grey-600 px-20 py-10 rounded-t-3xl mt-40 text-white uppercase font-semibold text-2xl;
+  @apply bg-grey-600 px-20 py-10 rounded-t-3xl mt-40 text-white uppercase font-semibold text-2xl text-center md:text-left;
 }
 
 .FaqContainer {
