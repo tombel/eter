@@ -17,7 +17,17 @@ export default function PlayLikeKun(): JSX.Element {
           </p>
         </div>
         <div className={styles.imageContainer}>
-          <div className="relative w-[241px] h-[220px] md:h-[400px]">
+          <div className="relative w-[270px] h-[250px] md:h-[400px]">
+            <Image
+              alt="Kun Entity 1"
+              src="/images/Avatars/Ekun_Special.gif"
+              className={styles.ekunImage2}
+              quality={100}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="relative w-[241px] h-[250px] md:h-[400px]">
             <Image
               alt="Kun Entity 3"
               src="/images/Avatars/Ekun_Futbol.gif"
@@ -27,10 +37,10 @@ export default function PlayLikeKun(): JSX.Element {
               objectFit="contain"
             />
           </div>
-          <div className="relative w-[270px] h-[220px] md:h-[400px]">
+          <div className="relative w-[270px] h-[250px] md:h-[400px]">
             <Image
               alt="Kun Entity 1"
-              src="/images/Avatars/Ekun_Special.gif"
+              src="/images/Avatars/Ekun_03.gif"
               className={styles.ekunImage2}
               quality={100}
               layout="fill"

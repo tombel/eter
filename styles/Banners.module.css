@@ -18,7 +18,7 @@
 }
 
 .imageContainer {
-  @apply w-full md:w-1/2 flex justify-center lg:justify-between mt-32 md:mt-0;
+  @apply w-full md:w-1/2 flex justify-center lg:justify-between mt-32 md:mt-0 relative;
 }
 
 .videoContainer {
@@ -56,11 +56,19 @@
 }
 
 .LetsPlayBanner {
-  @apply container flex flex-col md:flex-row items-center py-32 px-32 md:py-0 lg:px-0;
+  @apply container flex flex-col md:flex-row items-center py-32 px-32 md:py-0 lg:px-0 min-h-[440px];
+}
+
+.LetsPlayImageContainer {
+  @apply w-full md:w-1/2 flex justify-center lg:justify-between mt-32 md:mt-0 relative;
+}
+
+.LetsPlayImage {
+  @apply relative md:absolute md:-top-[330px];
 }
 
 .textContainer {
-  @apply w-full md:pr-40;
+  @apply w-full md:pr-56;
 }
 
 .videoFrameContainer {
