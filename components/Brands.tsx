@@ -8,7 +8,7 @@ export default function Brands(): JSX.Element {
   return (
     <div className={styles.BrandsSection}>
       <div className="container flex flex-col items-center">
-        <h1 className="w-[400px] text-center">
+        <h1 className="w-full md:w-[400px] text-center">
           {intl.formatMessage({ id: 'page.home.brands.title' })}
         </h1>
         <div className={styles.BrandsLogos}>

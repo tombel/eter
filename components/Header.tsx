@@ -15,7 +15,7 @@ function Header(): JSX.Element {
           mobileMenu ? 'active-white' : 'active'
         }`}
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto px-32">
           {/* Mobile menu */}
           <nav className={`mobile-main-nav z-0 lg:hidden ${mobileMenu ? 'active' : ''}`}>
             <div className="w-full">
@@ -103,7 +103,11 @@ function Header(): JSX.Element {
               onClick={() => {
                 setMobileMenu((prev) => !prev)
               }}
-            ></div>
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </header>

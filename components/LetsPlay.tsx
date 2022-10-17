@@ -17,7 +17,7 @@ export default function LetsPlay(): JSX.Element {
           <p className={styles.playLikeKunText}>
             {intl.formatMessage({ id: 'page.home.lets.play.description' })}
           </p>
-          <ul className="list-disc ml-20 mt-10">
+          <ul className="list-disc ml-20 mt-10 font-base text-base text-white">
             <li>{intl.formatMessage({ id: 'page.home.lets.play.list.one' })}</li>
             <li>{intl.formatMessage({ id: 'page.home.lets.play.list.two' })}</li>
             <li>{intl.formatMessage({ id: 'page.home.lets.play.list.three' })}</li>

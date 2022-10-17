@@ -29,7 +29,7 @@ export default function AvatarsSection(): JSX.Element {
         </Link>
       </div>
 
-      <div className="container text-center">
+      <div className="container text-center pb-24 lg:pb-0">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem
             staticImage="/images/Avatars/Ekun_01_static.gif"
@@ -75,6 +75,15 @@ export default function AvatarsSection(): JSX.Element {
             imageWidth="225"
             imageHeight="475"
             theme="ekun-05"
+          />
+        </div>
+        <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">
+          <Image
+            alt="Sandbox Logo"
+            src="/images/avatars-group-responsive.png"
+            quality={100}
+            layout="fill"
+            objectFit="contain"
           />
         </div>
       </div>

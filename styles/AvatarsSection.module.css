@@ -3,7 +3,7 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
-  background-image: url(../public/images/bg_landing.png);
+  background-image: url(../public/images/bg_prueba_balls.png);
   background-position: top center !important;
   background-repeat: no-repeat !important;
   background-attachment: scroll;
@@ -22,11 +22,11 @@
 }
 
 .AvatarsSectionContent {
-  @apply flex justify-center pb-24;
+  @apply hidden lg:flex lg:justify-center pb-24;
 }
 
 .AvatarItem {
-  @apply flex flex-col items-center cursor-pointer w-[220px];
+  @apply flex flex-col items-center cursor-pointer lg:w-[200px] xl:w-[220px];
 }
 
 /* .AvatarItem:first-child {
@@ -38,7 +38,7 @@
 }
 
 .AvatarDescription h3 {
-  @apply font-base font-bold text-2xl uppercase text-black text-center;
+  @apply font-base font-bold text-xl xl:text-2xl uppercase text-black text-center;
 }
 
 .AvatarDescription p {

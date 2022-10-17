@@ -10,12 +10,10 @@
 } */
 
 .footer {
+  @apply flex flex-col justify-center items-center md:flex-row md:justify-between;
   width: 100%;
-  display: flex;
   flex: 1;
   padding: 2rem 4rem;
-  justify-content: space-between;
-  align-items: center;
   background: radial-gradient(
     74.52% 132.36% at 50% 50.14%,
     #666666 22%,
@@ -28,11 +26,11 @@
 }
 
 .footer .footerLogos {
-  @apply flex items-center gap-24;
+  @apply flex items-center gap-24 mb-24 md:mb-0 justify-center md:justify-between;
 }
 
 .footer .footerMedia {
-  @apply flex items-center gap-24;
+  @apply flex items-center gap-24 justify-center md:justify-between;
 }
 
 @media (prefers-color-scheme: dark) {
