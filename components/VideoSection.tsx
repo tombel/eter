@@ -21,9 +21,9 @@ export default function VideoSection(): JSX.Element {
 
           <div className={styles.videoFrameContainer}>
             <iframe
-              src="https://player.vimeo.com/video/756874804?h=726ab6e73c&autoplay=1&loop=1&title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/756874804?h=726ab6e73c&title=0&byline=0&portrait=0"
               frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
+              allow="fullscreen; picture-in-picture"
               allowFullScreen
               className={styles.videoFrame}
             ></iframe>
