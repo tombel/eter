@@ -2,12 +2,15 @@ import React, { useEffect } from 'react'
 import { useAccount } from 'wagmi'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useIntl } from 'react-intl'
+
 import { MintAvatar } from '../components/MintAvatar'
 import SimpleHeader from '../components/SimpleHeader'
 import { useIsMounted } from '../hooks/useIsMounted'
-import Link from 'next/link'
 
 export default function MintNft(): JSX.Element {
+  const intl = useIntl()
   const isMounted = useIsMounted()
   const router = useRouter()
   const { isConnected } = useAccount()
@@ -53,7 +56,7 @@ export default function MintNft(): JSX.Element {
           <div className="flex flex-1 justify-center">
             <Link href="https://www.binance.com/en/trade/SAND_BTC">
               <a className="bg-[#febf36] text-lg text-black font-bold py-8 px-24 rounded-full">
-                BUY SAND
+                {intl.formatMessage({ id: 'page.mint.buy.sand' })}
               </a>
             </Link>
           </div>
