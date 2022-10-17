@@ -18,6 +18,14 @@ const getContract = (): ethers.Contract => {
   )
 }
 
+const getSandContract = (): ethers.Contract => {
+  return new ethers.Contract(
+    process.env.NEXT_PUBLIC_SAND_CONTRACT_ADDRESS ?? '',
+    ['function balanceOf(address) public view returns (uint)'],
+    provider,
+  )
+}
+
 export const getCurrentWaveIndex = async (): Promise<number> => {
   const contract: ethers.Contract = getContract()
   const currentWaveIndex = await contract.indexWave()
@@ -53,6 +61,12 @@ export const isValidAddress = (address: string): boolean => {
 const getSignatureId = (): string => {
   const randomUint256 = ethers.utils.randomBytes(32)
   return ethers.BigNumber.from(randomUint256)._hex
+}
+
+export const getSandBalance = async (address: string): Promise<string> => {
+  const contract: ethers.Contract = getSandContract()
+  const balance = await contract.balanceOf(address)
+  return ethers.utils.formatEther(balance)
 }
 
 const getMessageHash = (
