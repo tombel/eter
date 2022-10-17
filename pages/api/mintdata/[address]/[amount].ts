@@ -10,6 +10,7 @@ import {
   isValidAddress,
   getWaveMaxTokensToBuy,
   getCurrentWaveIndex,
+  getSandBalance,
 } from '../../../../server/eth/utils'
 
 interface MintDataResponse {
@@ -21,6 +22,7 @@ interface MintDataResponse {
   claimedCount?: number
   isMintAllowed?: boolean
   waveMaxTokensToBuy?: number
+  balance?: string
 }
 
 export default async function getMintData(
@@ -40,7 +42,10 @@ export default async function getMintData(
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_AMOUNT })
     }
 
-    const waveIndex = await getCurrentWaveIndex()
+    const waveIndex = process.env.CUSTOM_WAVE_INDEX
+      ? parseInt(process.env.CUSTOM_WAVE_INDEX)
+      : await getCurrentWaveIndex()
+
     if (waveIndex === 0) {
       return res.status(400).json({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
     }
@@ -56,6 +61,7 @@ export default async function getMintData(
       getClaimedCount(address, waveIndex),
       checkMintAllowed(address, amount),
       getWaveMaxTokensToBuy(),
+      getSandBalance(address),
     ])
 
     const [
@@ -64,6 +70,7 @@ export default async function getMintData(
       claimedCount,
       isMintAllowed,
       waveMaxTokensToBuy,
+      balance,
     ] = result
     return res.status(200).json({
       code: RESPONSE_CODES.ADDRESS_QUALIFY,
@@ -74,6 +81,7 @@ export default async function getMintData(
       claimedCount,
       isMintAllowed,
       waveMaxTokensToBuy,
+      balance,
     })
   } catch (error) {
     console.error(error)

@@ -1,8 +1,9 @@
 import { createMocks } from 'node-mocks-http'
 
-import config from '../server/config/waves'
 import { RESPONSE_CODES } from '../utils/constants'
 import getMintData from '../pages/api/mintdata/[address]/[amount]'
+
+jest.setTimeout(10000)
 
 describe('GET /api/mintdata/:address/:amount', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,28 +36,28 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.INVALID_AMOUNT })
   })
 
-  test('should retrieve error code WAVES_NOT_ACTIVE when date is before the start of wave #1', async () => {
+  test('should retrieve error code WAVES_NOT_ACTIVE when waveIndex=0', async () => {
     req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
     req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.start - 1).toUTCString()
+    process.env.CUSTOM_WAVE_INDEX = '0'
     await getMintData(req, res)
     expect(res._getStatusCode()).toBe(400)
     expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
   })
 
-  test('should retrieve error code ADDRESS_NOT_QUALIFY when date is valid for wave #1 but address is not whitelisted', async () => {
-    req.query.address = '0x33f7701E8CD3719a63B58C7CF16Cc1C07dC7C113'
+  test('should retrieve error code ADDRESS_NOT_QUALIFY when waveIndex=1 but address is not whitelisted', async () => {
+    req.query.address = '0x3845badade8e6dff049820680d1f14bd3903a5d0'
     req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.start).toUTCString()
+    process.env.CUSTOM_WAVE_INDEX = '1'
     await getMintData(req, res)
-    expect(res._getStatusCode()).toBe(200)
+    expect(res._getStatusCode()).toBe(400)
     expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
   })
 
-  test('should retrieve signature and wave=1 when date is within the invarval of wave #1 and address is whitelisted', async () => {
+  test('should retrieve signature and waveIndex=1 when address is whitelisted', async () => {
     req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
     req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.start).toUTCString()
+    process.env.CUSTOM_WAVE_INDEX = '1'
     await getMintData(req, res)
     const response = JSON.parse(res._getData())
     expect(res._getStatusCode()).toBe(200)
@@ -68,12 +69,13 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
     expect(response.waveMaxTokensToBuy === 4).toBe(true)
+    expect(response.balance === '0.0').toBe(true)
   })
 
-  test('should retrieve signature, wave=1 and isMintAllowed=false when date is within the invarval of wave #1, address is whitelisted but amount is not valid', async () => {
+  test('should retrieve signature, waveIndex=1 and isMintAllowed=false when address is whitelisted but amount is not valid', async () => {
     req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
     req.query.amount = '5'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.start).toUTCString()
+    process.env.CUSTOM_WAVE_INDEX = '1'
     await getMintData(req, res)
     const response = JSON.parse(res._getData())
     expect(res._getStatusCode()).toBe(200)
@@ -85,58 +87,22 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(false)
     expect(response.waveMaxTokensToBuy === 4).toBe(true)
+    expect(response.balance === '0.0').toBe(true)
   })
 
-  test('should retrieve signature and wave=1 when date is within the invarval of wave #1 and address is whitelisted', async () => {
-    req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
+  test('should retrieve error code ADDRESS_NOT_QUALIFY when waveIndex=2 but address is not whitelisted', async () => {
+    req.query.address = '0x3845badade8e6dff049820680d1f14bd3903a5d0'
     req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.end).toUTCString()
-    await getMintData(req, res)
-    const response = JSON.parse(res._getData())
-    expect(res._getStatusCode()).toBe(200)
-    expect(response.code === RESPONSE_CODES.ADDRESS_QUALIFY).toBe(true)
-    expect(response.signature.length === 132).toBe(true)
-    expect(response.signatureId.length === 66).toBe(true)
-    expect(response.waveIndex === 1).toBe(true)
-    expect(response.tokenPrice === '0.0').toBe(true)
-    expect(response.claimedCount === 0).toBe(true)
-    expect(response.isMintAllowed).toBe(true)
-    expect(response.waveMaxTokensToBuy === 4).toBe(true)
-  })
-
-  test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #1', async () => {
-    req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave1.interval.end)
-      .toUTCString()
-      .replace('13:00:00', '13:00:00:1')
+    process.env.CUSTOM_WAVE_INDEX = '2'
     await getMintData(req, res)
     expect(res._getStatusCode()).toBe(400)
-    expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
-  })
-
-  test('should retrieve error code WAVES_NOT_ACTIVE when date is before the start of wave #2', async () => {
-    req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave2.interval.start - 1).toUTCString()
-    await getMintData(req, res)
-    expect(res._getStatusCode()).toBe(400)
-    expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
-  })
-
-  test('should retrieve error code ADDRESS_NOT_QUALIFY when date is valid for wave #2 but address is not whitelisted', async () => {
-    req.query.address = '0x33f7701E8CD3719a63B58C7CF16Cc1C07dC7C113'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave2.interval.start).toUTCString()
-    await getMintData(req, res)
-    expect(res._getStatusCode()).toBe(200)
     expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
   })
 
-  test('should retrieve signature and wave=2 when date is within the invarval of wave #2 and address is whitelisted', async () => {
+  test('should retrieve signature and waveIndex=2 when address is whitelisted', async () => {
     req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
     req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave2.interval.start).toUTCString()
+    process.env.CUSTOM_WAVE_INDEX = '2'
     await getMintData(req, res)
     const response = JSON.parse(res._getData())
     expect(res._getStatusCode()).toBe(200)
@@ -148,61 +114,6 @@ describe('GET /api/mintdata/:address/:amount', () => {
     expect(response.claimedCount === 0).toBe(true)
     expect(response.isMintAllowed).toBe(true)
     expect(response.waveMaxTokensToBuy === 4).toBe(true)
-  })
-
-  test('should retrieve signature and wave=2 when date is within the invarval of wave #2 and address is whitelisted', async () => {
-    req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave2.interval.end).toUTCString()
-    await getMintData(req, res)
-    const response = JSON.parse(res._getData())
-    expect(res._getStatusCode()).toBe(200)
-    expect(response.code === RESPONSE_CODES.ADDRESS_QUALIFY).toBe(true)
-    expect(response.signature.length === 132).toBe(true)
-    expect(response.signatureId.length === 66).toBe(true)
-    expect(response.waveIndex === 2).toBe(true)
-    expect(response.tokenPrice === '0.0').toBe(true)
-    expect(response.claimedCount === 0).toBe(true)
-    expect(response.isMintAllowed).toBe(true)
-    expect(response.waveMaxTokensToBuy === 4).toBe(true)
-  })
-
-  test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #2', async () => {
-    req.query.address = '0x016C8780e5ccB32E5CAA342a926794cE64d9C364'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave2.interval.end)
-      .toUTCString()
-      .replace('13:00:00', '13:00:00:1')
-    await getMintData(req, res)
-    expect(res._getStatusCode()).toBe(400)
-    expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
-  })
-
-  test('should retrieve signature and wave=3 when date is within the invarval of wave #3. Any address qualify', async () => {
-    req.query.address = '0x33f7701E8CD3719a63B58C7CF16Cc1C07dC7C113'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave3.interval.start).toUTCString()
-    await getMintData(req, res)
-    const response = JSON.parse(res._getData())
-    expect(res._getStatusCode()).toBe(200)
-    expect(response.code === RESPONSE_CODES.ADDRESS_QUALIFY).toBe(true)
-    expect(response.signature.length === 132).toBe(true)
-    expect(response.signatureId.length === 66).toBe(true)
-    expect(response.waveIndex === 3).toBe(true)
-    expect(response.tokenPrice === '0.0').toBe(true)
-    expect(response.claimedCount === 0).toBe(true)
-    expect(response.isMintAllowed).toBe(true)
-    expect(response.waveMaxTokensToBuy === 4).toBe(true)
-  })
-
-  test('should retrieve error code WAVES_NOT_ACTIVE when date is after the end of wave #3', async () => {
-    req.query.address = '0x33f7701E8CD3719a63B58C7CF16Cc1C07dC7C113'
-    req.query.amount = '1'
-    process.env.CUSTOM_DATE = new Date(config.wave3.interval.end)
-      .toUTCString()
-      .replace('13:00:00', '13:00:00:1')
-    await getMintData(req, res)
-    expect(res._getStatusCode()).toBe(400)
-    expect(JSON.parse(res._getData())).toStrictEqual({ code: RESPONSE_CODES.WAVES_NOT_ACTIVE_WAVE })
+    expect(response.balance === '0.0').toBe(true)
   })
 })
