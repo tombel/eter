@@ -6,12 +6,20 @@ import AvatarSelector from './AvatarSelector'
 import LoadingIcon from './LoadingIcon'
 import { useDisconnect } from 'wagmi'
 import { useIntl } from 'react-intl'
+import toast, { Toaster } from 'react-hot-toast'
 
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <div className="bg-white rounded-3xl shadow-lg w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
-      {children}
-    </div>
+    <>
+      <Toaster
+        containerStyle={{
+          top: 80,
+        }}
+      />
+      <div className="bg-white rounded-3xl shadow-lg w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
+        {children}
+      </div>
+    </>
   )
 }
 
@@ -39,6 +47,11 @@ export function MintAvatar(): JSX.Element {
     let timeout
 
     if (isSuccess) {
+      toast.success(intl.formatMessage({ id: 'page.mint.nft.success.title' }), {
+        duration: 4000,
+        position: 'top-right',
+      })
+
       timeout = setTimeout(() => {
         router.push('/my-avatars')
       }, 3e3)
@@ -168,7 +181,7 @@ export function MintAvatar(): JSX.Element {
             {intl.formatMessage({ id: 'page.mint.nft.connected' })}
           </h1>
           <Image
-            alt="Kuniverse Logo"
+            alt="Avatar"
             src="/images/Avatars/Ekun_02_static.gif"
             layout="fixed"
             quality={100}
