@@ -257,6 +257,10 @@ a {
   width: 200px;
 }
 
+.AvatarSelector__option {
+  color: #4d4d4d !important;
+}
+
 .AvatarSelector__control--is-focused {
   border-color: #bf76fc !important;
   box-shadow: 0 0 0 1px #bf76fc !important;
