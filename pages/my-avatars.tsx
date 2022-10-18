@@ -10,6 +10,9 @@ import { useIsMounted } from '../hooks/useIsMounted'
 import { GetServerSideProps } from 'next/types'
 import { useIntl } from 'react-intl'
 
+import { generateOpenSeaLink } from '../utils/generateOpenSeaLink'
+import LoadingIcon from '../components/LoadingIcon'
+
 export const getServerSideProps: GetServerSideProps = async () => {
   // ...
   return {
@@ -19,12 +22,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-function generateOpenSeaLink(address: string, tokenId: string, network): string {
-  if (network === '5') {
-    return `https://testnets.opensea.io/assets/goerli/${address}/${tokenId}`
-  }
-
-  return `https://opensea.io/assets/ethereum/${address}/${tokenId}`
+function LoadingAvatars(): JSX.Element {
+  return (
+    <div className="flex flex-1 items-center justify-center">
+      <LoadingIcon />
+    </div>
+  )
 }
 
 export default function MyAvatars({ network }: { network: string }): JSX.Element {
@@ -64,10 +67,7 @@ export default function MyAvatars({ network }: { network: string }): JSX.Element
           </h1>
           <div className="bg-white rounded-3xl shadow-lg w-full font-base p-20 flex flex-wrap gap-12 items-center">
             {isLoading ? (
-              <MyAvatarCard
-                name={intl.formatMessage({ id: 'page.my.avatars.loading' })}
-                url={'/images/unrevealed.jpeg'}
-              />
+              <LoadingAvatars />
             ) : (
               data?.ownedNfts
                 .map((x) => {
