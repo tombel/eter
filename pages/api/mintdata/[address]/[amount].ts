@@ -38,7 +38,7 @@ export default async function getMintData(
 
     const amountParam = req.query.amount ? req.query.amount.toString() : ''
     const amount = parseInt(amountParam)
-    if (amount < 1 || amount > 5 || isNaN(amount)) {
+    if (amount < 1 || amount > 10 || isNaN(amount)) {
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_AMOUNT })
     }
 
