@@ -10,16 +10,15 @@ export interface MyAvatarCardProps {
 
 export default function MyAvatarCard({ name, url, openseaURL }: MyAvatarCardProps): JSX.Element {
   return (
-    <div className="w-[48%] md:w-[24%] nft-current mb-16">
-      <div className="relative bg-grey-100 rounded-2xl">
+    <div className="w-full md:w-[32%] lg:w-[24%] nft-current mb-16">
+      <div className="relative bg-grey-100 w-full h-[285px] md:h-[212px] rounded-2xl">
         <Image
           alt="Kuniverse Logo"
           src={url}
           className="w-full rounded-2xl cursor-pointer"
-          layout="fixed"
           quality={100}
-          width={212}
-          height={212}
+          layout="fill"
+          objectFit="cover"
           placeholder="empty"
           unoptimized
         />
