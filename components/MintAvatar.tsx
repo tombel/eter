@@ -16,7 +16,7 @@ function Card({ children }: { children: React.ReactNode }): JSX.Element {
           top: 80,
         }}
       />
-      <div className="bg-white rounded-3xl shadow-lg w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
+      <div className="bg-white rounded-3xl shadow-lg w-full md:w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
         {children}
       </div>
     </>
@@ -113,7 +113,7 @@ export function MintAvatar(): JSX.Element {
             <h1 className="text-black font-semibold text-xl mt-12">
               {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.title' })}
             </h1>
-            <p className="text-black mb-20">
+            <p className="text-black mb-20 text-center">
               {intl.formatMessage({ id: 'page.mint.nft.not.whitelisted.text' })}
             </p>
             <button className="theme-primary" onClick={() => reset()}>
@@ -132,7 +132,7 @@ export function MintAvatar(): JSX.Element {
             <h1 className="text-black font-semibold text-xl mt-12">
               {intl.formatMessage({ id: 'page.mint.nft.not.available.title' })}
             </h1>
-            <p className="text-black mb-20">
+            <p className="text-black mb-20 text-center">
               {intl.formatMessage({ id: 'page.mint.nft.not.available.text' })}
             </p>
             <button className="theme-primary" onClick={() => disconnect()}>

@@ -34,7 +34,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             staticImage="/images/Avatars/Ekun_01_static.gif"
             animatedImage="/images/Avatars/Ekun_01.gif"
-            avatarName="E-KUN"
+            avatarName="FOOTBALL KUN"
             avatarRarity="35%"
             imageWidth="360"
             imageHeight="475"
@@ -43,7 +43,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             staticImage="/images/Avatars/Ekun_02_static.gif"
             animatedImage="/images/Avatars/Ekun_02.gif"
-            avatarName="FOOTBALL KUN"
+            avatarName="E-KUN"
             avatarRarity="30%"
             imageWidth="334"
             imageHeight="475"
