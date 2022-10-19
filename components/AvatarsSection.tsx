@@ -36,7 +36,7 @@ export default function AvatarsSection(): JSX.Element {
             animatedImage="/images/Avatars/Ekun_01.gif"
             avatarName="FOOTBALL KUN"
             avatarRarity="35%"
-            imageWidth="272"
+            imageWidth="353"
             imageHeight="500"
             theme="ekun-01"
           />
@@ -72,7 +72,7 @@ export default function AvatarsSection(): JSX.Element {
             animatedImage="/images/Avatars/Ekun_05.gif"
             avatarName="SPECIAL KUN"
             avatarRarity="1%"
-            imageWidth="271"
+            imageWidth="257"
             imageHeight="475"
             theme="ekun-05"
           />
