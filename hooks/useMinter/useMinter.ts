@@ -1,7 +1,5 @@
 import { utils } from 'ethers'
-
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
-
 import { IMintData, useMintData } from '../../hooks/useMintData'
 
 export interface IuseMinterValues {
@@ -22,7 +20,12 @@ export interface IuseMinterValues {
   reset: () => void
   mintData: IMintData
   quantity: number
+  enoughFounds: boolean
 }
+
+const iface = new utils.Interface([
+  'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
+])
 
 export function useMinter({ quantity }: { quantity: number }): IuseMinterValues {
   const { isConnected, address } = useAccount()
@@ -36,10 +39,6 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     amount: quantity,
   })
 
-  const iface = new utils.Interface([
-    'function mint(address _wallet, uint256 _amount, uint256 _signatureId, bytes memory _signature)',
-  ])
-
   const isAddressNotQualify = mintDataError?.message == 'ADDR_NOT_QUALIFY'
 
   const allowedToMint =
@@ -49,6 +48,12 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
           Number(initialMintData?.waveMaxTokensToBuy) - Number(initialMintData?.claimedCount),
         )
       : 0
+
+  const enoughFounds = initialMintData
+    ? utils
+        .parseUnits(initialMintData?.balance, 18)
+        .gte(utils.parseUnits(initialMintData?.tokenPrice, 18).mul(quantity))
+    : false
 
   const isReady =
     isConnected &&
@@ -143,5 +148,6 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     isLoadingPrepare,
     mintData: initialMintData,
     quantity,
+    enoughFounds,
   }
 }

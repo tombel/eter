@@ -27,6 +27,7 @@ export interface MintAvatarProps {
   reset: () => void
   onQuantityChange: (value) => void
   quantity: number
+  enoughFounds: boolean
 }
 
 export function MintAvatar({
@@ -42,6 +43,7 @@ export function MintAvatar({
   reset,
   onQuantityChange,
   quantity,
+  enoughFounds,
 }: MintAvatarProps): JSX.Element {
   const intl = useIntl()
   const { disconnect } = useDisconnect()
@@ -184,7 +186,17 @@ export function MintAvatar({
             }}
             disabled={!isReady}
           />
-          <button className="theme-primary mt-12 w-[200px]" type="submit" disabled={!isReady}>
+
+          {!enoughFounds ? (
+            <p className="text-warning text-sm text-center mt-5">
+              {intl.formatMessage({ id: 'page.mint.nft.not.enough.sand.founds' })}
+            </p>
+          ) : null}
+          <button
+            className="theme-primary mt-12 w-[200px]"
+            type="submit"
+            disabled={!isReady || !enoughFounds}
+          >
             {intl.formatMessage({ id: 'page.mint.nft.mint.now' })}
           </button>
         </div>
