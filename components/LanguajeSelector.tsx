@@ -17,6 +17,7 @@ export default function LanguajeSelector(): JSX.Element {
       classNamePrefix="LanguajeSelector"
       options={options}
       instanceId="language-select"
+      isSearchable={false}
       defaultValue={options.find((x) => x.value === locale)}
       onChange={(value) => {
         router.push({ pathname, query }, asPath, { locale: value.value })
