@@ -7,7 +7,7 @@ export default function EmptyAvatar(): JSX.Element {
   const intl = useIntl()
 
   return (
-    <div className="w-[48%] md:w-[24%] h-[285px] nft-current mb-16 flex items-center justify-center">
+    <div className="w-full md:w-[32%] lg:w-[24%] h-[278px] nft-current mb-16 flex items-center justify-center">
       <CustomButton>
         <Link href="/mint-nft">
           <div className="flex flex-col items-center justify-center">

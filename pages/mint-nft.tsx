@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useIntl } from 'react-intl'
 
+import Head from 'next/head'
 import { MintAvatar } from '../components/MintAvatar'
 import SimpleHeader from '../components/SimpleHeader'
 import { useIsMounted } from '../hooks/useIsMounted'
@@ -29,9 +30,14 @@ export default function MintNft(): JSX.Element {
 
   return (
     <>
-      <div className="flex w-full justify-center items-center relative px-24 py-40 h-screen bg-mint-section">
+      <Head>
+        <title>Mint your Avatar</title>
+        <meta name="description" content="KunUniverse Sandbox" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="flex w-full justify-center items-center relative px-24 pt-40 pb-80 h-fit bg-mint-section">
         <SimpleHeader />
-        <div className="z-20 pt-96 flex flex-col items-center justify-center">
+        <div className="z-20 pt-96 lg:pt-144 flex flex-col items-center justify-center">
           <div className="mb-40">
             <div className="relative w-[250px] h-[138px] md:w-[300px] md:h-[166px]">
               <Image

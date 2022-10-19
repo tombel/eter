@@ -81,7 +81,7 @@ export function MintAvatar(): JSX.Element {
         <div className="flex flex-1 items-center h-full">
           <div className="flex flex-1 flex-col items-center h-full">
             <LoadingIcon />
-            <p className="text-black font-base mb-20">
+            <p className="text-black text-center font-base mb-20">
               {intl.formatMessage({ id: 'page.mint.nft.transaction' })}
             </p>
           </div>
@@ -97,7 +97,7 @@ export function MintAvatar(): JSX.Element {
             <h1 className="text-primary-color font-semibold text-xl text-center">
               {intl.formatMessage({ id: 'page.mint.nft.success.title' })}
             </h1>
-            <p className="text-black font-base mb-20">
+            <p className="text-black text-center font-base mb-20">
               {intl.formatMessage({ id: 'page.mint.nft.success.text' })}
             </p>
           </div>
