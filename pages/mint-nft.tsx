@@ -100,7 +100,7 @@ export default function MintNft(): JSX.Element {
                 height={50}
               />
               {minter.isLoadingPrepare ? (
-                <div>Loading price...</div>
+                <div> {intl.formatMessage({ id: 'page.mint.loading.price' })}</div>
               ) : (
                 <div className="space-x-10">
                   <span className="text-3xl font-bold">
