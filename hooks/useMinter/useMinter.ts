@@ -2,7 +2,7 @@ import { utils } from 'ethers'
 
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 
-import { useMintData } from '../../hooks/useMintData'
+import { IMintData, useMintData } from '../../hooks/useMintData'
 
 export interface IuseMinterValues {
   isLoading: boolean
@@ -20,6 +20,8 @@ export interface IuseMinterValues {
   isLoadingPrepare: boolean
   mint: () => void
   reset: () => void
+  mintData: IMintData
+  quantity: number
 }
 
 export function useMinter({ quantity }: { quantity: number }): IuseMinterValues {
@@ -139,5 +141,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     allowedToMint,
     isAddressNotQualify,
     isLoadingPrepare,
+    mintData: initialMintData,
+    quantity,
   }
 }

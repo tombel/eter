@@ -1,65 +1,50 @@
 import React from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useMinter } from '../hooks/useMinter'
+
 import AvatarSelector from './AvatarSelector'
 import LoadingIcon from './LoadingIcon'
 import { useDisconnect } from 'wagmi'
 import { useIntl } from 'react-intl'
-import toast, { Toaster } from 'react-hot-toast'
 
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <>
-      <Toaster
-        containerStyle={{
-          top: 80,
-        }}
-      />
-      <div className="bg-white rounded-3xl shadow-lg w-full md:w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
-        {children}
-      </div>
-    </>
+    <div className="bg-white rounded-3xl shadow-lg w-full md:w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
+      {children}
+    </div>
   )
 }
 
-export function MintAvatar(): JSX.Element {
+export interface MintAvatarProps {
+  mint: () => void
+  allowedToMint: number
+  isLoading: boolean
+  isSuccess: boolean
+  isError: boolean
+  isPrepareError: boolean
+  isReady: boolean
+  isAddressNotQualify: boolean
+  isLoadingPrepare: boolean
+  reset: () => void
+  onQuantityChange: (value) => void
+  quantity: number
+}
+
+export function MintAvatar({
+  mint,
+  allowedToMint,
+  isLoading,
+  isSuccess,
+  isError,
+  isPrepareError,
+  isReady,
+  isAddressNotQualify,
+  isLoadingPrepare,
+  reset,
+  onQuantityChange,
+  quantity,
+}: MintAvatarProps): JSX.Element {
   const intl = useIntl()
-  const router = useRouter()
   const { disconnect } = useDisconnect()
-  const [quantity, setQuantity] = React.useState<number>(1)
-  const {
-    mint,
-    allowedToMint,
-    isLoading,
-    isSuccess,
-    isError,
-    isPrepareError,
-    isReady,
-    isAddressNotQualify,
-    isLoadingPrepare,
-    reset,
-  } = useMinter({
-    quantity,
-  })
-
-  React.useEffect(() => {
-    let timeout
-
-    if (isSuccess) {
-      toast.success(intl.formatMessage({ id: 'page.mint.nft.success.title' }), {
-        duration: 4000,
-        position: 'top-right',
-      })
-
-      timeout = setTimeout(() => {
-        router.push('/my-avatars')
-      }, 3e3)
-    }
-
-    return () => clearTimeout(timeout)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess])
 
   if (isLoadingPrepare)
     return (
@@ -193,8 +178,9 @@ export function MintAvatar(): JSX.Element {
           </p>
           <AvatarSelector
             max={allowedToMint}
+            quantity={quantity}
             onChange={(value) => {
-              setQuantity(Number(value.value))
+              onQuantityChange(Number(value.value))
             }}
             disabled={!isReady}
           />
