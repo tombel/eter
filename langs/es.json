@@ -72,5 +72,6 @@
   "page.mint.nft.mint.now": "Mint ahora",
   "page.my.avatars.title": "Mis avatares",
   "page.my.avatars.loading": "Cargando...",
-  "page.mint.buy.sand": "COMPRAR SAND"
+  "page.mint.buy.sand": "COMPRAR SAND",
+  "page.mint.loading.price": "Cargando precio..."
 }
