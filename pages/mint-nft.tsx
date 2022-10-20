@@ -82,6 +82,7 @@ export default function MintNft(): JSX.Element {
               />
             </div>
           </div>
+
           <MintAvatar
             onQuantityChange={(value) => {
               setQuantity(value)
@@ -104,7 +105,7 @@ export default function MintNft(): JSX.Element {
               ) : (
                 <div className="space-x-10">
                   <span className="text-3xl font-bold">
-                    {formatNumber(minter.mintData.tokenPrice)}
+                    {formatNumber(minter?.mintData?.tokenPrice)}
                   </span>
                   <span className="text-xl">SAND</span>
                 </div>

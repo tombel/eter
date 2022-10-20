@@ -73,5 +73,6 @@
   "page.my.avatars.title": "Mis avatares",
   "page.my.avatars.loading": "Cargando...",
   "page.mint.buy.sand": "COMPRAR SAND",
-  "page.mint.loading.price": "Cargando precio..."
+  "page.mint.loading.price": "Cargando precio...",
+  "page.mint.nft.not.enough.sand.founds": "No hay suficientes fondos de SAND"
 }

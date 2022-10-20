@@ -8,6 +8,7 @@ export interface IMintData {
   waveIndex: number
   waveMaxTokensToBuy: number
   claimedCount: number
+  balance: string
 }
 
 async function getMintData(
