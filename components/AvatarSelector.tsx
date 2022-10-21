@@ -32,6 +32,7 @@ export default function AvatarSelector({
       defaultValue={options[0]}
       onChange={onChange}
       isDisabled={disabled}
+      isSearchable={false}
       instanceId="avatar-select"
     />
   )
