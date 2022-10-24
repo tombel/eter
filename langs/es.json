@@ -57,6 +57,7 @@
   "general.error.title": "ALGO SALIO MAL",
   "general.error.text": "La Aplicación encontró un error desconocido",
   "page.connect.wallet.connect": "CONECTA TU WALLET",
+  "page.connect.wallet.disclaimer": "Recomendamos el uso de WalletConnect para experiencia mobile",
   "page.mint.nft.wait.prepare": "Espere hasta que preparemos su wallet...",
   "page.mint.nft.transaction": "Su transacción está siendo procesada.",
   "page.mint.nft.success.title": "¡Tu NFT acuñó con éxito!",
