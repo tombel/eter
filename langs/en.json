@@ -57,6 +57,7 @@
   "general.error.title": "SOMETHING WENT WRONG",
   "general.error.text": "The Application has encountered an unknown error",
   "page.connect.wallet.connect": "CONNECT YOUR WALLET",
+  "page.connect.wallet.disclaimer": "We recommend the use of WalletConnect for mobile experience",
   "page.mint.nft.wait.prepare": "Wait until we prepare your wallet...",
   "page.mint.nft.transaction": "Your transaction is being processed.",
   "page.mint.nft.success.title": "Successfully minted your NFT!",

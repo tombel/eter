@@ -116,6 +116,9 @@ export function ConnectWallet(): JSX.Element {
 
   return (
     <Card>
+      <p className="block lg:hidden text-center text-grey-200 mb-32">
+        {intl.formatMessage({ id: 'page.connect.wallet.disclaimer' })}
+      </p>
       <div className="flex flex-col w-full space-y-8">
         {!isConnected
           ? connectors.map((x: Connector) => (
