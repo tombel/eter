@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 
 const provider = process.env.NEXT_PUBLIC_RPC_URL
   ? new ethers.providers.JsonRpcProvider(process.env.NEXT_PUBLIC_RPC_URL)
-  : ethers.providers.getDefaultProvider(process.env.CHAIN_ID == '5' ? 'goerli' : null)
+  : ethers.providers.getDefaultProvider(process.env.NEXT_PUBLIC_CHAIN_ID == '5' ? 'goerli' : null)
 
 const getContract = (): ethers.Contract => {
   return new ethers.Contract(
@@ -90,7 +90,7 @@ export const getSignature = async (
   const wallet = ethers.utils.getAddress(address)
   const signatureId = getSignatureId() //We don't require to keep track of the signatureId we have returned to each user as they can only mint as max as the amount configured for each wave
   const contractAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
-  const chainId = process.env.CHAIN_ID
+  const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
   const hash = getMessageHash(wallet, signatureId, contractAddress, chainId)
   const signature = await signer.signMessage(ethers.utils.arrayify(hash))
   return { signature, signatureId }

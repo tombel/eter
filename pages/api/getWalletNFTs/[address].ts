@@ -17,7 +17,7 @@ export default async function getWalletNFTs(
 
     const settings = {
       apiKey: process.env.ALCHEMY_API_KEY,
-      network: process.env.CHAIN_ID === '5' ? Network.ETH_GOERLI : Network.ETH_MAINNET,
+      network: process.env.NEXT_PUBLIC_CHAIN_ID === '5' ? Network.ETH_GOERLI : Network.ETH_MAINNET,
     }
     const alchemy = new Alchemy(settings)
     const options = {
