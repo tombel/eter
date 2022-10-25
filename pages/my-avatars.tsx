@@ -8,7 +8,6 @@ import MyAvatarCard from '../components/MyAvatarCard'
 import SimpleHeader from '../components/SimpleHeader'
 import { useNFTList } from '../hooks/useNFTList'
 import { useIsMounted } from '../hooks/useIsMounted'
-import { GetServerSideProps } from 'next/types'
 import { useIntl } from 'react-intl'
 
 import { generateOpenSeaLink } from '../utils/generateOpenSeaLink'
@@ -18,15 +17,6 @@ import Faq from '../components/Faq'
 import Brands from '../components/Brands'
 import Footer from '../components/Footer'
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  // ...
-  return {
-    props: {
-      network: process.env.CHAIN_ID,
-    },
-  }
-}
-
 function LoadingAvatars(): JSX.Element {
   return (
     <div className="flex flex-1 items-center justify-center">
@@ -35,7 +25,7 @@ function LoadingAvatars(): JSX.Element {
   )
 }
 
-export default function MyAvatars({ network }: { network: string }): JSX.Element {
+export default function MyAvatars(): JSX.Element {
   const intl = useIntl()
   const isMounted = useIsMounted()
   const router = useRouter()
@@ -88,7 +78,11 @@ export default function MyAvatars({ network }: { network: string }): JSX.Element
                         key={x.tokenId}
                         name={x.title}
                         url={x.rawMetadata.image_url}
-                        openseaURL={generateOpenSeaLink(x.contract.address, x.tokenId, network)}
+                        openseaURL={generateOpenSeaLink(
+                          x.contract.address,
+                          x.tokenId,
+                          process.env.NEXT_PUBLIC_CHAIN_ID,
+                        )}
                       />
                     )
                   })
