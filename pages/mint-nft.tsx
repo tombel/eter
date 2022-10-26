@@ -105,7 +105,7 @@ export default function MintNft(): JSX.Element {
               ) : (
                 <div className="space-x-10">
                   <span className="text-3xl font-bold">
-                    {formatNumber(Number(minter?.mintData?.tokenPrice) * quantity)}
+                    {formatNumber(minter?.mintData?.tokenPrice)}
                   </span>
                   <span className="text-xl">SAND</span>
                 </div>
