@@ -35,7 +35,7 @@ function LoadingAvatars(): JSX.Element {
   )
 }
 
-export default function MyAvatars({ network }: { network: string }): JSX.Element {
+export default function MyAvatars(): JSX.Element {
   const intl = useIntl()
   const isMounted = useIsMounted()
   const router = useRouter()
@@ -88,7 +88,11 @@ export default function MyAvatars({ network }: { network: string }): JSX.Element
                         key={x.tokenId}
                         name={x.title}
                         url={x.rawMetadata.image_url}
-                        openseaURL={generateOpenSeaLink(x.contract.address, x.tokenId, network)}
+                        openseaURL={generateOpenSeaLink(
+                          x.contract.address,
+                          x.tokenId,
+                          process.env.NEXT_PUBLIC_CHAIN_ID,
+                        )}
                       />
                     )
                   })
