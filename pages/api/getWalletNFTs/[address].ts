@@ -16,7 +16,7 @@ export default async function getWalletNFTs(
       return res.status(400).json({ code: RESPONSE_CODES.INVALID_ADDRESS })
 
     const settings = {
-      apiKey: process.env.ALCHEMY_API_KEY,
+      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
       network: process.env.NEXT_PUBLIC_CHAIN_ID === '5' ? Network.ETH_GOERLI : Network.ETH_MAINNET,
     }
     const alchemy = new Alchemy(settings)

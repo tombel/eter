@@ -3,6 +3,7 @@ import { useQuery, UseQueryResult } from 'react-query'
 export interface INFTInfo {
   contract: {
     address: string
+    name: string
   }
   tokenId: string
   title: string
