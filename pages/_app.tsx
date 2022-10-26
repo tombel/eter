@@ -7,7 +7,8 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { useRouter } from 'next/router'
 import { IntlProvider } from 'react-intl'
 import { publicProvider } from 'wagmi/providers/public'
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
+import { alchemyProvider } from 'wagmi/providers/alchemy'
+
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import en from '../langs/en.json'
@@ -23,14 +24,9 @@ const queryClient = new QueryClient()
 const { chains, provider, webSocketProvider } = configureChains(
   [...(process.env.NEXT_PUBLIC_CHAIN_ID == '1' ? [chain.mainnet] : [chain.goerli])], // this works because run the server side, but it should be NEXT_PUBLIC_CHAIN_ID
   [
-    jsonRpcProvider({
-      rpc: () => ({
-        http: process.env.NEXT_PUBLIC_RPC_URL,
-      }),
-      priority: 1,
-    }),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY, priority: 0 }),
     publicProvider({
-      priority: 0,
+      priority: 1,
     }),
   ],
 )
