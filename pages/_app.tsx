@@ -27,10 +27,10 @@ const { chains, provider, webSocketProvider } = configureChains(
       rpc: () => ({
         http: process.env.NEXT_PUBLIC_RPC_URL,
       }),
-      priority: 0,
+      priority: 1,
     }),
     publicProvider({
-      priority: 1,
+      priority: 0,
     }),
   ],
 )
