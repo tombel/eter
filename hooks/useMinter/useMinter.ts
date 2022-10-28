@@ -107,9 +107,6 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
       },
     ],
     functionName: 'approveAndCall',
-    overrides: {
-      gasLimit: 4_000_000,
-    },
     args: [
       process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
       utils.parseUnits(initialMintData?.tokenPrice || '0', 18).mul(quantity),
