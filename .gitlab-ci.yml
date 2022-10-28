@@ -19,6 +19,9 @@ lint:
   script:
     - npm install
     - npm run lint
+  except:
+    refs:
+      - master
 
 deploy-staging:
   image: node:16.17.0-alpine
