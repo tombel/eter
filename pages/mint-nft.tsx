@@ -65,7 +65,7 @@ export default function MintNft(): JSX.Element {
       />
       <Head>
         <title>Mint your Avatar</title>
-        <meta name="description" content="KunUniverse Sandbox" />
+        <meta name="description" content="Kuniverse Avatars - The Sandbox" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex w-full justify-center items-center relative px-24 pt-40 pb-80 h-fit bg-mint-section">

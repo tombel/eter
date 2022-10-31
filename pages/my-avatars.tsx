@@ -45,7 +45,7 @@ export default function MyAvatars(): JSX.Element {
     <>
       <Head>
         <title>My Avatars</title>
-        <meta name="description" content="KunUniverse Sandbox" />
+        <meta name="description" content="Kuniverse Avatars - The Sandbox" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex w-full justify-center items-center relative py-40 pb-80 bg-mint-section h-fit">
