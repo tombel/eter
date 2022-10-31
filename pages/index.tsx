@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
     <div className={styles.container}>
       <Head>
         <title>Kuniverse</title>
-        <meta name="description" content="KunUniverse Sandbox" />
+        <meta name="description" content="Kuniverse Avatars - The Sandbox" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
