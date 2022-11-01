@@ -25,6 +25,16 @@ const config = [
   },
   {
     interval: {
+      start: Date.UTC(2022, 9, 12, 15), // Wed, 12 Oct 2022 15:00:00 UTC
+      end: Date.UTC(2022, 9, 13, 15), // Thu, 13 Oct 2022 15:00:00 UTC
+    },
+    whitelistedAddresses: [
+      '0x35c5e8b0e70385113677AFf60a581C30835F2074',
+      '0x7A9fe22691c811ea339D9B73150e6911a5343DcA',
+    ],
+  },
+  {
+    interval: {
       start: Date.UTC(2022, 9, 13, 15), // Thu, 13 Oct 2022 15:00:00 UTC
       end: Date.UTC(2022, 9, 15, 15), // Sat, 15 Oct 2022 15:00:00 UTC
     },
