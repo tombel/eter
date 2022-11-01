@@ -60,7 +60,8 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     !mintDataError &&
     Boolean(address) &&
     status == 'success' &&
-    quantity <= allowedToMint
+    quantity <= allowedToMint &&
+    enoughFounds
 
   const dataContract = isReady
     ? iface.encodeFunctionData('mint', [
