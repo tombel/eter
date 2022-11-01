@@ -37923,6 +37923,7 @@ const config = [
       '0x44f72c9fc940a3a111f7d2a387537fcd80812b03',
       '0x5888edd6579abe7c895d128594b255860f134693', // leo
       '0xdf9ead3da1132029f8baac89c9d2ce5d04db50db',
+      '0x0c773588f3d16786649b4cdd05d37dbdc401ba85',
     ],
   },
   {
