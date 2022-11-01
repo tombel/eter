@@ -52,7 +52,7 @@ export default async function getMintData(
 
     const whitelistedAddresses =
       waveIndex <= config.length - 1 ? config[waveIndex].whitelistedAddresses : ['']
-    if (whitelistedAddresses.length > 0 && !whitelistedAddresses.includes(address))
+    if (whitelistedAddresses.length > 0 && !whitelistedAddresses.includes(address.toLowerCase()))
       return res.status(400).json({ code: RESPONSE_CODES.ADDRESS_NOT_QUALIFY })
 
     const result = await Promise.all([
