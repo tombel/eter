@@ -37924,6 +37924,8 @@ const config = [
       '0x5888edd6579abe7c895d128594b255860f134693', // leo
       '0xdf9ead3da1132029f8baac89c9d2ce5d04db50db',
       '0x0c773588f3d16786649b4cdd05d37dbdc401ba85',
+      '0x4a089f3835ef6df482dd5a65fb41cc5a640449f0',
+      '0x254769799abc4ba793d470373e70808889efb75c',
     ],
   },
   {
