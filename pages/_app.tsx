@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import { IntlProvider } from 'react-intl'
 import { publicProvider } from 'wagmi/providers/public'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { Analytics } from '@vercel/analytics/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -56,13 +57,16 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const { locale } = useRouter()
 
   return (
-    <IntlProvider locale={locale} messages={translations[locale]}>
-      <QueryClientProvider client={queryClient}>
-        <WagmiConfig client={client}>
-          <Component {...pageProps} />
-        </WagmiConfig>
-      </QueryClientProvider>
-    </IntlProvider>
+    <>
+      <IntlProvider locale={locale} messages={translations[locale]}>
+        <QueryClientProvider client={queryClient}>
+          <WagmiConfig client={client}>
+            <Component {...pageProps} />
+          </WagmiConfig>
+        </QueryClientProvider>
+      </IntlProvider>
+      <Analytics />
+    </>
   )
 }
 
