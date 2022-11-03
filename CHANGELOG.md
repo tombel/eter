@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://gitlab.com/atixlabs/kun-raffle-landing/compare/v1.0.0...v1.1.0) (2022-11-03)
+
+
+### Features
+
+* added 2 more addresses to the whitelist ([1fc9518](https://gitlab.com/atixlabs/kun-raffle-landing/commit/1fc951845e085b681fde308943ebd92a6f908dd1))
+* added a new wallet to the whitelist ([ae427ab](https://gitlab.com/atixlabs/kun-raffle-landing/commit/ae427abca7fbe77c0091acc7d7e0714f515891f8))
+* added a new wallet to wave2 whitelist ([9f66379](https://gitlab.com/atixlabs/kun-raffle-landing/commit/9f66379cd8eb790d9a75aad8b3aa0c322d324d49))
+* added a test wave to try the proper SAND config ([b675b83](https://gitlab.com/atixlabs/kun-raffle-landing/commit/b675b8335fe58d6d69d7e8a11dc8dbacd0a1d13d))
+* analytics ([7487ef5](https://gitlab.com/atixlabs/kun-raffle-landing/commit/7487ef51ef9f4803e1d99559ae956b7f30217087))
+* configured wave 1 with both eter and tsb wallets ([fd2fb8e](https://gitlab.com/atixlabs/kun-raffle-landing/commit/fd2fb8e448fc17c6fcf708a91cd5519321604b85))
+* production waves config ([fc94d26](https://gitlab.com/atixlabs/kun-raffle-landing/commit/fc94d26549d72fd32a12b13fc2df451fd255e635))
+* updated wave2 whitelist ([93b0bc2](https://gitlab.com/atixlabs/kun-raffle-landing/commit/93b0bc2fba88ecbbeb044af1c839b0363419f117))
+
+
+### Bug Fixes
+
+* disable minting ([17b6c91](https://gitlab.com/atixlabs/kun-raffle-landing/commit/17b6c91894ff79c2629388e379c1f8aa2755916c))
+* enable back the wave ([826adba](https://gitlab.com/atixlabs/kun-raffle-landing/commit/826adba9286313d6d52921a3faa915a49b56ae79))
+* faqs text update ([a307ff1](https://gitlab.com/atixlabs/kun-raffle-landing/commit/a307ff17de768b94ac5fa36e0c2985957b48a495))
+* faqs text update ([3f49d0e](https://gitlab.com/atixlabs/kun-raffle-landing/commit/3f49d0ec6b513c4563c32888cdc1fc763e7fb977))
+* make whitelisted addresses non case sensitive ([1f6f47b](https://gitlab.com/atixlabs/kun-raffle-landing/commit/1f6f47bf38cd02c094e9a941f7c88b1f1145da77))
+* meta descripcion content ([a184246](https://gitlab.com/atixlabs/kun-raffle-landing/commit/a1842462d37a9e9c269ba9d428dcbd265d035d0a))
+* nan and not enough found ([cfd8291](https://gitlab.com/atixlabs/kun-raffle-landing/commit/cfd8291466c966209163ddbbfd67573f275de328))
+* remove extremelly high hardcoded gas limit ([fc7a169](https://gitlab.com/atixlabs/kun-raffle-landing/commit/fc7a1697394cf807b8eafffa1f9b2398ef1771c6))
+* update faqs texts ([25007c9](https://gitlab.com/atixlabs/kun-raffle-landing/commit/25007c955aaf9e9a48d2a231fce1312323f255ea))
+
 ## 1.0.0 (2022-10-27)
 
 
