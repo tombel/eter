@@ -116,7 +116,23 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     enabled: isReady,
   })
 
-  const { data, error, isError: isErrorWhite, write, isLoading, reset } = useContractWrite(config)
+  const GAS_LIMIT_MULTIPLIER = 105 // 5% percent
+
+  const {
+    data,
+    error,
+    isError: isErrorWhite,
+    write,
+    isLoading,
+    reset,
+  } = useContractWrite({
+    ...config,
+    request: {
+      ...config.request,
+      // https://github.com/wagmi-dev/wagmi/discussions/1129
+      gasLimit: config?.request?.gasLimit.mul(GAS_LIMIT_MULTIPLIER).div(100),
+    },
+  })
 
   const {
     isLoading: isLoadingTransation,
