@@ -116,7 +116,7 @@ export function useMinter({ quantity }: { quantity: number }): IuseMinterValues 
     enabled: isReady,
   })
 
-  const GAS_LIMIT_MULTIPLIER = 105 // 5% percent
+  const GAS_LIMIT_MULTIPLIER = 115 // 5% percent
 
   const {
     data,
