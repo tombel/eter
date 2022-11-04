@@ -77,7 +77,7 @@ export default function MyAvatars(): JSX.Element {
                       <MyAvatarCard
                         key={x.tokenId}
                         name={`${x.contract.name} #${x.tokenId}`}
-                        url={`https://gateway.pinata.cloud/ipfs/QmRhXSpsh8m5ixUUinv9wQL4LG5pL961KwoacMnJHUXaxj/unrevealed.jpg`}
+                        url={`https://tan-tiny-lynx-168.mypinata.cloud/ipfs/Qmb6p1r1pJN13RrUX8NPdb1ABU5goZFgcLKvi3fEasRuWX/${x.tokenId}.jpg`}
                         openseaURL={generateOpenSeaLink(
                           x.contract.address,
                           x.tokenId,
