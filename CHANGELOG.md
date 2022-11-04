@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://gitlab.com/atixlabs/kun-raffle-landing/compare/v1.1.0...v1.1.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* add 5% more gas limit as we have seen some tx failing ([d384c35](https://gitlab.com/atixlabs/kun-raffle-landing/commit/d384c3524b575c350df6a957f4e6d0eb8b484b83))
+* increase gas limit by 15% ([d4be20c](https://gitlab.com/atixlabs/kun-raffle-landing/commit/d4be20c197b097876747054cd077fa06a25bc195))
+
 ## [1.1.0](https://gitlab.com/atixlabs/kun-raffle-landing/compare/v1.0.0...v1.1.0) (2022-11-03)
 
 
