@@ -167,7 +167,7 @@ export function MintAvatar({
       >
         <div className="w-full flex flex-col items-center">
           {/* Info Label */}
-          <div className="flex bg-info-color-100 p-12 rounded-lg w-full items-start md:items-center">
+          <div className="flex bg-info-color-100 p-12 rounded-lg w-full items-start md:items-center mb-20">
             <InformationCircleIcon className="h-22 w-22 text-info-color mr-8" aria-hidden="true" />
             <p className="text-info-color text-sm">
               {intl.formatMessage({ id: 'page.mint.nft.connected.info.label' })}
