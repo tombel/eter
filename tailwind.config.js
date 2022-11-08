@@ -32,6 +32,10 @@ module.exports = {
         600: '#333333',
         700: '#252c34',
       },
+      'info-color': {
+        DEFAULT: '#5D5FEF',
+        100: '#EFEFFD',
+      },
     },
     spacing: {
       0: '0px',

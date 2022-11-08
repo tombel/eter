@@ -6,9 +6,11 @@ import LoadingIcon from './LoadingIcon'
 import { useDisconnect } from 'wagmi'
 import { useIntl } from 'react-intl'
 
+import { InformationCircleIcon } from '@heroicons/react/24/outline'
+
 function Card({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <div className="bg-white rounded-3xl shadow-lg w-full md:w-[500px] min-h-[300px] font-base p-20 flex flex-col items-center">
+    <div className="bg-white rounded-3xl shadow-lg w-full md:w-[550px] min-h-[300px] font-base p-20 flex flex-col items-center">
       {children}
     </div>
   )
@@ -163,7 +165,14 @@ export function MintAvatar({
           mint?.()
         }}
       >
-        <div className="flex flex-col items-center">
+        <div className="w-full flex flex-col items-center">
+          {/* Info Label */}
+          <div className="flex bg-info-color-100 p-12 rounded-lg w-full items-start md:items-center mb-20">
+            <InformationCircleIcon className="h-22 w-22 text-info-color mr-8" aria-hidden="true" />
+            <p className="text-info-color text-sm">
+              {intl.formatMessage({ id: 'page.mint.nft.connected.info.label' })}
+            </p>
+          </div>
           <h1 className="text-primary-color-500 font-semibold text-xl text-center">
             {intl.formatMessage({ id: 'page.mint.nft.connected' })}
           </h1>
