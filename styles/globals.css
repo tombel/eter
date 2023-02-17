@@ -280,6 +280,11 @@ a {
   @apply bg-black text-base text-white font-semibold py-6 px-12 rounded-lg shadow uppercase;
 }
 
+.theme-secondary {
+  @apply bg-yellow text-black font-semibold py-6 px-12 rounded-lg shadow uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
 /* ---------------- NFT Card ------------------ */
 
 .nft-current {
