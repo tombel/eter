@@ -51,7 +51,7 @@ function Header(): JSX.Element {
                   </Link>
                 </li>
                 <li className="block w-full my-10">
-                  <CustomButton className="theme-primary" style={{ width: '100%' }}>
+                  <CustomButton className="theme-secondary" style={{ width: '100%' }}>
                     <Link href="/mint-nft">
                       {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
                     </Link>
