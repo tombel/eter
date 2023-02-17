@@ -1,9 +1,12 @@
 import AvatarItem from './AvatarItem'
 import Image from 'next/image'
 import Link from 'next/link'
+import CustomButton from './Button'
+import { useIntl } from 'react-intl'
 import styles from '../styles/AvatarsSection.module.css'
 
 export default function AvatarsSection(): JSX.Element {
+  const intl = useIntl()
   return (
     <div className={styles.AvatarsSection}>
       <div className={styles.logo}>
@@ -27,6 +30,9 @@ export default function AvatarsSection(): JSX.Element {
             />
           </a>
         </Link>
+        <CustomButton className="theme-secondary">
+          <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}</Link>
+        </CustomButton>
       </div>
 
       <div className="container text-center pb-24 lg:pb-0">

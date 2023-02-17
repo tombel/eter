@@ -91,7 +91,7 @@ function Header(): JSX.Element {
               </ul>
             </nav>
             <div className="hidden lg:flex gap-12">
-              <CustomButton className="theme-primary">
+              <CustomButton className="theme-secondary">
                 <Link href="/mint-nft">
                   {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
                 </Link>
