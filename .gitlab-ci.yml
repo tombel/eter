@@ -28,6 +28,8 @@ deploy-staging:
   stage: deploy
   script:
     - npm i -g vercel
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_U5kx9zjqtojbPh8McpNyaRTH9AWU" vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+    - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_U5kx9zjqtojbPh8McpNyaRTH9AWU" vercel build --prod --token=$VERCEL_TOKEN
     - VERCEL_ORG_ID="kStjSJDLrXudcVdavO2T8cgN" VERCEL_PROJECT_ID="prj_U5kx9zjqtojbPh8McpNyaRTH9AWU" vercel --token $VERCEL_TOKEN deploy --prod
   when: manual
 
