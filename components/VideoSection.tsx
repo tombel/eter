@@ -21,7 +21,7 @@ export default function VideoSection(): JSX.Element {
 
           <div className={styles.videoFrameContainer}>
             <iframe
-              src="https://www.youtube.com/watch?v=nW5FaB_OFds&ab_channel=Baka.edits6"
+              src="https://player.vimeo.com/video/756874804?h=726ab6e73c&title=0&byline=0&portrait=0"
               frameBorder="0"
               allow="fullscreen; picture-in-picture"
               allowFullScreen
