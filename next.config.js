@@ -14,20 +14,24 @@ const nextConfig = {
     // a non-locale prefixed path e.g. `/hello`
     defaultLocale: 'en',
   },
-  async headers() {
-    return [
-      {
-        // matching all URL paths
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; frame-src 'self' https://player.vimeo.com;",
-          },
-        ],
-      },
-    ]
-  },
+  // async headers() {
+  //   return [
+  //     {
+  //       // matching all URL paths
+  //       source: '/:path*{/}?',
+  //       headers: [
+  //         {
+  //           key: 'content-security-policy',
+  //           value: '',
+  //         },
+  //         {
+  //           key: 'x-deployed',
+  //           value: 'true',
+  //         },
+  //       ],
+  //     },
+  //   ]
+  // },
 }
 
 module.exports = nextConfig
