@@ -8,6 +8,7 @@ import SandboxIcon from './SandboxIcon'
 function Header(): JSX.Element {
   const intl = useIntl()
   const [mobileMenu, setMobileMenu] = useState(false)
+  console.log(process.env.NEXT_PUBLIC_CHAIN_ID)
 
   return (
     <div className="header-container">
@@ -16,7 +17,7 @@ function Header(): JSX.Element {
           mobileMenu ? 'active-white' : 'active'
         }`}
       >
-        <div className="container mx-auto px-32">
+        <div className="container w-1/2">
           {/* Mobile menu */}
           <nav className={`mobile-main-nav z-0 lg:hidden ${mobileMenu ? 'active' : ''}`}>
             <div className="w-full">
@@ -66,28 +67,26 @@ function Header(): JSX.Element {
           </nav>
 
           <div className="flex items-center relative justify-end lg:justify-between md z-10">
-            <nav className="main-nav hidden lg:block -mx-20">
+            <nav className="main-nav w-1/2 hidden lg:block">
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
-                {/* <li className="block w-full px-64">
+                <SandboxIcon />
+                <li className="block w-full text-center">
                   <Link href="/">
                     <a className="main-nav-link">
                       {intl.formatMessage({ id: 'header.menu.home' })}
                     </a>
                   </Link>
-                </li> */}
-                <SandboxIcon />
-                <li className="block w-full px-64">
+                </li>
+                <li className="block w-full text-center">
                   <Link href="/#kuniverse" className="main-nav-link">
                     <a className="main-nav-link">
                       {intl.formatMessage({ id: 'header.menu.kuniverse' })}
                     </a>
                   </Link>
                 </li>
-                <li className="block w-full px-64">
+                <li className="block w-full text-center">
                   <Link href="/my-avatars" className="main-nav-link">
-                    <a className="main-nav-link">
-                      {intl.formatMessage({ id: 'header.menu.myavatars' })}
-                    </a>
+                    <a className="main-nav-link">{intl.formatMessage({ id: 'header.menu.faq' })}</a>
                   </Link>
                 </li>
               </ul>

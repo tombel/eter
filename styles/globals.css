@@ -85,7 +85,7 @@ a {
 }
 
 .main-nav {
-  @apply w-auto transition-all;
+  @apply transition-all;
 }
 
 .main-nav-link {
