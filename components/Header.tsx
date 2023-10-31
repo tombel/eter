@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useIntl } from 'react-intl'
 import LanguajeSelector from './LanguajeSelector'
 import CustomButton from './Button'
+import SandboxIcon from './SandboxIcon'
 
 function Header(): JSX.Element {
   const intl = useIntl()
@@ -67,13 +68,14 @@ function Header(): JSX.Element {
           <div className="flex items-center relative justify-end lg:justify-between md z-10">
             <nav className="main-nav hidden lg:block -mx-20">
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
-                <li className="block w-full px-64">
+                {/* <li className="block w-full px-64">
                   <Link href="/">
                     <a className="main-nav-link">
                       {intl.formatMessage({ id: 'header.menu.home' })}
                     </a>
                   </Link>
-                </li>
+                </li> */}
+                <SandboxIcon />
                 <li className="block w-full px-64">
                   <Link href="/#kuniverse" className="main-nav-link">
                     <a className="main-nav-link">
