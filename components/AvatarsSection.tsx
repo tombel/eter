@@ -9,7 +9,7 @@ export default function AvatarsSection(): JSX.Element {
   const intl = useIntl()
   return (
     <div className={styles.AvatarsSection}>
-      <div className={styles.logo}>
+      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 2xl:pt-168">
         <Link href="https://www.sandbox.game/en/">
           <a target="_blank" className="cursor-pointer">
             <Image
@@ -22,7 +22,7 @@ export default function AvatarsSection(): JSX.Element {
             />
           </a>
         </Link>
-        <div style={{ width: '100%', height: '5vh', position: 'relative' }}>
+        <div className="relative w-full h-[5vh] 2xl:mt-20">
           <Image
             alt="Kuniverse Logo"
             src="/images/logo.png"
@@ -36,7 +36,7 @@ export default function AvatarsSection(): JSX.Element {
         </div>
       </div>
 
-      <div className="container text-center pb-24 lg:pb-0">
+      <div className="container text-center pb-24 lg:pb-0 2xl:mt-50">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem
             avatarName="ROBOT"
@@ -78,7 +78,7 @@ export default function AvatarsSection(): JSX.Element {
             objectFit="contain"
           />
         </div>
-        <CustomButton className="theme-secondary-lg">
+        <CustomButton className="theme-secondary md:theme-secondary-lg">
           <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.buy.your.avatar' })}</Link>
         </CustomButton>
       </div>
