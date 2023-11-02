@@ -18,6 +18,9 @@ module.exports = {
       current: 'currentColor',
       white: '#ffffff',
       black: '#000000',
+      pink: '#E76EFF',
+      blue: '#2A3EFF',
+      violet: '#6A0572',
       warning: '#FC4F4F',
       yellow: '#FFFD54',
       'primary-color': {

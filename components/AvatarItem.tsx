@@ -1,39 +1,32 @@
-import Image from 'next/image'
 import styles from '../styles/AvatarsSection.module.css'
-import classNames from 'classnames'
+import AvatarVideo from './AvatarVideo'
 
 export interface AvatarItemProps {
-  staticImage: string
-  animatedImage: string
   avatarName: string
   avatarRarity: string
-  imageWidth: string
-  imageHeight: string
-  theme: string
+  backgroundColor: string
+  videoSrc: string
 }
 
 export default function AvatarItem({
-  staticImage,
-  animatedImage,
   avatarName,
   avatarRarity,
-  imageWidth,
-  imageHeight,
-  theme,
+  backgroundColor,
+  videoSrc,
 }: AvatarItemProps): JSX.Element {
   return (
-    <div className={styles.AvatarItem}>
+    <div className="flex flex-col items-center cursor-pointer lg:w-[200px] xl:w-[220px] group">
       <div className={styles.Avatar}>
-        <div className={classNames(styles.Avatar, styles[theme])}>
-          <Image
+        {/* <div className={classNames(styles.Avatar, styles[theme])}> */}
+        {/* <Image
             alt="Discord Logo"
             src={staticImage}
             className={styles.ImageStatic}
             layout="fill"
             quality={100}
             objectFit="cover"
-          />
-          <Image
+          /> */}
+        {/* <Image
             alt="Discord Logo"
             src={animatedImage}
             className={styles.ImageGif}
@@ -41,14 +34,23 @@ export default function AvatarItem({
             quality={100}
             width={imageWidth}
             height={imageHeight}
-          />
-        </div>
+          /> */}
+        <AvatarVideo videoSrc={videoSrc} />
+        {/* </div> */}
       </div>
       <div className={styles.AvatarDescription}>
-        <h3>{avatarName}</h3>
-        <p>
-          RARITY <strong>{avatarRarity}</strong>
-        </p>
+        <div
+          className={`absolute left-0 right-0 bottom-full p-8 pb-20 text-white rounded-t-2xl duration-250 transition-all opacity-0 translate-y-16 group-hover:translate-y-16 group-hover:opacity-100 ${backgroundColor} bg-opacity-60`}
+        >
+          <span className="text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          </span>
+        </div>
+        <h3 className={`relative text-white w-full rounded-2xl py-2 z-10 ${backgroundColor}`}>
+          {avatarName}
+        </h3>
+        <p>RARITY {avatarRarity}</p>
       </div>
     </div>
   )

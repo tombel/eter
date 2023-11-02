@@ -10,14 +10,6 @@ export default function AvatarsSection(): JSX.Element {
   return (
     <div className={styles.AvatarsSection}>
       <div className={styles.logo}>
-        <Image
-          alt="Kuniverse Logo"
-          src="/images/kuniverse-logo-black.png"
-          layout="fixed"
-          quality={100}
-          width={300}
-          height={166}
-        />
         <Link href="https://www.sandbox.game/en/">
           <a target="_blank" className="cursor-pointer">
             <Image
@@ -30,57 +22,51 @@ export default function AvatarsSection(): JSX.Element {
             />
           </a>
         </Link>
-        <CustomButton className="theme-secondary">
-          <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}</Link>
-        </CustomButton>
+        <div style={{ width: '100%', height: '5vh', position: 'relative' }}>
+          <Image
+            alt="Kuniverse Logo"
+            src="/images/logo.png"
+            // layout="fixed"
+            quality={100}
+            // width={491}
+            // height={40}
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </div>
 
       <div className="container text-center pb-24 lg:pb-0">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_01_static.gif"
-            animatedImage="/images/Avatars/Ekun_01.gif"
-            avatarName="FOOTBALL KUN"
-            avatarRarity="35%"
-            imageWidth="353"
-            imageHeight="500"
-            theme="ekun-01"
+            avatarName="ROBOT"
+            avatarRarity="15%"
+            backgroundColor="bg-[#6b0c80]"
+            videoSrc="/video/robot-01.webm"
           />
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_02_static.gif"
-            animatedImage="/images/Avatars/Ekun_02.gif"
             avatarName="E-KUN"
             avatarRarity="30%"
-            imageWidth="334"
-            imageHeight="475"
-            theme="ekun-02"
+            backgroundColor="bg-[#A509A5]"
+            videoSrc="/video/e-kun-01.webm"
           />
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_03_static.gif"
-            animatedImage="/images/Avatars/Ekun_03.gif"
-            avatarName="FUTURE KUN"
-            avatarRarity="19%"
-            imageWidth="321"
-            imageHeight="475"
-            theme="ekun-03"
-          />
-          <AvatarItem
-            staticImage="/images/Avatars/Ekun_04_static.gif"
-            animatedImage="/images/Avatars/Ekun_04.gif"
-            avatarName="ROBOT KUN"
-            avatarRarity="15%"
-            imageWidth="244"
-            imageHeight="475"
-            theme="ekun-04"
-          />
-          <AvatarItem
-            staticImage="/images/Avatars/Ekun_05_static.gif"
-            animatedImage="/images/Avatars/Ekun_05.gif"
-            avatarName="SPECIAL KUN"
+            avatarName="SPECIAL"
             avatarRarity="1%"
-            imageWidth="257"
-            imageHeight="475"
-            theme="ekun-05"
+            backgroundColor="bg-[#E76EFF]"
+            videoSrc="/video/special-01.webm"
+          />
+          <AvatarItem
+            avatarName="FOOTBALL"
+            avatarRarity="35%"
+            backgroundColor="bg-[#39B3FF]"
+            videoSrc="/video/futbol-01.webm"
+          />
+          <AvatarItem
+            avatarName="FUTURE"
+            avatarRarity="19%"
+            backgroundColor="bg-[#2463FF]"
+            videoSrc="/video/future-01.webm"
           />
         </div>
         <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">
@@ -92,6 +78,9 @@ export default function AvatarsSection(): JSX.Element {
             objectFit="contain"
           />
         </div>
+        <CustomButton className="theme-secondary-lg">
+          <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.buy.your.avatar' })}</Link>
+        </CustomButton>
       </div>
     </div>
   )

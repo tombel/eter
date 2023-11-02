@@ -77,7 +77,7 @@ a {
 }
 
 .header.active {
-  @apply bg-primary-color-500 shadow-header-shadow;
+  @apply bg-gradient-to-b from-blue via-white/30 via-80%;
 }
 
 .header.active-white {
@@ -213,9 +213,9 @@ a {
 
 .LanguajeSelector__control {
   width: 100px;
-  border-radius: 0.5rem !important;
-  background: #000000 !important;
-  border-color: #000000 !important;
+  border-radius: 1.5rem !important;
+  background: #E76EFF !important;
+  border-color: #E76EFF !important;
   cursor: pointer !important;
   font-weight: 700 !important;
   text-align: center !important;
@@ -226,7 +226,7 @@ a {
 }
 
 .LanguajeSelector__menu {
-  background-color: #000000 !important;
+  background-color: #491243 !important;
   width: 100px !important;
 }
 
@@ -235,19 +235,19 @@ a {
 }
 
 .LanguajeSelector__control--is-focused {
-  border-color: #000000 !important;
-  box-shadow: 0 0 0 1px #000000 !important;
+  border-color: #E76EFF !important;
+  /* box-shadow: 0 0 0 1px #000000 !important; */
 }
 
 .LanguajeSelector__option {
   color: #4d4d4d !important;
-  background-color: #000000 !important;
+  background-color: #E76EFF !important;
 }
 
 .LanguajeSelector__option--is-focused,
 .LanguajeSelector__option--is-selected {
   color: #ffffff !important;
-  background-color: #000000 !important;
+  background-color: #E76EFF !important;
 }
 
 /* ---------------- Avatar Selector ------------------ */
@@ -281,7 +281,12 @@ a {
 }
 
 .theme-secondary {
-  @apply bg-yellow text-black font-semibold py-6 px-12 rounded-lg shadow uppercase;
+  @apply bg-pink text-white font-semibold py-6 px-24 rounded-3xl shadow uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.theme-secondary-lg {
+  @apply bg-pink text-white text-3xl font-semibold py-16 px-24 mb-30 rounded-full shadow-[-5px_5px_#AA1080] uppercase;
   font-family: 'Montserrat', sans-serif;
 }
 

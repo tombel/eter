@@ -3,7 +3,7 @@ import React from 'react'
 export default function SandboxIcon(): JSX.Element {
   return (
     <a href="https://sandbox.game/en" target="_blank" aria-label="Sandbox Icon" rel="noreferrer">
-      <svg viewBox="0 0 64 63" className="w-48">
+      <svg viewBox="0 0 64 63" className="w-32 lg:w-48">
         <rect x="0.5" width="53.5862" height="53.5862" fill="#E76EFF"></rect>
         <path d="M0.5 53.5862H54.0862L63.5 63H9.91379L0.5 53.5862Z" fill="#491243"></path>
         <path d="M54.0862 0L63.5 9.41379V63L54.0862 53.5862V0Z" fill="#80007C"></path>
