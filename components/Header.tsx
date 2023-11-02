@@ -8,16 +8,15 @@ import SandboxIcon from './SandboxIcon'
 function Header(): JSX.Element {
   const intl = useIntl()
   const [mobileMenu, setMobileMenu] = useState(false)
-  console.log(process.env.NEXT_PUBLIC_CHAIN_ID)
 
   return (
     <div className="header-container">
       <header
-        className={`header flex items-center h-70 py-16 fixed top-0 left-0 right-0 text-black transition-all z-50 ${
+        className={`header flex items-center h-70 lg:h-96 py-16 fixed top-0 left-0 right-0 text-black transition-all z-50 ${
           mobileMenu ? 'active-white' : 'active'
         }`}
       >
-        <div className="container w-1/2">
+        <div className="container xl:w-2/3 2xl:w-1/2">
           {/* Mobile menu */}
           <nav className={`mobile-main-nav z-0 lg:hidden ${mobileMenu ? 'active' : ''}`}>
             <div className="w-full">
@@ -47,27 +46,15 @@ function Header(): JSX.Element {
                     href="/#avatars"
                     //</li>onClick={() => setMobileMenu(false)}
                   >
-                    <a className="main-nav-link">
-                      {intl.formatMessage({ id: 'header.menu.myavatars' })}
-                    </a>
+                    <a className="main-nav-link">{intl.formatMessage({ id: 'header.menu.faq' })}</a>
                   </Link>
-                </li>
-                <li className="block w-full my-10">
-                  <CustomButton className="theme-secondary" style={{ width: '100%' }}>
-                    <Link href="/mint-nft">
-                      {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
-                    </Link>
-                  </CustomButton>
-                </li>
-                <li className="block w-full my-10">
-                  <LanguajeSelector />
                 </li>
               </ul>
             </div>
           </nav>
 
-          <div className="flex items-center relative justify-end lg:justify-between md z-10">
-            <nav className="main-nav w-1/2 hidden lg:block">
+          <div className="flex items-center relative justify-center lg:justify-between md z-10">
+            <nav className="main-nav w-full hidden lg:block">
               <ul className="flex flex-col items-center lg:flex-row whitespace-nowrap">
                 <SandboxIcon />
                 <li className="block w-full text-center">
@@ -91,23 +78,28 @@ function Header(): JSX.Element {
                 </li>
               </ul>
             </nav>
-            <div className="hidden lg:flex gap-12">
+            <div className="flex items-center justify-between w-full mx-12 lg:gap-12 lg:justify-end">
+              <div className="mt-2 lg:hidden">
+                <SandboxIcon />
+              </div>
               <CustomButton className="theme-secondary">
                 <Link href="/mint-nft">
                   {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
                 </Link>
               </CustomButton>
               <LanguajeSelector />
-            </div>
-            <div
-              className={`burger-icon lg:hidden ${mobileMenu ? 'active' : ''}`}
-              onClick={() => {
-                setMobileMenu((prev) => !prev)
-              }}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
+
+              {/* Burger menu */}
+              <div
+                className={`burger-icon lg:hidden ${mobileMenu ? 'active' : ''}`}
+                onClick={() => {
+                  setMobileMenu((prev) => !prev)
+                }}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
           </div>
         </div>
