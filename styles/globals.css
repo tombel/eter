@@ -281,13 +281,12 @@ a {
 }
 
 .theme-secondary {
-  @apply bg-pink text-white font-semibold py-6 px-24 rounded-3xl shadow uppercase;
+  @apply bg-pink text-white font-semibold py-6 px-24 rounded-full shadow uppercase md:text-xl md:py-16 md:px-24 md:mb-30 md:shadow-[-5px_5px_#AA1080];
   font-family: 'Montserrat', sans-serif;
 }
 
-.theme-secondary-lg {
-  @apply bg-pink text-white text-3xl font-semibold py-16 px-24 mb-30 rounded-full shadow-[-5px_5px_#AA1080] uppercase;
-  font-family: 'Montserrat', sans-serif;
+.theme-header {
+  @apply bg-pink text-white font-semibold py-6 px-24 rounded-full
 }
 
 /* ---------------- NFT Card ------------------ */

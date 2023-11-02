@@ -82,7 +82,7 @@ function Header(): JSX.Element {
               <div className="mt-2 lg:hidden">
                 <SandboxIcon />
               </div>
-              <CustomButton className="theme-secondary">
+              <CustomButton className="theme-header">
                 <Link href="/mint-nft">
                   {intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}
                 </Link>

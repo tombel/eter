@@ -15,8 +15,8 @@ export default function AvatarItem({
   videoSrc,
 }: AvatarItemProps): JSX.Element {
   return (
-    <div className="flex flex-col items-center cursor-pointer lg:w-[200px] xl:w-[220px] group">
-      <div className={styles.Avatar}>
+    <div className="flex flex-col items-center xl:w-[200px] group">
+      <div className="lg:w-[380px] md:w-[300px]">
         {/* <div className={classNames(styles.Avatar, styles[theme])}> */}
         {/* <Image
             alt="Discord Logo"
@@ -42,7 +42,7 @@ export default function AvatarItem({
         <div
           className={`absolute left-0 right-0 bottom-full p-8 pb-20 text-white rounded-t-2xl duration-250 transition-all opacity-0 translate-y-16 group-hover:translate-y-16 group-hover:opacity-100 ${backgroundColor} bg-opacity-60`}
         >
-          <span className="text-sm">
+          <span className="text-sm pointer-events-none">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </span>

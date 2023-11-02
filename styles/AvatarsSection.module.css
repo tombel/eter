@@ -11,10 +11,6 @@
   display: block;
 }
 
-.logo {
-  @apply flex flex-col items-center gap-24 pt-128 lg:pt-168;
-}
-
 .sandboxLogo {
   @apply mt-24;
   margin-top: 50px;
@@ -25,34 +21,14 @@
   @apply hidden lg:flex lg:justify-center pt-24 pb-60 gap-20;
 }
 
-/* .AvatarItem:first-child {
-  margin-left: 0;
-} */
-
 .AvatarDescription {
-  @apply relative block mx-6 leading-5 text-white rounded-2xl w-[180px];
+  @apply relative block mx-6 leading-5 text-white rounded-2xl w-[160px];
 }
 
 .AvatarDescription h3 {
-  @apply font-base font-bold text-xl xl:text-2xl uppercase text-white italic text-center;
+  @apply font-base font-bold xl:text-xl uppercase text-white italic text-center;
 }
 
 .AvatarDescription p {
   @apply font-base font-bold text-base text-violet w-full text-lg pt-16;
-}
-
-.Avatar {
-  @apply lg:w-[400px] md:w-[300px]
-}
-
-.Avatar .ImageGif {
-  display: none !important;
-}
-
-.Avatar:hover .ImageStatic {
-  visibility: hidden;
-}
-
-.Avatar:hover .ImageGif {
-  display: block !important;
 }
