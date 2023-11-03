@@ -12,6 +12,9 @@ module.exports = {
       screens: {
         sm: '425px',
       },
+      content: {
+        videoPlayerLeftBorder: 'url("../public/images/video_player_left_border.png")',
+      },
     },
     colors: {
       transparent: 'transparent',
