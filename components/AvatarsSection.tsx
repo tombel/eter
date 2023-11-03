@@ -42,13 +42,14 @@ export default function AvatarsSection(): JSX.Element {
             avatarName="ROBOT"
             avatarRarity="15%"
             backgroundColor="bg-[#6b0c80]"
-            videoSrc="/video/robot-01.webm"
+            // videoSrc="/video/robot-01.webm"
+            videoSrc="/video/e-kun-01-vp8.webm"
           />
           <AvatarItem
             avatarName="E-KUN"
             avatarRarity="30%"
             backgroundColor="bg-[#A509A5]"
-            videoSrc="/video/e-kun-01.webm"
+            videoSrc="/video/e-kun-01-vp8.webm"
           />
           <AvatarItem
             avatarName="SPECIAL"
@@ -78,7 +79,7 @@ export default function AvatarsSection(): JSX.Element {
             objectFit="contain"
           />
         </div>
-        <CustomButton className="theme-secondary md:theme-secondary-lg">
+        <CustomButton className="theme-secondary">
           <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.buy.your.avatar' })}</Link>
         </CustomButton>
       </div>
