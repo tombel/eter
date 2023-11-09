@@ -1,11 +1,13 @@
 import styles from '../styles/AvatarsSection.module.css'
 import AvatarVideo from './AvatarVideo'
+import { isSafari } from 'react-device-detect'
 
 export interface AvatarItemProps {
   avatarName: string
   avatarRarity: string
   backgroundColor: string
   videoSrc: string
+  gifSrc: string
 }
 
 export default function AvatarItem({
@@ -13,10 +15,11 @@ export default function AvatarItem({
   avatarRarity,
   backgroundColor,
   videoSrc,
+  gifSrc,
 }: AvatarItemProps): JSX.Element {
   return (
     <div className="flex flex-col items-center xl:w-[200px] group">
-      <div className="lg:w-[380px] md:w-[300px]">
+      <div className="lg:w-[380px] md:w-[300px] flex justify-center">
         {/* <div className={classNames(styles.Avatar, styles[theme])}> */}
         {/* <Image
             alt="Discord Logo"
@@ -35,7 +38,11 @@ export default function AvatarItem({
             width={imageWidth}
             height={imageHeight}
           /> */}
-        <AvatarVideo videoSrc={videoSrc} />
+        {!isSafari ? (
+          <AvatarVideo videoSrc={videoSrc} />
+        ) : (
+          <img src={gifSrc} className="h-[35vh]" />
+        )}
         {/* </div> */}
       </div>
       <div className={styles.AvatarDescription}>
