@@ -42,32 +42,36 @@ export default function AvatarsSection(): JSX.Element {
             avatarName="ROBOT"
             avatarRarity="15%"
             backgroundColor="bg-[#6b0c80]"
-            // videoSrc="/video/robot-01.webm"
-            videoSrc="/video/e-kun-01-vp8.webm"
+            videoSrc="/video/robot-01.webm"
+            gifSrc="/images/avatars/eKun_01.gif"
           />
           <AvatarItem
             avatarName="E-KUN"
             avatarRarity="30%"
             backgroundColor="bg-[#A509A5]"
-            videoSrc="/video/e-kun-01-vp8.webm"
+            videoSrc="/video/e-kun-01.webm"
+            gifSrc="/images/avatars/eKun_02.gif"
           />
           <AvatarItem
             avatarName="SPECIAL"
             avatarRarity="1%"
             backgroundColor="bg-[#E76EFF]"
             videoSrc="/video/special-01.webm"
+            gifSrc="/images/avatars/eKun_03.gif"
           />
           <AvatarItem
             avatarName="FOOTBALL"
             avatarRarity="35%"
             backgroundColor="bg-[#39B3FF]"
             videoSrc="/video/futbol-01.webm"
+            gifSrc="/images/avatars/eKun_04.gif"
           />
           <AvatarItem
             avatarName="FUTURE"
             avatarRarity="19%"
             backgroundColor="bg-[#2463FF]"
             videoSrc="/video/future-01.webm"
+            gifSrc="/images/avatars/eKun_05.gif"
           />
         </div>
         <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">
