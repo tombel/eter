@@ -7,7 +7,7 @@ import EnterKuniverse from '../components/EnterKuniverse'
 import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import LetsPlay from '../components/LetsPlay'
+import CollectiblesSection from '../components/CollectiblesSection'
 import PlayLikeKun from '../components/PlayLikeKun'
 import VideoSection from '../components/VideoSection'
 import styles from '../styles/Home.module.css'
@@ -28,7 +28,7 @@ export default function Home(): JSX.Element {
         <VideoSection />
         <PlayLikeKun />
         <EnterKuniverse />
-        <LetsPlay />
+        <CollectiblesSection />
         <Faq />
         <Brands />
       </main>
