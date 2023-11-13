@@ -289,6 +289,10 @@ a {
   @apply bg-pink text-white font-semibold py-6 px-24 rounded-full
 }
 
+.theme-collectibles {
+  @apply bg-[#22A4FF] text-white font-semibold text-xl font-base py-16 px-24 rounded-full
+}
+
 /* ---------------- NFT Card ------------------ */
 
 .nft-current {

@@ -8,12 +8,22 @@ module.exports = {
     extend: {
       boxShadow: {
         'header-shadow': '0px 2px 4px rgba(19,50,67, 0.08)',
+        glow: [
+          '0 0px 20px rgba(255,255, 255, 0.5)',
+          '0 0px 65px rgba(255, 255,255, 0.35)',
+          'inset 0 0px 20px rgba(255, 255,255, 0.35)',
+          'inset 0 0px 65px rgba(255, 255,255, 0.2)',
+        ],
+      },
+      dropShadow: {
+        glow: ['0 0px 20px rgba(255,255, 255, 0.35)', '0 0px 65px rgba(255, 255,255, 0.2)'],
       },
       screens: {
         sm: '425px',
       },
       content: {
         videoPlayerLeftBorder: 'url("../public/images/video_player_left_border.png")',
+        videoPlayerRightBorder: 'url("../public/images/video_player_right_border.png")',
       },
     },
     colors: {

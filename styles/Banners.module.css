@@ -2,21 +2,6 @@
   @apply container flex flex-col md:flex-row items-center py-32 px-32 md:py-0 lg:px-0;
 }
 
-.descriptionContainer {
-}
-
-.playLikeKunSection {
-  @apply bg-primary-color-500 w-full py-20;
-}
-
-.playLikeKunTitle {
-  @apply font-base font-bold text-2xl lg:text-5xl uppercase text-white mb-24 text-center md:text-left;
-}
-
-.playLikeKunText {
-  @apply font-base text-sm lg:text-base text-white text-center md:text-left;
-}
-
 .imageContainer {
   @apply w-full md:w-1/2 flex justify-center lg:justify-between mt-32 md:mt-0 relative;
 }
@@ -37,6 +22,10 @@
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.videoContent {
+  @apply flex w-4/5 before:content-videoPlayerLeftBorder before:scale-y-[1.18] before:bottom-0 before:-left-20 before:z-10 before:absolute after:content-videoPlayerRightBorder after:absolute after:scale-y-[1.18] after:bottom-0 after:-right-20 mt-24 md:w-full lg:max-w-[760px];
 }
 
 .EnterKuniverseSection {

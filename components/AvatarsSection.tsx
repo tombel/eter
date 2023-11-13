@@ -50,28 +50,28 @@ export default function AvatarsSection(): JSX.Element {
             avatarRarity="30%"
             backgroundColor="bg-[#A509A5]"
             videoSrc="/video/e-kun-01.webm"
-            gifSrc="/images/avatars/eKun_02.gif"
+            gifSrc="/images/eKun_02.gif"
           />
           <AvatarItem
             avatarName="SPECIAL"
             avatarRarity="1%"
             backgroundColor="bg-[#E76EFF]"
             videoSrc="/video/special-01.webm"
-            gifSrc="/images/avatars/eKun_03.gif"
+            gifSrc="/images/eKun_03.gif"
           />
           <AvatarItem
             avatarName="FOOTBALL"
             avatarRarity="35%"
             backgroundColor="bg-[#39B3FF]"
             videoSrc="/video/futbol-01.webm"
-            gifSrc="/images/avatars/eKun_04.gif"
+            gifSrc="/images/eKun_04.gif"
           />
           <AvatarItem
             avatarName="FUTURE"
             avatarRarity="19%"
             backgroundColor="bg-[#2463FF]"
             videoSrc="/video/future-01.webm"
-            gifSrc="/images/avatars/eKun_05.gif"
+            gifSrc="/images/eKun_05.gif"
           />
         </div>
         <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">
