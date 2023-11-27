@@ -1,24 +1,7 @@
-.FaqSection {
-  @apply w-full;
-  background: radial-gradient(
-    74.52% 132.36% at 50% 50.14%,
-    #666666 22%,
-    #606060 34%,
-    #4f4f4f 50%,
-    #333333 68%,
-    #0d0d0d 88%,
-    #000000 95%
-  );
+.accordion__style {
+  @apply border-b border-white/20;
 }
 
-.FaqTitle {
-  @apply bg-grey-600 px-20 py-10 rounded-t-3xl mt-40 text-white uppercase font-semibold text-2xl text-center md:text-left;
-}
-
-.FaqContainer {
-  @apply bg-grey-400 p-20 rounded-b-3xl mb-40;
-}
-
-.FaqContainer ul {
-  @apply pl-14;
+.accordion__heading__style {
+  @apply italic;
 }
