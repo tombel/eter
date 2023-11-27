@@ -18,8 +18,8 @@ export default function AvatarItem({
   gifSrc,
 }: AvatarItemProps): JSX.Element {
   return (
-    <div className="flex flex-col items-center xl:w-[200px] group">
-      <div className="lg:w-[380px] md:w-[300px] flex justify-center">
+    <div className="flex flex-col items-center lg:w-[180px] 2xl:w-[200px] group">
+      <div className="2xl:w-[380px] md:w-[300px] flex justify-center">
         {/* <div className={classNames(styles.Avatar, styles[theme])}> */}
         {/* <Image
             alt="Discord Logo"

@@ -1,7 +1,7 @@
 /* Video Section Module */
 
 .videoContainer {
-  @apply font-base relative min-h-[800px];
+  @apply font-base relative md:min-h-[800px];
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -21,7 +21,7 @@
 }
 
 .titleVideo {
-  @apply font-base inset-0 flex flex-col items-center py-80 md:px-0 ;
+  @apply font-base inset-0 flex flex-col items-center pt-100 pb-40 md:px-0 bg-gradient-to-b from-white/80 from-30%;
 }
 
 .titleVideo h1 {
@@ -37,11 +37,20 @@
 }
 
 .titleVideo p {
-  @apply text-sm md:text-base font-base font-semibold text-primary-color-500 text-center mt-30 lg:w-1/2 ;
+  @apply text-sm md:text-base font-base font-semibold text-primary-color-500 text-center mt-30 lg:w-1/2;
 }
 
 .videoContent h3 {
   @apply text-white font-semibold font-base uppercase text-center mb-10;
+}
+
+.backgroundStadium {
+  @apply w-4/5 bg-no-repeat bg-top flex justify-center;
+  background-image: url(/images/bg_stadium.png);
+
+  @media (max-width: 1024px) {
+    background-image: none;
+  }
 }
 
 .videoFrameContainer {

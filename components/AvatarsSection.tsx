@@ -9,7 +9,7 @@ export default function AvatarsSection(): JSX.Element {
   const intl = useIntl()
   return (
     <div className={styles.AvatarsSection}>
-      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 2xl:pt-168">
+      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 2xl:pt-168 w-full">
         <Link href="https://www.sandbox.game/en/">
           <a target="_blank" className="cursor-pointer">
             <Image

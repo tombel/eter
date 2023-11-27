@@ -9,7 +9,7 @@ function TextModule({ title, description }: TextModuleProps): JSX.Element {
       <h3 className="font-base font-bold text-2xl md:text-4xl	uppercase text-white mb-30 text-center">
         {title}
       </h3>
-      <p className="font-base font-semibold text-xl text-white w-full text-center text-justify mb-60">
+      <p className="font-base font-semibold text-sm lg:text-xl text-white w-full text-center text-justify mb-60">
         {description}
       </p>
     </div>
