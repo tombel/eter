@@ -31,6 +31,9 @@ module.exports = {
       current: 'currentColor',
       white: '#ffffff',
       black: '#000000',
+      brown: {
+        50: '#b18c9b',
+      },
       pink: '#E76EFF',
       blue: '#2A3EFF',
       violet: '#6A0572',

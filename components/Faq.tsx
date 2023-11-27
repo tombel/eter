@@ -23,15 +23,20 @@ export default function Faq(): JSX.Element {
     })
 
   return (
-    <div className={styles.FaqSection}>
-      <div className="container py-24">
-        <h1 className={styles.FaqTitle}> {intl.formatMessage({ id: 'page.home.faq.title' })}</h1>
-        <div className={styles.FaqContainer}>
+    // <div className="w-full bg-gradient-to-b from-[#0049A0] via-[#5C0B7A] via-90% to-[#120714] flex justify-center items-center flex-wrap">
+    <div className="w-full bg-[linear-gradient(#0049A0,#5C0B7A,#5C0B7A,#120714)] flex justify-center items-center flex-wrap">
+      <img alt="Arco" src="/images/arco.png" className="w-[5/6] pt-100" />
+      <div className="relative container py-24 xl:w-[40%] xl: -mt-200 mb-50">
+        <h1 className="bg-[#80007C] px-20 py-10 mt-40 text-white uppercase font-bold text-4xl text-center border-b shadow-[-5px_0px_#000000] md:text-left">
+          {' '}
+          {intl.formatMessage({ id: 'page.home.faq.title' })}
+        </h1>
+        <div className="bg-gradient-to-b from-[#80007C] from-0% via-[#ECC4FF] via-40% to-[#80007C] p-20 mb-40 shadow-[-5px_0px]">
           {data.map((item) => {
             return (
-              <Accordion allowZeroExpanded key={item.question}>
+              <Accordion allowZeroExpanded key={item.question} className={styles.accordion__style}>
                 <AccordionItem>
-                  <AccordionItemHeading>
+                  <AccordionItemHeading className={styles.accordion__heading__style}>
                     <AccordionItemButton>{item.question}</AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
@@ -42,6 +47,16 @@ export default function Faq(): JSX.Element {
             )
           })}
         </div>
+        <img
+          alt="Left kun FAQ"
+          src="/images/faq_kun_left.png"
+          className="absolute bottom-0 -translate-x-1/2 -left-100"
+        />
+        <img
+          alt="Right kun FAQ"
+          src="/images/faq_kun_right.png"
+          className="absolute bottom-0 translate-x-1/2 -right-100"
+        />
       </div>
     </div>
   )
