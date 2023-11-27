@@ -6,15 +6,19 @@ export default function Footer(): JSX.Element {
   const intl = useIntl()
 
   return (
-    <footer className="bg-[#2a0029] flex justify-center items-center">
-      <div className="flex w-5/6 bg-[#210E18] py-40 m-40 justify-between">
+    <footer className="w-full bg-[#2a0029] flex justify-center items-center">
+      <div className="flex w-full lg:w-5/6 bg-[#210E18] lg:py-40 justify-between flex-wrap">
         {/* Sandbox Logo */}
 
-        <img alt="Sandbox Logo" src="/images/sandbox-logo-white.svg" className="w-1/5 p-40" />
+        <img
+          alt="Sandbox Logo"
+          src="/images/sandbox-logo-white.svg"
+          className="w-3/5 lg:w-1/5 mx-auto p-40"
+        />
 
         {/* Footer Links */}
 
-        <ul className="w-1/3 flex justify-start flex-wrap">
+        <ul className="w-full lg:w-1/2 flex justify-start flex-wrap">
           <li className="w-4/12 pb-1 text-center lg:text-left">
             <FooterLink href="https://medium.com/sandbox-game" content="News" />
           </li>
@@ -70,8 +74,8 @@ export default function Footer(): JSX.Element {
 
         {/* Socials Logos */}
 
-        <div className="w-1/5 mx-40">
-          <p className="font-base font-semibold text-xl text-white w-full text-center text-justify my-20">
+        <div className="w-full lg:w-1/5 lg:mx-40 flex flex-wrap justify-center lg:justify-start items-center">
+          <p className="font-base font-semibold lg:text-xl text-white text-center lg:text-start w-full mt-20 lg:my-20">
             {intl.formatMessage({ id: 'page.home.footer.follow.us' })}
           </p>
           <a href="https://discord.com/invite/bFZJkBFHXb" target="_blank" rel="noopener noreferrer">
@@ -108,7 +112,7 @@ export default function Footer(): JSX.Element {
               height={40}
             />
           </a>
-          <p className="font-base text-white text-sm  w-full text-center text-justify my-20">
+          <p className="font-base text-xs lg:text-sm w-full text-center lg:text-justify text-[#909090] mb-20 lg:my-20">
             {intl.formatMessage({ id: 'page.home.footer.copyright' })}
           </p>
         </div>

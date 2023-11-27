@@ -290,7 +290,7 @@ a {
 }
 
 .theme-collectibles {
-  @apply bg-[#22A4FF] text-white font-semibold text-xl font-base py-16 px-24 rounded-full
+  @apply bg-[#22A4FF] text-white font-semibold lg:text-xl font-base py-6 px-24 md:text-xl md:py-16 md:px-24 rounded-full
 }
 
 /* ---------------- NFT Card ------------------ */

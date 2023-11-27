@@ -38,18 +38,24 @@ export default function NewUserSection(): JSX.Element {
       <h3 className="w-full font-base font-bold italic text-2xl md:text-4xl text-center uppercase text-[#80CFFF] py-30">
         {intl.formatMessage({ id: 'page.home.new.user.title' })}
       </h3>
-      <p className="w-1/2 font-base font-semibold text-xl text-[#80CFFF] text-center text-justify mb-60">
-        {intl.formatMessage({ id: 'page.home.new.user.text' })}
-      </p>
-      <div className="w-full">
+      <div className="w-full flex justify-center">
+        <p className="w-4/5 lg:w-1/2 font-base font-semibold text-sm lg:text-xl text-[#80CFFF] text-center mb-60">
+          {intl.formatMessage({ id: 'page.home.new.user.text' })}
+        </p>
+      </div>
+      <div className="lg:hidden w-4/5 lg:w-full flex justify-center">
+        <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+      </div>
+      <div className="hidden lg:block w-full mb-80">
         <VideoCarousel
           slides={slides}
-          height="600px"
+          height="400px"
           width="80%"
           margin="0 auto"
           offset={2}
           showControls={true}
         />
+        F
       </div>
     </div>
   )

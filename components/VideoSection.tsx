@@ -17,16 +17,13 @@ export default function VideoSection(): JSX.Element {
           <Link href="/mint-nft">{intl.formatMessage({ id: 'page.home.video.play.button' })}</Link>
         </CustomButton>
       </div>
-      <div className="font-base inset-0 flex flex-col items-center pb-80 md:py-80 md:px-0;">
+      <div className="font-base inset-0 flex flex-col items-center pb-40 md:pb-80 md:py-60 md:px-0;">
         <h2 className="font-base font-bold text-2xl xl:text-3xl uppercase text-primary-color-500 text-center">
           {intl.formatMessage({ id: 'page.home.video.game' })}
         </h2>
       </div>
-      <div
-        className="w-4/5 bg-no-repeat bg-top flex justify-center"
-        style={{ backgroundImage: 'url(/images/bg_stadium.png)' }}
-      >
-        <div className="mb-300">
+      <div className={styles.backgroundStadium}>
+        <div className="mb-120 md:mb-300">
           <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
         </div>
       </div>
