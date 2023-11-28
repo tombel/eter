@@ -11,6 +11,7 @@ export default function VideoPlayer({ videoSrc }: VideoPlayerProps): JSX.Element
       // playsInline
       controls
       style={{ width: '100%', display: 'block' }}
+      className="z-10"
     >
       <source src={videoSrc} type="video/mp4" />
     </video>

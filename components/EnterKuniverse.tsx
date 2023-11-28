@@ -14,7 +14,7 @@ export default function EnterKuniverse(): JSX.Element {
     >
       <div className="flex justify-center pt-60">
         <div className="relative">
-          <div className="mx-auto flex w-4/5 mt-24 lg:w-full lg:max-w-[760px]">
+          <div className="mx-auto flex w-4/5 mt-24 lg:w-full lg:max-w-[760px] z-10">
             <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
           </div>
           <img
@@ -22,7 +22,7 @@ export default function EnterKuniverse(): JSX.Element {
             className="hidden lg:block h-400 absolute -bottom-20 -right-256"
           />
           <img
-            src="/images/kun_hand_up.png"
+            src="/images/kun_hand_up.gif"
             className="hidden lg:block h-355 absolute -bottom-0 -left-300"
           />
         </div>
