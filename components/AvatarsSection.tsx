@@ -42,36 +42,40 @@ export default function AvatarsSection(): JSX.Element {
             avatarName="ROBOT"
             avatarRarity="15%"
             backgroundColor="bg-[#6b0c80]"
-            videoSrc="/video/robot-01.webm"
-            gifSrc="/images/avatars/eKun_01.gif"
+            videoSrc={['/video/robot-01.webm', '/video/robot-02.webm', '/video/robot-03.webm']}
+            gifSrc={['/video/robot-01.gif', '/video/robot-02.gif', '/video/robot-03.gif']}
           />
           <AvatarItem
             avatarName="E-KUN"
             avatarRarity="30%"
             backgroundColor="bg-[#A509A5]"
-            videoSrc="/video/e-kun-01.webm"
-            gifSrc="/images/eKun_02.gif"
+            videoSrc={['/video/e-kun-01.webm', '/video/e-kun-02.webm', '/video/e-kun-03.webm']}
+            gifSrc={['/video/e-kun-01.gif', '/video/e-kun-02.gif', '/video/e-kun-03.gif']}
           />
           <AvatarItem
             avatarName="SPECIAL"
             avatarRarity="1%"
             backgroundColor="bg-[#E76EFF]"
-            videoSrc="/video/special-01.webm"
-            gifSrc="/images/eKun_03.gif"
+            videoSrc={[
+              '/video/special-01.webm',
+              '/video/special-02.webm',
+              '/video/special-03.webm',
+            ]}
+            gifSrc={['/video/special-01.gif', '/video/special-02.gif', '/video/special-03.gif']}
           />
           <AvatarItem
             avatarName="FOOTBALL"
             avatarRarity="35%"
             backgroundColor="bg-[#39B3FF]"
-            videoSrc="/video/futbol-01.webm"
-            gifSrc="/images/eKun_04.gif"
+            videoSrc={['/video/futbol-01.webm', '/video/futbol-02.webm', '/video/futbol-03.webm']}
+            gifSrc={['/video/futbol-01.gif', '/video/futbol-02.gif', '/video/futbol-03.gif']}
           />
           <AvatarItem
             avatarName="FUTURE"
             avatarRarity="19%"
             backgroundColor="bg-[#2463FF]"
-            videoSrc="/video/future-01.webm"
-            gifSrc="/images/eKun_05.gif"
+            videoSrc={['/video/future-01.webm', '/video/future-02.webm', '/video/future-03.webm']}
+            gifSrc={['/video/future-01.gif', '/video/future-02.gif', '/video/future-03.gif']}
           />
         </div>
         <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">

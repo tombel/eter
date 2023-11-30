@@ -8,8 +8,7 @@ export default function EnterKuniverse(): JSX.Element {
 
   return (
     <div
-      className="flex justify-center flex-wrap bg-cover w-full -mt-40 lg:-mt-60"
-      style={{ backgroundImage: 'url(/images/bg_enter_kuniverse.png)' }}
+      className="flex justify-center flex-wrap bg-cover w-full -mt-40 lg:-mt-60 bg-gradient-to-b from-[#32587e] to-[#2a0029]"
       id="kuniverse"
     >
       <div className="flex justify-center pt-60">
@@ -36,16 +35,19 @@ export default function EnterKuniverse(): JSX.Element {
         </div>
         <div className="w-full lg:w-[55%] flex justify-around items-center">
           <FramedAvatar
-            imgSrc="/images/kun_framed_02.png"
-            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200"
+            imgSrc="/video/kun_special_elkun.gif"
+            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200 overflow-hidden"
+            imgStyle="absolute -bottom-20 lg:-bottom-50 scale-150"
           />
           <FramedAvatar
-            imgSrc="/images/kun_framed_03.png"
-            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200"
+            imgSrc="/video/kun_young.gif"
+            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200 overflow-hidden"
+            imgStyle="absolute -bottom-20 lg:-bottom-50 scale-150"
           />
           <FramedAvatar
-            imgSrc="/images/kun_framed_01.png"
-            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200"
+            imgSrc="/video/kun_special_hero.gif"
+            backgroundStyle="rounded-3xl lg:rounded-[3rem] w-100 h-100 lg:w-200 lg:h-200 overflow-hidden"
+            imgStyle="absolute -bottom-20 lg:-bottom-50 scale-150"
           />
         </div>
       </div>

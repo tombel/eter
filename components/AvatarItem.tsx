@@ -1,13 +1,13 @@
+import { useEffect, useState } from 'react'
 import styles from '../styles/AvatarsSection.module.css'
 import AvatarVideo from './AvatarVideo'
-import { isSafari } from 'react-device-detect'
 
 export interface AvatarItemProps {
   avatarName: string
   avatarRarity: string
   backgroundColor: string
-  videoSrc: string
-  gifSrc: string
+  videoSrc: string[]
+  gifSrc: string[]
 }
 
 export default function AvatarItem({
@@ -17,32 +17,20 @@ export default function AvatarItem({
   videoSrc,
   gifSrc,
 }: AvatarItemProps): JSX.Element {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCount((count + 1) % 3)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  })
+
   return (
     <div className="flex flex-col items-center lg:w-[180px] 2xl:w-[200px] group">
       <div className="2xl:w-[380px] md:w-[300px] flex justify-center">
-        {/* <div className={classNames(styles.Avatar, styles[theme])}> */}
-        {/* <Image
-            alt="Discord Logo"
-            src={staticImage}
-            className={styles.ImageStatic}
-            layout="fill"
-            quality={100}
-            objectFit="cover"
-          /> */}
-        {/* <Image
-            alt="Discord Logo"
-            src={animatedImage}
-            className={styles.ImageGif}
-            layout="fixed"
-            quality={100}
-            width={imageWidth}
-            height={imageHeight}
-          /> */}
-        {!isSafari ? (
-          <AvatarVideo videoSrc={videoSrc} />
-        ) : (
-          <img src={gifSrc} className="h-[35vh]" />
-        )}
+        <AvatarVideo videoSrc={videoSrc} count={count} gifSrc={gifSrc} />
         {/* </div> */}
       </div>
       <div className={styles.AvatarDescription}>

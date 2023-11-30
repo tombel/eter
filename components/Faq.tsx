@@ -25,8 +25,8 @@ export default function Faq(): JSX.Element {
   return (
     // <div className="w-full bg-gradient-to-b from-[#0049A0] via-[#5C0B7A] via-90% to-[#120714] flex justify-center items-center flex-wrap">
     <div className="w-full bg-[linear-gradient(#0049A0,#5C0B7A,#5C0B7A,#120714)] flex justify-center items-center flex-wrap">
-      <img alt="Arco" src="/images/arco.png" className="w-5/6 pt-60 lg:pt-100" />
-      <div className="relative container py-24 xl:w-[40%] -mt-100 lg:-mt-200 lg:mb-50">
+      <img alt="Arco" src="/images/arco.png" className="w-5/6 lg:-mt-100" />
+      <div className="relative container py-24 xl:w-[40%] -mt-128 lg:-mt-400 lg:mb-50">
         <h1 className="bg-[#80007C] px-20 py-10 mt-40 text-white uppercase font-bold text-2xl lg:text-4xl text-center border-b shadow-[-5px_0px_#000000] md:text-left">
           {intl.formatMessage({ id: 'page.home.faq.title' })}
         </h1>
@@ -39,7 +39,7 @@ export default function Faq(): JSX.Element {
                     <AccordionItemButton>{item.question}</AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
-                    <div dangerouslySetInnerHTML={{ __html: item.answer }}></div>
+                    <div style={{ whiteSpace: 'pre-line' }}>{item.answer}</div>
                   </AccordionItemPanel>
                 </AccordionItem>
               </Accordion>
