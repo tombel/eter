@@ -10,10 +10,7 @@ export default function CollectiblesSection(): JSX.Element {
   const intl = useIntl()
 
   return (
-    <div
-      className="flex flex-wrap justify-center items-center bg-cover -mt-30"
-      style={{ backgroundImage: 'url(/images/bg_collectibles.png)' }}
-    >
+    <div className="flex flex-wrap justify-center items-center bg-[#2a0029]">
       <div className="w-4/5 lg:w-5/6 flex justify-center items-center flex-wrap my-100 lg:my-128">
         <div className="w-full lg:w-1/2 flex justify-center">
           <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
@@ -35,10 +32,8 @@ export default function CollectiblesSection(): JSX.Element {
           COLLECTIBLES
         </h2>
         <CollectiblesCarousel />
-        <CustomButton className="theme-secondary">
-          <Link href="/mint-nft">
-            {intl.formatMessage({ id: 'page.home.collectibles.marketplace' })}
-          </Link>
+        <CustomButton className="theme-secondary" style={{ pointerEvents: 'none' }}>
+          <Link href="">{intl.formatMessage({ id: 'page.home.collectibles.marketplace' })}</Link>
         </CustomButton>
       </div>
     </div>

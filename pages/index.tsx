@@ -14,6 +14,7 @@ import styles from '../styles/Home.module.css'
 import NewUserSection from '../components/NewUserSection'
 import SandboxMetaverseSection from '../components/SandboxMetaverseSection'
 import JoinUsSection from '../components/JoinUsSection'
+import MinigameSection from '../components/MinigameSection'
 
 export default function Home(): JSX.Element {
   return (
@@ -31,6 +32,7 @@ export default function Home(): JSX.Element {
         <VideoSection />
         <PlayLikeKun />
         <EnterKuniverse />
+        <MinigameSection />
         <CollectiblesSection />
         <NewUserSection />
         <Faq />
