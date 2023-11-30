@@ -16,10 +16,8 @@ export default function MinigameSection(): JSX.Element {
             description={intl.formatMessage({ id: 'page.home.minigame.description.one' })}
             description2={intl.formatMessage({ id: 'page.home.minigame.description.two' })}
           />
-          <CustomButton className="theme-collectibles">
-            <Link href="/mint-nft">
-              {intl.formatMessage({ id: 'page.home.collectibles.get.your.avatar' })}
-            </Link>
+          <CustomButton className="theme-collectibles" style={{ pointerEvents: 'none' }}>
+            <Link href="/mint-nft">{intl.formatMessage({ id: 'page.home.minigame.button' })}</Link>
           </CustomButton>
         </div>
         <img src="/images/mcdonalds_banner.png" className="w-1/2 p-60 hidden lg:block" />
