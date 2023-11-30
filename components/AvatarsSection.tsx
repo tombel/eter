@@ -41,6 +41,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             avatarName="ROBOT"
             avatarRarity="15%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.robot' })}
             backgroundColor="bg-[#6b0c80]"
             videoSrc={['/video/robot-01.webm', '/video/robot-02.webm', '/video/robot-03.webm']}
             gifSrc={['/video/robot-01.gif', '/video/robot-02.gif', '/video/robot-03.gif']}
@@ -48,6 +49,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             avatarName="E-KUN"
             avatarRarity="30%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.ekun' })}
             backgroundColor="bg-[#A509A5]"
             videoSrc={['/video/e-kun-01.webm', '/video/e-kun-02.webm', '/video/e-kun-03.webm']}
             gifSrc={['/video/e-kun-01.gif', '/video/e-kun-02.gif', '/video/e-kun-03.gif']}
@@ -55,6 +57,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             avatarName="SPECIAL"
             avatarRarity="1%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.special' })}
             backgroundColor="bg-[#E76EFF]"
             videoSrc={[
               '/video/special-01.webm',
@@ -66,6 +69,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             avatarName="FOOTBALL"
             avatarRarity="35%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.football' })}
             backgroundColor="bg-[#39B3FF]"
             videoSrc={['/video/futbol-01.webm', '/video/futbol-02.webm', '/video/futbol-03.webm']}
             gifSrc={['/video/futbol-01.gif', '/video/futbol-02.gif', '/video/futbol-03.gif']}
@@ -73,6 +77,7 @@ export default function AvatarsSection(): JSX.Element {
           <AvatarItem
             avatarName="FUTURE"
             avatarRarity="19%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.future' })}
             backgroundColor="bg-[#2463FF]"
             videoSrc={['/video/future-01.webm', '/video/future-02.webm', '/video/future-03.webm']}
             gifSrc={['/video/future-01.gif', '/video/future-02.gif', '/video/future-03.gif']}

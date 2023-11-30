@@ -37,7 +37,7 @@
 }
 
 .titleVideo p {
-  @apply text-sm md:text-base font-base font-semibold text-primary-color-500 text-center mt-30 lg:w-1/2;
+  @apply text-sm md:text-base lg:text-xl font-base font-semibold text-primary-color-500 text-center mt-30 lg:w-1/2;
 }
 
 .videoContent h3 {

@@ -12,8 +12,9 @@ export default function MinigameSection(): JSX.Element {
       <div className="relative w-4/5 lg:w-5/6 flex justify-center items-center flex-wrap my-40 lg:my-100">
         <div className="lg:w-1/2 flex flex-wrap justify-center items-center pt-60 lg:pt-0 lg:px-80">
           <TextModule
-            title={intl.formatMessage({ id: 'page.home.enter.universe.title.two' })}
-            description={intl.formatMessage({ id: 'page.home.enter.universe.description.two' })}
+            title={intl.formatMessage({ id: 'page.home.minigame.title' })}
+            description={intl.formatMessage({ id: 'page.home.minigame.description.one' })}
+            description2={intl.formatMessage({ id: 'page.home.minigame.description.two' })}
           />
           <CustomButton className="theme-collectibles">
             <Link href="/mint-nft">

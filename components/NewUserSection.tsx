@@ -38,9 +38,12 @@ export default function NewUserSection(): JSX.Element {
       <h3 className="w-full font-base font-bold italic text-2xl md:text-4xl text-center uppercase text-[#80CFFF] py-30">
         {intl.formatMessage({ id: 'page.home.new.user.title' })}
       </h3>
-      <div className="w-full flex justify-center">
-        <p className="w-4/5 lg:w-1/2 font-base font-semibold text-sm lg:text-xl text-[#80CFFF] text-center mb-60">
-          {intl.formatMessage({ id: 'page.home.new.user.text' })}
+      <div className="w-full flex justify-center flex-wrap">
+        <p className="w-4/5 font-base font-semibold text-sm lg:text-xl text-[#80CFFF] text-center mb-60">
+          {intl.formatMessage({ id: 'page.home.new.user.text.one' })}
+        </p>
+        <p className="w-4/5 lg:w-1/2 font-base font-semibold text-sm lg:text-xl text-[#80CFFF] text-center -mt-40 mb-60">
+          {intl.formatMessage({ id: 'page.home.new.user.text.two' })}
         </p>
       </div>
       <div className="lg:hidden w-4/5 lg:w-full flex justify-center">
