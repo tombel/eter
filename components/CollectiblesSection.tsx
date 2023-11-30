@@ -19,6 +19,7 @@ export default function CollectiblesSection(): JSX.Element {
           <TextModule
             title={intl.formatMessage({ id: 'page.home.enter.universe.title.two' })}
             description={intl.formatMessage({ id: 'page.home.enter.universe.description.two' })}
+            description2={intl.formatMessage({ id: 'page.home.enter.universe.description.three' })}
           />
           <CustomButton className="theme-collectibles">
             <Link href="/mint-nft">
@@ -29,7 +30,7 @@ export default function CollectiblesSection(): JSX.Element {
       </div>
       <div className="w-full flex justify-center items-center flex-wrap border-solid border-y-4 border-pink shadow-glow pb-30 lg:pb-0">
         <h2 className="font-base font-bold italic text-2xl md:text-4xl uppercase text-pink my-30">
-          COLLECTIBLES
+          {intl.formatMessage({ id: 'page.home.collectibles.title' })}
         </h2>
         <CollectiblesCarousel />
         <CustomButton className="theme-secondary" style={{ pointerEvents: 'none' }}>
