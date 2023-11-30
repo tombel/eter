@@ -31,6 +31,11 @@ export default function VideoCarousel({
   const [goToSlide, setGoToSlide] = useState(null)
   const [cards] = useState(table)
 
+  const handleOffset: { opacity: number } = (offsetFromCenter: number, index: number) => {
+    console.log(index)
+    return { opacity: 1 - Math.abs(offsetFromCenter) / 2 }
+  }
+
   useEffect(() => {
     setOffsetRadius(offset)
     setShowArrows(showControls)
@@ -44,7 +49,7 @@ export default function VideoCarousel({
         offsetRadius={offsetRadius}
         showNavigation={false}
         animationConfig={config.gentle}
-        offsetFn={() => ({ opacity: 1 })}
+        offsetFn={handleOffset}
       />
     </div>
   )

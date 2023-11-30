@@ -9,7 +9,7 @@ export default function AvatarsSection(): JSX.Element {
   const intl = useIntl()
   return (
     <div className={styles.AvatarsSection}>
-      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 2xl:pt-168 w-full">
+      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 w-full">
         <Link href="https://www.sandbox.game/en/">
           <a target="_blank" className="cursor-pointer">
             <Image
@@ -22,7 +22,7 @@ export default function AvatarsSection(): JSX.Element {
             />
           </a>
         </Link>
-        <div className="relative w-full h-[5vh] 2xl:mt-20">
+        <div className="relative w-full h-40 2xl:mt-20">
           <Image
             alt="Kuniverse Logo"
             src="/images/logo.png"
@@ -36,7 +36,7 @@ export default function AvatarsSection(): JSX.Element {
         </div>
       </div>
 
-      <div className="container text-center pb-24 lg:pb-0 2xl:mt-50">
+      <div className="text-center pb-24 lg:pb-0 2xl:mt-50">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem
             avatarName="ROBOT"

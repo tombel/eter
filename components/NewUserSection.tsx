@@ -9,30 +9,37 @@ const VideoCarousel = dynamic(() => import('./VideoCarousel'), {
 
 export default function NewUserSection(): JSX.Element {
   const intl = useIntl()
+  // const video1 = useRef(null)
+  // const video2 = useRef(null)
+  // const video3 = useRef(null)
+
   const slides = [
     {
       key: uuidv4(),
       content: (
+        // <div ref={video1}>
         <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
-        // <img src="/images/kun_arms_crossed.png" />
+        // </div>
+        // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
       ),
     },
     {
       key: uuidv4(),
       content: (
         <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
-        // <img src="/images/kun_arms_crossed.png" />
+        // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
       ),
     },
     {
       key: uuidv4(),
       content: (
         <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
-        // <img src="/images/kun_arms_crossed.png" />
+        // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
       ),
     },
   ]
 
+  // console.log(video1.current.children[0].children[1])
   return (
     <div className="bg-gradient-to-b from-[#003787] from-90% to-[#0049A0] w-full flex flex-wrap justify-center items-center">
       <h3 className="w-full font-base font-bold italic text-2xl md:text-4xl text-center uppercase text-[#80CFFF] py-30">
@@ -49,16 +56,15 @@ export default function NewUserSection(): JSX.Element {
       <div className="lg:hidden w-4/5 lg:w-full flex justify-center">
         <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
       </div>
-      <div className="hidden lg:block w-full mb-80">
+      <div className="hidden lg:block w-4/5 mb-80">
         <VideoCarousel
           slides={slides}
           height="400px"
-          width="80%"
+          width="90%"
           margin="0 auto"
-          offset={2}
           showControls={true}
+          offset={2}
         />
-        F
       </div>
     </div>
   )
