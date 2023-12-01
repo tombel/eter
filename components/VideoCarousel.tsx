@@ -31,8 +31,7 @@ export default function VideoCarousel({
   const [goToSlide, setGoToSlide] = useState(null)
   const [cards] = useState(table)
 
-  const handleOffset: { opacity: number } = (offsetFromCenter: number, index: number) => {
-    console.log(index)
+  const handleOffset = (offsetFromCenter: number): { opacity: number } => {
     return { opacity: 1 - Math.abs(offsetFromCenter) / 2 }
   }
 
