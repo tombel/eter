@@ -9,15 +9,7 @@ export default function AvatarsSection(): JSX.Element {
   const intl = useIntl()
   return (
     <div className={styles.AvatarsSection}>
-      <div className={styles.logo}>
-        <Image
-          alt="Kuniverse Logo"
-          src="/images/kuniverse-logo-black.png"
-          layout="fixed"
-          quality={100}
-          width={300}
-          height={166}
-        />
+      <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 w-full">
         <Link href="https://www.sandbox.game/en/">
           <a target="_blank" className="cursor-pointer">
             <Image
@@ -30,57 +22,65 @@ export default function AvatarsSection(): JSX.Element {
             />
           </a>
         </Link>
-        <CustomButton className="theme-secondary">
-          <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.mint.your.avatar' })}</Link>
-        </CustomButton>
+        <div className="relative w-full h-40 2xl:mt-20">
+          <Image
+            alt="Kuniverse Logo"
+            src="/images/logo.png"
+            // layout="fixed"
+            quality={100}
+            // width={491}
+            // height={40}
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </div>
 
-      <div className="container text-center pb-24 lg:pb-0">
+      <div className="text-center pb-24 lg:pb-0 2xl:mt-50">
         <div className={styles.AvatarsSectionContent}>
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_01_static.gif"
-            animatedImage="/images/Avatars/Ekun_01.gif"
-            avatarName="FOOTBALL KUN"
-            avatarRarity="35%"
-            imageWidth="353"
-            imageHeight="500"
-            theme="ekun-01"
+            avatarName="ROBOT"
+            avatarRarity="15%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.robot' })}
+            backgroundColor="bg-[#6b0c80]"
+            videoSrc={['/video/robot-01.webm', '/video/robot-02.webm', '/video/robot-03.webm']}
+            gifSrc={['/video/robot-01.gif', '/video/robot-02.gif', '/video/robot-03.gif']}
           />
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_02_static.gif"
-            animatedImage="/images/Avatars/Ekun_02.gif"
             avatarName="E-KUN"
             avatarRarity="30%"
-            imageWidth="334"
-            imageHeight="475"
-            theme="ekun-02"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.ekun' })}
+            backgroundColor="bg-[#A509A5]"
+            videoSrc={['/video/e-kun-01.webm', '/video/e-kun-02.webm', '/video/e-kun-03.webm']}
+            gifSrc={['/video/e-kun-01.gif', '/video/e-kun-02.gif', '/video/e-kun-03.gif']}
           />
           <AvatarItem
-            staticImage="/images/Avatars/Ekun_03_static.gif"
-            animatedImage="/images/Avatars/Ekun_03.gif"
-            avatarName="FUTURE KUN"
-            avatarRarity="19%"
-            imageWidth="321"
-            imageHeight="475"
-            theme="ekun-03"
-          />
-          <AvatarItem
-            staticImage="/images/Avatars/Ekun_04_static.gif"
-            animatedImage="/images/Avatars/Ekun_04.gif"
-            avatarName="ROBOT KUN"
-            avatarRarity="15%"
-            imageWidth="244"
-            imageHeight="475"
-            theme="ekun-04"
-          />
-          <AvatarItem
-            staticImage="/images/Avatars/Ekun_05_static.gif"
-            animatedImage="/images/Avatars/Ekun_05.gif"
-            avatarName="SPECIAL KUN"
+            avatarName="SPECIAL"
             avatarRarity="1%"
-            imageWidth="257"
-            imageHeight="475"
-            theme="ekun-05"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.special' })}
+            backgroundColor="bg-[#E76EFF]"
+            videoSrc={[
+              '/video/special-01.webm',
+              '/video/special-02.webm',
+              '/video/special-03.webm',
+            ]}
+            gifSrc={['/video/special-01.gif', '/video/special-02.gif', '/video/special-03.gif']}
+          />
+          <AvatarItem
+            avatarName="FOOTBALL"
+            avatarRarity="35%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.football' })}
+            backgroundColor="bg-[#39B3FF]"
+            videoSrc={['/video/futbol-01.webm', '/video/futbol-02.webm', '/video/futbol-03.webm']}
+            gifSrc={['/video/futbol-01.gif', '/video/futbol-02.gif', '/video/futbol-03.gif']}
+          />
+          <AvatarItem
+            avatarName="FUTURE"
+            avatarRarity="19%"
+            description={intl.formatMessage({ id: 'page.home.avatar.description.future' })}
+            backgroundColor="bg-[#2463FF]"
+            videoSrc={['/video/future-01.webm', '/video/future-02.webm', '/video/future-03.webm']}
+            gifSrc={['/video/future-01.gif', '/video/future-02.gif', '/video/future-03.gif']}
           />
         </div>
         <div className="flex relative items-center justify-center mx-auto mt-24 max-w-[650px] min-h-[250px] md:min-h-[437px] lg:hidden">
@@ -92,6 +92,9 @@ export default function AvatarsSection(): JSX.Element {
             objectFit="contain"
           />
         </div>
+        <CustomButton className="theme-secondary">
+          <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.buy.your.avatar' })}</Link>
+        </CustomButton>
       </div>
     </div>
   )

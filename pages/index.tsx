@@ -7,10 +7,14 @@ import EnterKuniverse from '../components/EnterKuniverse'
 import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import LetsPlay from '../components/LetsPlay'
+import CollectiblesSection from '../components/CollectiblesSection'
 import PlayLikeKun from '../components/PlayLikeKun'
 import VideoSection from '../components/VideoSection'
 import styles from '../styles/Home.module.css'
+import NewUserSection from '../components/NewUserSection'
+import SandboxMetaverseSection from '../components/SandboxMetaverseSection'
+import JoinUsSection from '../components/JoinUsSection'
+import MinigameSection from '../components/MinigameSection'
 
 export default function Home(): JSX.Element {
   return (
@@ -28,9 +32,13 @@ export default function Home(): JSX.Element {
         <VideoSection />
         <PlayLikeKun />
         <EnterKuniverse />
-        <LetsPlay />
+        <MinigameSection />
+        <CollectiblesSection />
+        <NewUserSection />
         <Faq />
         <Brands />
+        <SandboxMetaverseSection />
+        <JoinUsSection />
       </main>
 
       <Footer />

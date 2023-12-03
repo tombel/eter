@@ -1,19 +1,18 @@
 .AvatarsSection {
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
-  background-image: url(../public/images/bg_landing_balls.png);
+  border: 0;
+  background-image: linear-gradient(180deg, rgba(20,20,20,0) 90%, rgba(255,255,255,0.8) 100%),url(../public/images/bg_landing_balls.png);
   background-position: top center !important;
   background-repeat: no-repeat !important;
   background-attachment: scroll;
   background-size: cover !important;
-  position: relative;
+  /* position: relative; */
+  /* top: 0; */
+  /* height: 100vh; */
   display: block;
-}
 
-.logo {
-  @apply flex flex-col items-center gap-24 pt-56;
+  /* @media (min-width: 1024px) {
+    height: 100vh;
+  } */
 }
 
 .sandboxLogo {
@@ -21,63 +20,19 @@
   margin-top: 50px;
 }
 
+
 .AvatarsSectionContent {
-  @apply hidden lg:flex lg:justify-center pb-24;
+  @apply hidden lg:flex lg:justify-center pb-50 gap-20;
 }
-
-.AvatarItem {
-  @apply flex flex-col items-center cursor-pointer lg:w-[200px] xl:w-[220px];
-}
-
-/* .AvatarItem:first-child {
-  margin-left: 0;
-} */
 
 .AvatarDescription {
-  @apply flex flex-col items-center;
+  @apply relative block mx-6 leading-5 text-white rounded-2xl w-[160px];
 }
 
 .AvatarDescription h3 {
-  @apply font-base font-bold text-xl xl:text-2xl uppercase text-black text-center;
+  @apply font-base font-bold xl:text-xl uppercase text-white italic text-center;
 }
 
 .AvatarDescription p {
-  @apply font-base text-base text-black border-b border-black w-fit;
-}
-
-.Avatar {
-  position: relative !important;
-  height: 475px !important;
-}
-
-.ekun-01 {
-  width: 360px !important;
-}
-
-.ekun-02 {
-  width: 334px !important;
-}
-
-.ekun-03 {
-  width: 321px !important;
-}
-
-.ekun-04 {
-  width: 244px !important;
-}
-
-.ekun-05 {
-  width: 225px !important;
-}
-
-.Avatar .ImageGif {
-  display: none !important;
-}
-
-.Avatar:hover .ImageStatic {
-  visibility: hidden;
-}
-
-.Avatar:hover .ImageGif {
-  display: block !important;
+  @apply font-base font-bold text-base text-violet w-full text-lg pt-16;
 }
