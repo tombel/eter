@@ -18,25 +18,25 @@ export default function NewUserSection(): JSX.Element {
       key: uuidv4(),
       content: (
         // <div ref={video1}>
-        <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+        <FramedVideoPlayer videoSrc="/video/metamask_tutorial.mp4" />
         // </div>
         // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
       ),
     },
-    {
-      key: uuidv4(),
-      content: (
-        <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
-        // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
-      ),
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
-        // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
-      ),
-    },
+    // {
+    //   key: uuidv4(),
+    //   content: (
+    //     <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+    //     // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
+    //   ),
+    // },
+    // {
+    //   key: uuidv4(),
+    //   content: (
+    //     <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+    //     // <img src="/images/kun_arms_crossed.png" height={200} width={100}/>
+    //   ),
+    // },
   ]
 
   // console.log(video1.current.children[0].children[1])
