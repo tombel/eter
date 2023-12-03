@@ -24,7 +24,10 @@ export default function VideoSection(): JSX.Element {
       </div>
       <div className={styles.backgroundStadium}>
         <div className="mb-120 md:mb-300">
-          <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+          <FramedVideoPlayer
+            videoSrc="https://d3nu2god23h8am.cloudfront.net/kuniverse_season_2.mp4"
+            posterSrc="/images/stadium_video_poster.png"
+          />
         </div>
       </div>
     </div>
