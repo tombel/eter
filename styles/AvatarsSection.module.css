@@ -22,7 +22,7 @@
 
 
 .AvatarsSectionContent {
-  @apply hidden lg:flex lg:justify-center pb-50 gap-20;
+  @apply hidden lg:flex lg:justify-center pb-40 gap-20;
 }
 
 .AvatarDescription {

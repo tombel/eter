@@ -29,6 +29,10 @@ export default function VideoSection(): JSX.Element {
             posterSrc="/images/stadium_video_poster.png"
           />
         </div>
+        <img
+          src="/video/field_players.gif"
+          className="hidden xl:block absolute -bottom-50 scale-50 z-20"
+        />
       </div>
     </div>
   )

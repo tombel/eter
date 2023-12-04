@@ -18,11 +18,11 @@ export default function EnterKuniverse(): JSX.Element {
           </div>
           <img
             src="/images/Ekun_04.gif"
-            className="hidden lg:block h-400 absolute -bottom-20 -right-256"
+            className="hidden xl:block h-400 absolute -bottom-20 -right-256"
           />
           <img
             src="/images/kun_hand_up.gif"
-            className="hidden lg:block h-355 absolute -bottom-0 -left-300"
+            className="hidden xl:block h-355 absolute -bottom-0 -left-300"
           />
         </div>
       </div>
