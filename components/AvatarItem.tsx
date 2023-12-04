@@ -7,8 +7,8 @@ export interface AvatarItemProps {
   avatarRarity: string
   description: string
   backgroundColor: string
-  videoSrc: string[]
-  gifSrc: string[]
+  videoSrc: string
+  gifSrc: string
 }
 
 export default function AvatarItem({
@@ -30,10 +30,9 @@ export default function AvatarItem({
   })
 
   return (
-    <div className="flex flex-col items-center lg:w-[180px] 2xl:w-[200px] group">
-      <div className="2xl:w-[380px] md:w-[300px] flex justify-center">
-        <AvatarVideo videoSrc={videoSrc} count={count} gifSrc={gifSrc} />
-        {/* </div> */}
+    <div className="flex flex-col items-center group 2xl:w-[250px] lg:w-[180px] overflow-x-hidden">
+      <div className="2xl:h-[300px] md:h-[240px] flex justify-center">
+        <AvatarVideo videoSrc={videoSrc} gifSrc={gifSrc} />
       </div>
       <div className={styles.AvatarDescription}>
         <div

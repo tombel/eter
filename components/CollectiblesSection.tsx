@@ -13,7 +13,10 @@ export default function CollectiblesSection(): JSX.Element {
     <div className="flex flex-wrap justify-center items-center bg-[#2a0029]">
       <div className="w-4/5 lg:w-5/6 flex justify-center items-center flex-wrap my-100 lg:my-128">
         <div className="w-full lg:w-1/2 flex justify-center">
-          <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+          <FramedVideoPlayer
+            videoSrc="/video/kuniverse-video-trailer.mp4"
+            posterSrc="/images/trailer_poster_2.png"
+          />
         </div>
         <div className="lg:w-1/2 flex flex-wrap justify-center items-center pt-60 lg:pt-0 lg:px-80">
           <TextModule
