@@ -25,7 +25,7 @@ export default function AvatarVideo({ videoSrc, gifSrc }: AvatarVideoProps): JSX
         </>
       ) : (
         <>
-          <img src={gifSrc} className="h-[35vh]" />
+          <img src={gifSrc} className="h-[30vh]" />
         </>
       )}
     </>
