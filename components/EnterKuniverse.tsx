@@ -14,7 +14,10 @@ export default function EnterKuniverse(): JSX.Element {
       <div className="flex justify-center pt-60">
         <div className="relative">
           <div className="mx-auto flex w-4/5 mt-24 lg:w-full lg:max-w-[760px] z-10">
-            <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+            <FramedVideoPlayer
+              videoSrc="/video/kuniverse-video-trailer.mp4"
+              posterSrc="/images/trailer_poster_1.png"
+            />
           </div>
           <img
             src="/images/Ekun_04.gif"

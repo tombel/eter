@@ -54,7 +54,7 @@ export default function NewUserSection(): JSX.Element {
         </p>
       </div>
       <div className="lg:hidden w-4/5 lg:w-full flex justify-center">
-        <FramedVideoPlayer videoSrc="/video/kuniverse-video-trailer.mp4" />
+        <FramedVideoPlayer videoSrc="/video/metamask_tutorial.mp4" />
       </div>
       <div className="hidden lg:block w-4/5 mb-80">
         <VideoCarousel
