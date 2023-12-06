@@ -13,7 +13,7 @@ import styles from '../styles/FaqSection.module.css'
 export default function Faq(): JSX.Element {
   const intl = useIntl()
 
-  const data = Array(15)
+  const data = Array(16)
     .fill(null)
     .map((_, index) => {
       return {

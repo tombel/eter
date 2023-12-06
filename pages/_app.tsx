@@ -14,6 +14,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import en from '../langs/en.json'
 import es from '../langs/es.json'
+import { useEffect } from 'react'
 const translations = {
   en,
   es,
@@ -54,7 +55,21 @@ const client = createClient({
 })
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const { locale } = useRouter()
+  const { locale, events } = useRouter()
+  console.log(events)
+
+  useEffect(() => {
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('1735312980321481') // facebookPixelId
+        ReactPixel.pageView()
+
+        events.on('routeChangeComplete', () => {
+          ReactPixel.pageView()
+        })
+      })
+  }, [events])
 
   return (
     <>

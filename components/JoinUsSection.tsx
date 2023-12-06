@@ -20,7 +20,9 @@ export default function JoinUsSection(): JSX.Element {
           {intl.formatMessage({ id: 'page.home.join.us.text.two' })}
         </p>
         <CustomButton className="bg-[#9205CC] text-white font-base font-semibold py-6 px-24 rounded-full shadow uppercase md:text-xl md:py-16 md:px-24 md:mb-30 mt-30 xl:w-[300px] xl:text-3xl">
-          <Link href="/mint-nft">{intl.formatMessage({ id: 'page.home.join.us.button' })}</Link>
+          <Link href="https://discord.com/invite/bFZJkBFHXb">
+            {intl.formatMessage({ id: 'page.home.join.us.button' })}
+          </Link>
         </CustomButton>
       </div>
     </div>
