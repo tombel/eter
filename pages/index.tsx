@@ -1,6 +1,6 @@
 import Head from 'next/head'
 // import Image from 'next/image'
-
+import Script from 'next/script'
 import AvatarsSection from '../components/AvatarsSection'
 import Brands from '../components/Brands'
 import EnterKuniverse from '../components/EnterKuniverse'
@@ -40,8 +40,8 @@ export default function Home(): JSX.Element {
         <SandboxMetaverseSection />
         <JoinUsSection />
       </main>
-
       <Footer />
+      <Script src="../utils/twitterPixel.js" strategy="lazyOnload" />
     </div>
   )
 }
