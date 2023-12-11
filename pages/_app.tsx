@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     import('react-facebook-pixel')
       .then((x) => x.default)
       .then((ReactPixel) => {
-        ReactPixel.init('1735312980321481') // facebookPixelId
+        ReactPixel.init('878422343962474') // facebookPixelId
         ReactPixel.pageView()
 
         events.on('routeChangeComplete', () => {
