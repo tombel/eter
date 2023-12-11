@@ -41,7 +41,7 @@ export default function Home(): JSX.Element {
         <JoinUsSection />
       </main>
       <Footer />
-      <Script src="../utils/twitterPixel.js" strategy="lazyOnload" />
+      <Script src="twitterPixel.js" strategy="lazyOnload" />
     </div>
   )
 }
