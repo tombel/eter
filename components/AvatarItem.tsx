@@ -43,7 +43,7 @@ export default function AvatarItem({
         <h3 className={`relative text-white w-full rounded-2xl py-2 z-10 ${backgroundColor}`}>
           {avatarName}
         </h3>
-        <p>RARITY {avatarRarity}</p>
+        <p className={styles.RarityBackdrop}>RARITY {avatarRarity}</p>
       </div>
     </div>
   )
