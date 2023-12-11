@@ -1,6 +1,6 @@
 .AvatarsSection {
   border: 0;
-  background-image: linear-gradient(180deg, rgba(20,20,20,0) 90%, rgba(255,255,255,0.8) 100%),url(../public/images/bg_landing_balls.png);
+  background-image: linear-gradient(180deg, rgba(20, 20, 20, 0) 90%, rgba(255, 255, 255, 0.8) 100%), url(../public/images/bg_landing_balls.png);
   background-position: top center !important;
   background-repeat: no-repeat !important;
   background-attachment: scroll;
@@ -34,5 +34,13 @@
 }
 
 .AvatarDescription p {
-  @apply font-base font-bold text-base text-violet w-full text-lg pt-16;
+  @apply font-base font-bold text-base text-violet w-full text-lg mt-16;
+}
+
+.RarityBackdrop {
+  padding: 3px 0px;
+  background-image: url("/images/rarity_backdrop.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
 }
