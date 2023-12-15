@@ -5,8 +5,15 @@ import CustomButton from './Button'
 import { useIntl } from 'react-intl'
 import styles from '../styles/AvatarsSection.module.css'
 
+declare global {
+  interface Window {
+    fbq: any
+  }
+}
+
 export default function AvatarsSection(): JSX.Element {
   const intl = useIntl()
+
   return (
     <div className={styles.AvatarsSection}>
       <div className="flex flex-col items-center gap-24 pt-96 lg:pt-128 w-full">
@@ -88,7 +95,10 @@ export default function AvatarsSection(): JSX.Element {
             objectFit="contain"
           />
         </div>
-        <CustomButton className="theme-secondary">
+        <CustomButton
+          className="theme-secondary"
+          onClick={() => window.fbq('track', 'Buy avatar button')}
+        >
           <Link href="/mint-nft">{intl.formatMessage({ id: 'header.menu.buy.your.avatar' })}</Link>
         </CustomButton>
       </div>
