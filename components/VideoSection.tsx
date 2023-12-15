@@ -14,7 +14,9 @@ export default function VideoSection(): JSX.Element {
         <h3>{intl.formatMessage({ id: 'page.home.video.title' })}</h3>
         <p>{intl.formatMessage({ id: 'page.home.video.messageone' })}</p>
         <CustomButton className="bg-[#80007C] text-white font-semibold py-6 px-24 rounded-full shadow uppercase md:text-xl md:py-16 md:px-24 md:mb-30 mt-30">
-          <Link href="/mint-nft">{intl.formatMessage({ id: 'page.home.video.play.button' })}</Link>
+          <Link href="https://www.sandbox.game/en/experiences/%E2%9A%BD%20KUNIVERSE%20%E2%9A%BD/504880a6-1568-4734-a94d-e4702bb1a3a0/page/#:~:text=an%20unforgettable%20journey!-,Play,-REWARD">
+            {intl.formatMessage({ id: 'page.home.video.play.button' })}
+          </Link>
         </CustomButton>
       </div>
       <div className="font-base inset-0 flex flex-col items-center pb-40 md:pb-80 md:py-60 md:px-0;">

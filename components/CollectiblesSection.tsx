@@ -24,7 +24,10 @@ export default function CollectiblesSection(): JSX.Element {
             description={intl.formatMessage({ id: 'page.home.enter.universe.description.two' })}
             description2={intl.formatMessage({ id: 'page.home.enter.universe.description.three' })}
           />
-          <CustomButton className="theme-collectibles">
+          <CustomButton
+            className="theme-collectibles"
+            onClick={() => (window as any).fbq('track', 'Buy avatar button')}
+          >
             <Link href="/mint-nft">
               {intl.formatMessage({ id: 'page.home.collectibles.get.your.avatar' })}
             </Link>

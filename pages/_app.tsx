@@ -56,7 +56,6 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const { locale, events } = useRouter()
-  console.log(events)
 
   useEffect(() => {
     import('react-facebook-pixel')
